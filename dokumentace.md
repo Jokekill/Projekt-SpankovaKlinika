@@ -23,7 +23,6 @@
 - **Homepage (index.html):** Hrdinský přehled služeb (CSS Grid ≥ 8 prvků, 2 prvky přes více buněk), novinky, CTA.
 - **Seznam vyšetření (seznam.html):** Karty vyšetření/programů (Flexbox), odkazy na detail.
 - **Detail vyšetření (detail.html):** Obsah + sticky aside (cena, doba, CTA), tabulka termínů, použití `article`, `section`, `aside`, `time`, `table`.
-- **Vyhledávání (vyhledavani.html):** Ukázkové výsledky (nikdy „nic jsme nenašli“).
 - **Rezervace (rezervace.html):** Vícekrokový formulář (fieldset/legend), přístupné popisky.
 - **Kontakt (kontakt.html):** Adresa, otevírací doba (tabulka s `time`), mapa, dopravní info.
 - **Navigace:** Hlavní menu + vyhledávací box na všech stránkách, drobečková navigace.
@@ -92,7 +91,6 @@ CircadianClinicProject/
 │  ├─ index.html
 │  ├─ seznam.html
 │  ├─ detail.html
-│  ├─ vyhledavani.html
 │  ├─ rezervace.html
 │  ├─ kontakt.html
 │  ├─ style.css
