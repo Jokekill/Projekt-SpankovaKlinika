@@ -1,0 +1,155 @@
+
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Klinika cirkadiánní medicíny – studentský projekt</title>
+  <meta name="description" content="Studentský projekt: Klinika cirkadiánní medicíny – spánek, světelná hygiena, chronoterapie, načasování léčby." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#obsah">Přeskočit na obsah</a>
+  <header class="site-header">
+    <div class="wrapper brand">
+      <img src="images/logo.svg" alt="Logo kliniky – stylizované oči a oblouk" />
+      <div class="title">
+        <strong>Klinika cirkadiánní medicíny</strong>
+        <small>Spánek • Světlo • Chronoterapie</small>
+      </div>
+    </div>
+    <div class="wrapper">
+      
+<nav aria-label="Hlavní navigace">
+  <ul class="nav-list">
+    <li><a href="index.html" aria-current="page">Domů</a></li>
+    <li><a href="seznam.html">Vyšetření & Programy</a></li>
+    <li><a href="vyhledavani.html">Vyhledávání</a></li>
+    <li><a href="rezervace.html">Rezervace</a></li>
+    <li><a href="kontakt.html">Kontakt</a></li>
+  </ul>
+  <form action="vyhledavani.html" method="get" role="search" class="site-search" aria-label="Vyhledávání">
+    <label for="q" class="sr-only">Hledat</label>
+    <input id="q" name="q" type="search" placeholder="Hledat (např. melatonin)" required />
+    <button type="submit">Hledat</button>
+  </form>
+</nav>
+
+    </div>
+  </header>
+  <main id="obsah" class="wrapper">
+
+  <nav class="breadcrumbs" aria-label="Drobečková navigace">
+    <a href="index.html">Domů</a> <span aria-hidden="true">/</span> <span aria-current="page">Úvod</span>
+  </nav>
+
+  <section class="hero" aria-label="Hlavní přehled">
+    <article class="card a">
+      <h1>Lepší zdraví díky <em>načasování</em></h1>
+      <p>Jsme první klinika v ČR zaměřená na cirkadiánní medicínu. Pomáháme pacientům se spánkem, prací na směny,
+      jet-lagem i s <strong>chronoterapií</strong> – načasováním léčby a medikace.</p>
+      <div class="cluster mt-4">
+        <a class="btn-primary" href="rezervace.html">Objednat se</a>
+        <a class="badge" href="seznam.html">Zobrazit vyšetření</a>
+      </div>
+    </article>
+
+    <article class="panel b highlight" aria-labelledby="light-therapy">
+      <h2 id="light-therapy">Světelná terapie</h2>
+      <p>Diagnostika světelné expozice (actigrafie), návrh světelné hygieny a personalizované protokoly pro ranní/večerní světlo.</p>
+      <img src="images/placeholder.svg" alt="Ilustrační obrázek světelné terapie, AI generovaný" />
+    </article>
+
+    <article class="panel c">
+      <h3>Chronotyp & spánková laboratoř</h3>
+      <p>Vyšetření DLMO (melatonin), polygrafie, MCTQ dotazník a návrh režimu.</p>
+      <p class="meta">Doba: 60–120 min</p>
+    </article>
+
+    <article class="panel d">
+      <h3>Chronoterapie u migrény</h3>
+      <p>Načasování profylaxe a doporučení denního režimu.</p>
+      <p class="meta">Konzultace: 30 min</p>
+    </article>
+
+    <article class="panel e">
+      <h3>Směnný provoz</h3>
+      <p>Program pro zdravotníky, hasiče a IT – jak minimalizovat dopady práce v noci.</p>
+      <p class="badge ok">Program dostupný</p>
+    </article>
+
+    <article class="panel f">
+      <h3>Jet‑lag plán</h3>
+      <p>Personalizované posuny spánku a světla před/po letu.</p>
+    </article>
+
+    <article class="panel g">
+      <h3>Načasování léčby (chronofarmakologie)</h3>
+      <p>Vybrané léky působí lépe při určité denní době. Dostanete plán dávkování s ohledem na biologické hodiny.</p>
+    </article>
+
+    <aside class="panel h" aria-label="Krátké info">
+      <p><strong>Novinka:</strong> Pilotní studie načasování statinů – nábor probíhá.</p>
+      <p class="meta">Aktualita: <time datetime="{today}">{today}</time></p>
+    </aside>
+  </section>
+
+  <section aria-label="Vstupy">
+    <div class="cards">
+      <article class="card">
+        <h3>Vyšetření & programy</h3>
+        <p>Prohlédněte si kompletní nabídku vyšetření, testů a programů.</p>
+        <a href="seznam.html">Přejít na seznam →</a>
+      </article>
+      <article class="card">
+        <h3>Jak se objednat</h3>
+        <p>On‑line rezervace krok za krokem – vyberte službu, termín a potvrďte.</p>
+        <a href="rezervace.html">Objednat se →</a>
+      </article>
+      <article class="card">
+        <h3>Kudy k nám</h3>
+        <p>Adresa, mapka, MHD a parkování. Vše potřebné na jednom místě.</p>
+        <a href="kontakt.html">Kontakt →</a>
+      </article>
+    </div>
+  </section>
+
+  </main>
+  <div class="wrapper">
+<footer class="site-footer">
+  <section class="footer-grid" aria-label="Rozšířená patička">
+    <div>
+      <h3>O nás</h3>
+      <p>Klinika cirkadiánní medicíny — specializovaná péče o spánek, světelnou hygienu, chronoterapii a načasování léčby.</p>
+      <p><time datetime="2025-10-12">Aktualizováno: 12. 10. 2025</time></p>
+    </div>
+    <div>
+      <h3>Rychlé odkazy</h3>
+      <ul>
+        <li><a href="seznam.html">Vyšetření & Programy</a></li>
+        <li><a href="rezervace.html">Objednat se</a></li>
+        <li><a href="kontakt.html">Kudy k nám</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Otevírací doba</h3>
+      <table>
+        <caption>Otevírací hodiny</caption>
+        <thead><tr><th>Den</th><th>Čas</th></tr></thead>
+        <tbody>
+          <tr><td>Pondělí–Pátek</td><td><time datetime="09:00">9:00</time>–<time datetime="18:00">18:00</time></td></tr>
+          <tr><td>Sobota</td><td><time datetime="09:00">9:00</time>–<time datetime="12:00">12:00</time></td></tr>
+          <tr><td>Neděle</td><td>zavřeno</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <aside aria-label="Poznámka" class="footer-note">
+      <p><strong>Studentský projekt:</strong> Tato prezentace slouží k výukovým účelům. Všechny texty a obrázky jsou generované AI.</p>
+      <p>Autoři: <span class="authors">Jméno 1, Jméno 2, Jméno 3, Jméno 4</span></p>
+    </aside>
+  </section>
+  <p class="legal">© 2025 Klinika cirkadiánní medicíny — Studentský projekt</p>
+</footer>
+</div>
+</body>
+</html>
