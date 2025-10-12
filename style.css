@@ -204,3 +204,67 @@ thead th{border-bottom:2px solid var(--color-primary);color:var(--color-primary)
   .site-header,.site-footer,.skip-link,.site-search{display:none}
   a{color:#000;text-decoration:underline}
 }
+
+
+/* ===== CONTRAST & FOOTER FIX ===== */
+.site-footer a {
+  color: #fff;                   /* čitelné odkazy na modrém pozadí */
+  text-decoration: none;
+  opacity: .95;
+}
+.site-footer a:hover {
+  color: #ffe082;                /* jemný zvýrazněný hover */
+  text-decoration: underline;
+}
+.site-footer ul { list-style: disc; padding-left: 1.2rem; }
+.site-footer li { margin: .35rem 0; }
+
+/* tabulka ve footeru – vždy tmavý text na bílém podkladu */
+.site-footer table,
+.site-footer thead th,
+.site-footer tbody td {
+  background: #fff !important;
+  color: #0B1A33 !important;
+  border-color: rgba(0,0,0,.06);
+}
+.site-footer table { box-shadow: 0 4px 16px rgba(0,0,0,.08); border-radius: 12px; overflow: hidden; }
+
+
+/* ===== KARTY: STEJNÁ VÝŠKA + HEZKÉ ZAROVNÁNÍ ===== */
+
+/* Hero panely i karty – stejné chování: obsah nahoře, meta/CTA dosedá ke spodku */
+.hero .panel, .hero .card, .cards .card {
+  display: flex;
+  flex-direction: column;
+}
+.hero .panel .meta,
+.hero .card .meta { margin-top: auto; }
+
+/* DOLNÍ tři karty jako responzivní GRID se stejnou výškou */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-6);
+  align-items: stretch;          /* natáhne všechny položky na stejnou výšku v řádku */
+}
+.cards .card {
+  min-height: 220px;             /* konzistentní „placka“; uprav dle potřeby (200–260px) */
+  height: 100%;
+}
+.cards .card a:last-child {
+  margin-top: auto;              /* odkaz/CTA vždy u spodního okraje karty */
+  font-weight: 800;
+}
+
+/* HERO grid – kompaktnější skládání bez „děr“ */
+.hero { grid-auto-flow: dense; }
+
+/* jemnější stíny a okraje, aby karty nevypadaly, že „visí“ */
+.card, .hero .panel, .hero .card {
+  box-shadow: var(--shadow-1);
+  border: 1px solid var(--color-border);
+}
+
+/* pro jistotu – žádný „bílý na bílém“ uvnitř zvýrazněného panelu */
+.hero .panel.highlight * { color: #0B1A33; }
+.hero .panel.highlight h2 { color: #0B1A33; font-weight: 800; }
