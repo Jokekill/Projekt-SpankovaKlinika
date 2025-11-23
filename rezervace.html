@@ -30,7 +30,6 @@
   </header>
   <main id="obsah" class="wrapper">
 
-
   <header>
     <h1>On-line rezervace</h1>
   </header>
@@ -42,7 +41,7 @@
       <select id="sluzba" name="sluzba" required>
         <option value="">— vyberte —</option>
         <option>Světelná terapie</option>
-        <option>DLMO & melatonin</option>
+        <option>DLMO &amp; melatonin</option>
         <option>Chronoterapie u migrény</option>
         <option>Směnný provoz (program)</option>
       </select>
@@ -60,10 +59,65 @@
 
     <fieldset>
       <legend>3. Termín</legend>
-      <label for="datum">Datum</label>
-      <input id="datum" name="datum" type="date" required />
-      <label for="cas">Čas</label>
-      <input id="cas" name="cas" type="time" required />
+      <p><strong>Týden:</strong>
+        <input type="radio" name="week" id="week1" checked /> <label for="week1">Tento týden</label>
+        <input type="radio" name="week" id="week2" /> <label for="week2">Příští týden</label>
+        <input type="radio" name="week" id="week3" /> <label for="week3">Za 2&nbsp;týdny</label>
+      </p>
+      <p>Vyberte volný termín v&nbsp;tabulce níže.</p>
+      <div class="week1-content week-content">
+        <h3>MUDr. Jana Světelná</h3>
+        <table>
+          <thead>
+            <tr><th scope="col">Čas</th><th scope="col">Pondělí</th><th scope="col">Úterý</th><th scope="col">Středa</th><th scope="col">Čtvrtek</th><th scope="col">Pátek</th><th scope="col">Sobota</th><th scope="col">Neděle</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><time datetime="09:00">9:00</time></th>
+              <td class="occupied">obsazeno</td><td class="occupied">obsazeno</td><td class="occupied">obsazeno</td><td class="occupied">obsazeno</td><td class="occupied">obsazeno</td><td class="occupied">obsazeno</td><td class="closed">zavřeno</td>
+            </tr>
+            <tr>
+              <th scope="row"><time datetime="09:30">9:30</time></th>
+              <td class="occupied">obsazeno</td><td class="occupied">obsazeno</td><td class="occupied">obsazeno</td><td class="occupied">obsazeno</td><td class="occupied">obsazeno</td><td class="free"><input type="radio" name="slot" id="slot-jana-week1-sat-09-30" required /> <label for="slot-jana-week1-sat-09-30"><span class="sr-only">Sobota 9:30 – MUDr. Jana Světelná – </span>volno</label></td><td class="closed">zavřeno</td>
+            </tr>
+            <tr>
+              <th scope="row"><time datetime="10:00">10:00</time></th>
+              <td class="occupied">obsazeno</td><td class="occupied">obsazeno</td><td class="occupied">obsazeno</td><td class="occupied">obsazeno</td><td class="occupied">obsazeno</td><td class="occupied">obsazeno</td><td class="closed">zavřeno</td>
+            </tr>
+            <!-- ... (další řádky tabulky pro MUDr. Jana Světelná, aktuální týden) ... -->
+          </tbody>
+        </table>
+
+        <h3>MUDr. Pavel Chronos</h3>
+        <table>
+          <thead>
+            <tr><th scope="col">Čas</th><th scope="col">Pondělí</th><th scope="col">Úterý</th><th scope="col">Středa</th><th scope="col">Čtvrtek</th><th scope="col">Pátek</th><th scope="col">Sobota</th><th scope="col">Neděle</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><time datetime="09:00">9:00</time></th>
+              <td class="occupied">obsazeno</td><td class="occupied">obsazeno</td><td class="occupied">obsazeno</td><td class="free"><input type="radio" name="slot" id="slot-pavel-week1-thu-09-00" /> <label for="slot-pavel-week1-thu-09-00"><span class="sr-only">Čtvrtek 9:00 – MUDr. Pavel Chronos – </span>volno</label></td><td class="occupied">obsazeno</td><td class="occupied">obsazeno</td><td class="closed">zavřeno</td>
+            </tr>
+            <tr>
+              <th scope="row"><time datetime="09:30">9:30</time></th>
+              <td class="occupied">obsazeno</td><td class="occupied">obsazeno</td><td class="occupied">obsazeno</td><td class="occupied">obsazeno</td><td class="occupied">obsazeno</td><td class="occupied">obsazeno</td><td class="closed">zavřeno</td>
+            </tr>
+            <tr>
+              <th scope="row"><time datetime="10:00">10:00</time></th>
+              <td class="occupied">obsazeno</td><td class="free"><input type="radio" name="slot" id="slot-pavel-week1-tue-10-00" /> <label for="slot-pavel-week1-tue-10-00"><span class="sr-only">Úterý 10:00 – MUDr. Pavel Chronos – </span>volno</label></td><td class="occupied">obsazeno</td><td class="occupied">obsazeno</td><td class="occupied">obsazeno</td><td class="occupied">obsazeno</td><td class="closed">zavřeno</td>
+            </tr>
+            <!-- ... (další řádky tabulky pro MUDr. Pavel Chronos, aktuální týden) ... -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="week2-content week-content">
+        <!-- Tabulky MUDr. Jana Světelná a MUDr. Pavel Chronos pro příští týden (podobná struktura, jiné obsazené/volné sloty) -->
+      </div>
+
+      <div class="week3-content week-content">
+        <!-- Tabulky MUDr. Jana Světelná a MUDr. Pavel Chronos pro týden za 2 týdny (podobná struktura, jiné obsazené/volné sloty) -->
+      </div>
     </fieldset>
 
     <fieldset>
