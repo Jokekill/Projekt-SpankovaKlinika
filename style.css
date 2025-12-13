@@ -458,3 +458,103 @@ input, select, textarea {
     align-items: center;
   }
 }
+
+
+/* ======================================================================
+   FIX VZHLEDU: Vyhledávání a Karty (Visual Polish)
+   ====================================================================== */
+
+/* 1. Vylepšení vyhledávacího řádku */
+.results-search-form {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  background: var(--surface-2); /* Světle modré pozadí */
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.results-search-form input {
+  margin-bottom: 0;
+  background: #fff;
+  border: 1px solid #cdd7e1;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.results-search-form button {
+  margin-top: 0;
+  white-space: nowrap; /* Aby se text nezalomil */
+  padding-left: 2rem;
+  padding-right: 2rem;
+  box-shadow: 0 2px 5px rgba(21, 101, 216, 0.3);
+}
+
+/* 2. Vylepšení Karet (aby nebyly prázdné) */
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Aby byly stejně vysoké v řádku */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative; /* Pro pozicování badge */
+  border-color: #eef2f6;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(21, 101, 216, 0.1);
+  border-color: var(--primary-weak);
+}
+
+.card h3 {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+.card h3 a {
+  text-decoration: none;
+}
+.card h3 a::before {
+  /* Klikací celá karta (trik) */
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+}
+
+.card p {
+  color: #4b5563;
+  flex-grow: 1; /* Roztáhne text, aby tlačítko/badge bylo dole */
+  margin-bottom: 1.5rem;
+}
+
+/* Štítky (Vyšetření/Terapie) zarovnané dolů */
+.card .badge {
+  align-self: flex-start;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 0.35rem 0.75rem;
+}
+
+/* 3. Oprava Desktop zobrazení (aby nebyly roztažené) */
+@media (min-width: 900px) {
+  .cards {
+    /* Grid definujeme tak, aby se karty neroztahovaly do nekonečna */
+    /* Minimálně 300px, maximálně 1fr (podíl). Pokud je málo karet, nebudou přes celou šířku. */
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
+    gap: 2rem;
+  }
+  
+  /* Pokud jsou jen 2 výsledky, nechceme aby byly obří. 
+     Toto pravidlo je omezí na rozumnou šířku. */
+  section[aria-label="Výsledky"] {
+    max-width: 100%;
+  }
+  
+  /* Vyhledávací box na desktopu */
+  .results-search-form {
+    max-width: 600px; /* Aby nebyl přes celou šířku */
+  }
+}
