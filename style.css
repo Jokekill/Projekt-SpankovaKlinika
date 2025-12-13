@@ -246,18 +246,24 @@ p { margin: 0 0 1rem; color: #4b5563; }
   background: linear-gradient(145deg, #2B4C7E 0%, #1A365D 100%);
   color: #ffffff;
   
-  /* ZMĚNA ZDE: Místo "border: none" dáme průhledný rámeček.
-     Tím zajistíme, že karta má stejnou velikost jako ostatní a při hoveru neposkočí. */
-  border: 1px solid transparent; 
+  /* ZMĚNA: Rezervujeme místo pro tlustší rámeček (2px), aby se karta při najetí "necukala" */
+  border: 2px solid transparent; 
+  
+  /* Přidáme přechod i pro border, aby se barva měnila plynule */
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 /* NOVÉ: Hover efekt specificky pro tmavé panely */
 .panel.image:hover {
-  transform: translateY(-3px); /* Zvednutí (stejné jako u světlých karet) */
-  box-shadow: var(--shadow-md); /* Větší stín pod kartou */
+  /* Zvedneme kartu trochu víc (z -3px na -5px) */
+  transform: translateY(-5px); 
   
-  /* Změna barvy rámečku na jemnou bílou (40% průhlednost) */
-  border-color: rgb(255, 0, 0);
+  /* 1. Rámeček: Čistě bílý a 2px tlustý (viz definice výše) */
+  border-color: #ffffff; 
+
+  /* 2. Stín: Mnohem větší a tmavší, aby bílý rámeček svítil */
+  /* (posun x, posun y, rozmazání, barva - tmavá průhledná) */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
 }
 .panel.image h2, .panel.image h3, .panel.image p { color: #ffffff; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
 .panel.image .meta { color: rgba(255, 255, 255, 0.7); }
