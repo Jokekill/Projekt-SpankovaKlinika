@@ -294,3 +294,16 @@ input, select, textarea {
 .week-picker:has(#week3:checked) .week3-content { display: block; }
 .week-picker:has(#week4:checked) .week4-content { display: block; }
 .week-picker:has(#week5:checked) .week5-content { display: block; }
+
+
+/* Klikací logo */
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: inherit; /* Převezme barvu nadřazeného prvku */
+}
+.brand-link:hover {
+  opacity: 0.8; /* Jemný efekt při najetí */
+}
