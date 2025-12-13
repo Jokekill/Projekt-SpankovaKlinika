@@ -4,56 +4,49 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Rezervace – Klinika cirkadiánní medicíny</title>
-  <meta name="description" content="Ukázkový kompletní proces rezervace." />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <a class="skip-link" href="#obsah">Přeskočit na obsah</a>
-
   <header class="site-header">
     <div class="wrapper brand">
-      <img src="images/logo.webp" alt="Logo kliniky" />
+      <img src="images/logo.webp" alt="Logo" />
       <div class="title">
         <strong>Klinika cirkadiánní medicíny</strong>
-        <small>Spánek • Světlo • Chronoterapie</small>
       </div>
     </div>
     <div class="wrapper">
       <nav aria-label="Hlavní navigace">
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+        <label for="nav-toggle" class="nav-toggle-label">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
         <ul class="nav-list">
           <li><a href="index.html">Domů</a></li>
-          <li><a href="seznam.html">Vyšetření &amp; Programy</a></li>
+          <li><a href="seznam.html">Vyšetření & Programy</a></li>
           <li><a href="rezervace.html" aria-current="page">Rezervace</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
+          <li class="nav-search">
+            <form class="site-search" action="vyhledavani.html">
+              <input name="q" type="search" placeholder="Hledat..." />
+              <button type="submit">Hledat</button>
+            </form>
+          </li>
         </ul>
-        <form class="site-search" role="search" action="vysledky.html">
-          <label class="sr-only" for="q">Hledat vyšetření nebo lékaře</label>
-          <input id="q" name="q" type="search" placeholder="Hledat vyšetření, lékaře…" />
-          <button type="submit">Hledat</button>
-        </form>
       </nav>
     </div>
   </header>
 
-  <div class="wrapper">
-    <nav class="breadcrumbs" aria-label="Drobečková navigace">
-      <a href="index.html">Domů</a>
-      &nbsp;/&nbsp;
-      <span aria-current="page">Rezervace</span>
-    </nav>
-  </div>
-
-  <main id="obsah" class="wrapper">
-
+  <main class="wrapper">
     <header>
       <h1>On-line rezervace</h1>
-      <p>Vyberte službu, lékaře a konkrétní termín v rámci otevírací doby
-        <strong>9:00–18:00 (Po–Pá)</strong> a <strong>9:00–12:00 (So)</strong>. Neděle je zavřeno.</p>
+      <p>Vyberte službu a následně termín v kalendáři níže.</p>
     </header>
 
     <form aria-labelledby="rezervace-form">
       <fieldset>
-        <legend id="rezervace-form">1. Vyberte službu</legend>
+        <legend>1. Vyberte službu</legend>
         <label for="sluzba">Služba</label>
         <select id="sluzba" name="sluzba" required>
           <option value="">— vyberte —</option>
@@ -65,975 +58,122 @@
       </fieldset>
 
       <fieldset>
-        <legend>2. Lékař</legend>
-        <label for="lekar">Preferovaný lékař</label>
-        <select id="lekar" name="lekar">
-          <option>— bez preference —</option>
-          <option>MUDr. Jana Světelná</option>
-          <option>MUDr. Pavel Chronos</option>
-        </select>
-      </fieldset>
-
-      <fieldset>
-        <legend>3. Termín</legend>
-        <p><strong>Krok 3:</strong> Nejprve zvolte týden a potom konkrétní volný termín v tabulce.</p>
+        <legend>2. Termín</legend>
+        <p class="meta">Vyberte týden (posunujte lištu do boku) a klikněte na volný čas.</p>
 
         <div class="week-picker">
-          <div class="week-switch">
-            <span class="week-switch__label">Týden:</span>
-
-            <input class="week-radio" type="radio" name="week" id="week1" checked />
-            <label for="week1">Tento týden</label>
-
-            <input class="week-radio" type="radio" name="week" id="week2" />
-            <label for="week2">Příští týden</label>
-
-            <input class="week-radio" type="radio" name="week" id="week3" />
-            <label for="week3">Za 2&nbsp;týdny</label>
+          <div class="week-scroller">
+            <div class="week-item">
+                <input class="week-radio" type="radio" name="week" id="week1" checked />
+                <label for="week1">13. – 19. 10.</label>
+            </div>
+            <div class="week-item">
+                <input class="week-radio" type="radio" name="week" id="week2" />
+                <label for="week2">20. – 26. 10.</label>
+            </div>
+            <div class="week-item">
+                <input class="week-radio" type="radio" name="week" id="week3" />
+                <label for="week3">27. 10. – 2. 11.</label>
+            </div>
+            <div class="week-item">
+                <input class="week-radio" type="radio" name="week" id="week4" />
+                <label for="week4">3. – 9. 11.</label>
+            </div>
+             <div class="week-item">
+                <input class="week-radio" type="radio" name="week" id="week5" />
+                <label for="week5">10. – 16. 11.</label>
+            </div>
           </div>
 
-          <!-- TÝDEN 1 -->
           <div class="week-content week1-content">
-            <h3>MUDr. Jana Světelná</h3>
-            <table class="slots-table" aria-label="Rozvrh termínů – MUDr. Jana Světelná, tento týden">
-              <thead>
-                <tr>
-                  <th scope="col">Čas</th>
-                  <th scope="col">Pondělí</th>
-                  <th scope="col">Úterý</th>
-                  <th scope="col">Středa</th>
-                  <th scope="col">Čtvrtek</th>
-                  <th scope="col">Pátek</th>
-                  <th scope="col">Sobota</th>
-                  <th scope="col">Neděle</th>
-                </tr>
-              </thead>
+            <h3>MUDr. Jana Světelná (13. – 19. 10.)</h3>
+            <div class="table-container">
+            <table>
+              <thead><tr><th>Čas</th><th>Po</th><th>Út</th><th>St</th><th>Čt</th><th>Pá</th></tr></thead>
               <tbody>
-                <!-- 9:00 -->
                 <tr>
-                  <th scope="row"><time datetime="09:00">9:00</time></th>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w1-mon-0900" required />
-                    <label for="slot-jana-w1-mon-0900">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w1-wed-0900" />
-                    <label for="slot-jana-w1-wed-0900">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w1-sat-0900" />
-                    <label for="slot-jana-w1-sat-0900">volno</label>
-                  </td>
-                  <td class="closed">zavřeno</td>
+                  <th>9:00</th>
+                  <td class="free"><input type="radio" name="slot" id="w1-j-1"><label for="w1-j-1">9:00</label></td>
+                  <td class="occupied">X</td>
+                  <td class="free"><input type="radio" name="slot" id="w1-j-2"><label for="w1-j-2">9:00</label></td>
+                  <td class="occupied">X</td>
+                  <td class="occupied">X</td>
                 </tr>
-                <!-- 9:30 -->
                 <tr>
-                  <th scope="row"><time datetime="09:30">9:30</time></th>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w1-wed-0930" />
-                    <label for="slot-jana-w1-wed-0930">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w1-fri-0930" />
-                    <label for="slot-jana-w1-fri-0930">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 10:00 -->
-                <tr>
-                  <th scope="row"><time datetime="10:00">10:00</time></th>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w1-mon-1000" />
-                    <label for="slot-jana-w1-mon-1000">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w1-thu-1000" />
-                    <label for="slot-jana-w1-thu-1000">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w1-sat-1000" />
-                    <label for="slot-jana-w1-sat-1000">volno</label>
-                  </td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 10:30 -->
-                <tr>
-                  <th scope="row"><time datetime="10:30">10:30</time></th>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w1-tue-1030" />
-                    <label for="slot-jana-w1-tue-1030">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w1-fri-1030" />
-                    <label for="slot-jana-w1-fri-1030">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 11:00 -->
-                <tr>
-                  <th scope="row"><time datetime="11:00">11:00</time></th>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w1-tue-1100" />
-                    <label for="slot-jana-w1-tue-1100">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w1-sat-1100" />
-                    <label for="slot-jana-w1-sat-1100">volno</label>
-                  </td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 11:30 -->
-                <tr>
-                  <th scope="row"><time datetime="11:30">11:30</time></th>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w1-mon-1130" />
-                    <label for="slot-jana-w1-mon-1130">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w1-wed-1130" />
-                    <label for="slot-jana-w1-wed-1130">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w1-fri-1130" />
-                    <label for="slot-jana-w1-fri-1130">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 12:00 -->
-                <tr>
-                  <th scope="row"><time datetime="12:00">12:00</time></th>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w1-thu-1200" />
-                    <label for="slot-jana-w1-thu-1200">volno</label>
-                  </td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w1-fri-1200" />
-                    <label for="slot-jana-w1-fri-1200">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="closed">zavřeno</td>
+                  <th>10:00</th>
+                  <td class="occupied">X</td>
+                  <td class="free"><input type="radio" name="slot" id="w1-j-3"><label for="w1-j-3">10:00</label></td>
+                  <td class="occupied">X</td>
+                  <td class="free"><input type="radio" name="slot" id="w1-j-4"><label for="w1-j-4">10:00</label></td>
+                  <td class="free"><input type="radio" name="slot" id="w1-j-5"><label for="w1-j-5">10:00</label></td>
                 </tr>
               </tbody>
             </table>
+            </div>
 
-            <h3>MUDr. Pavel Chronos</h3>
-            <table class="slots-table" aria-label="Rozvrh termínů – MUDr. Pavel Chronos, tento týden">
-              <thead>
-                <tr>
-                  <th scope="col">Čas</th>
-                  <th scope="col">Pondělí</th>
-                  <th scope="col">Úterý</th>
-                  <th scope="col">Středa</th>
-                  <th scope="col">Čtvrtek</th>
-                  <th scope="col">Pátek</th>
-                  <th scope="col">Sobota</th>
-                  <th scope="col">Neděle</th>
-                </tr>
-              </thead>
+            <h3>MUDr. Pavel Chronos (13. – 19. 10.)</h3>
+            <div class="table-container">
+            <table>
+              <thead><tr><th>Čas</th><th>Po</th><th>Út</th><th>St</th><th>Čt</th><th>Pá</th></tr></thead>
               <tbody>
-                <!-- 9:00 -->
                 <tr>
-                  <th scope="row"><time datetime="09:00">9:00</time></th>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w1-tue-0900" />
-                    <label for="slot-pavel-w1-tue-0900">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w1-thu-0900" />
-                    <label for="slot-pavel-w1-thu-0900">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w1-sat-0900" />
-                    <label for="slot-pavel-w1-sat-0900">volno</label>
-                  </td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 9:30 -->
-                <tr>
-                  <th scope="row"><time datetime="09:30">9:30</time></th>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w1-mon-0930" />
-                    <label for="slot-pavel-w1-mon-0930">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w1-thu-0930" />
-                    <label for="slot-pavel-w1-thu-0930">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 10:00 -->
-                <tr>
-                  <th scope="row"><time datetime="10:00">10:00</time></th>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w1-tue-1000" />
-                    <label for="slot-pavel-w1-tue-1000">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w1-fri-1000" />
-                    <label for="slot-pavel-w1-fri-1000">volno</label>
-                  </td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w1-sat-1000" />
-                    <label for="slot-pavel-w1-sat-1000">volno</label>
-                  </td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 10:30 -->
-                <tr>
-                  <th scope="row"><time datetime="10:30">10:30</time></th>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w1-tue-1030" />
-                    <label for="slot-pavel-w1-tue-1030">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w1-thu-1030" />
-                    <label for="slot-pavel-w1-thu-1030">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 11:00 -->
-                <tr>
-                  <th scope="row"><time datetime="11:00">11:00</time></th>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w1-mon-1100" />
-                    <label for="slot-pavel-w1-mon-1100">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w1-wed-1100" />
-                    <label for="slot-pavel-w1-wed-1100">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w1-sat-1100" />
-                    <label for="slot-pavel-w1-sat-1100">volno</label>
-                  </td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 11:30 -->
-                <tr>
-                  <th scope="row"><time datetime="11:30">11:30</time></th>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w1-tue-1130" />
-                    <label for="slot-pavel-w1-tue-1130">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w1-thu-1130" />
-                    <label for="slot-pavel-w1-thu-1130">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 12:00 -->
-                <tr>
-                  <th scope="row"><time datetime="12:00">12:00</time></th>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w1-mon-1200" />
-                    <label for="slot-pavel-w1-mon-1200">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w1-wed-1200" />
-                    <label for="slot-pavel-w1-wed-1200">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="closed">zavřeno</td>
+                  <th>9:00</th>
+                  <td class="occupied">X</td>
+                  <td class="free"><input type="radio" name="slot" id="w1-p-1"><label for="w1-p-1">9:00</label></td>
+                  <td class="occupied">X</td>
+                  <td class="free"><input type="radio" name="slot" id="w1-p-2"><label for="w1-p-2">9:00</label></td>
+                  <td class="occupied">X</td>
                 </tr>
               </tbody>
             </table>
+            </div>
           </div>
 
-          <!-- TÝDEN 2 (vzorek – staticky, trochu jinak obsazený) -->
           <div class="week-content week2-content">
+            <p class="meta">Zobrazuji termíny pro týden: <strong>20. – 26. 10.</strong></p>
             <h3>MUDr. Jana Světelná</h3>
-            <table class="slots-table" aria-label="Rozvrh termínů – MUDr. Jana Světelná, příští týden">
-              <thead>
-                <tr>
-                  <th scope="col">Čas</th>
-                  <th scope="col">Pondělí</th>
-                  <th scope="col">Úterý</th>
-                  <th scope="col">Středa</th>
-                  <th scope="col">Čtvrtek</th>
-                  <th scope="col">Pátek</th>
-                  <th scope="col">Sobota</th>
-                  <th scope="col">Neděle</th>
-                </tr>
-              </thead>
+            <div class="table-container">
+            <table>
+              <thead><tr><th>Čas</th><th>Po</th><th>Út</th><th>St</th><th>Čt</th><th>Pá</th></tr></thead>
               <tbody>
-                <!-- 9:00 -->
                 <tr>
-                  <th scope="row"><time datetime="09:00">9:00</time></th>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w2-tue-0900" />
-                    <label for="slot-jana-w2-tue-0900">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w2-thu-0900" />
-                    <label for="slot-jana-w2-thu-0900">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w2-sat-0900" />
-                    <label for="slot-jana-w2-sat-0900">volno</label>
-                  </td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 9:30 -->
-                <tr>
-                  <th scope="row"><time datetime="09:30">9:30</time></th>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w2-mon-0930" />
-                    <label for="slot-jana-w2-mon-0930">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w2-fri-0930" />
-                    <label for="slot-jana-w2-fri-0930">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 10:00 -->
-                <tr>
-                  <th scope="row"><time datetime="10:00">10:00</time></th>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w2-wed-1000" />
-                    <label for="slot-jana-w2-wed-1000">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w2-fri-1000" />
-                    <label for="slot-jana-w2-fri-1000">volno</label>
-                  </td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w2-sat-1000" />
-                    <label for="slot-jana-w2-sat-1000">volno</label>
-                  </td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 10:30 -->
-                <tr>
-                  <th scope="row"><time datetime="10:30">10:30</time></th>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w2-tue-1030" />
-                    <label for="slot-jana-w2-tue-1030">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w2-thu-1030" />
-                    <label for="slot-jana-w2-thu-1030">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 11:00 -->
-                <tr>
-                  <th scope="row"><time datetime="11:00">11:00</time></th>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w2-mon-1100" />
-                    <label for="slot-jana-w2-mon-1100">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w2-wed-1100" />
-                    <label for="slot-jana-w2-wed-1100">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w2-sat-1100" />
-                    <label for="slot-jana-w2-sat-1100">volno</label>
-                  </td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 11:30 -->
-                <tr>
-                  <th scope="row"><time datetime="11:30">11:30</time></th>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w2-wed-1130" />
-                    <label for="slot-jana-w2-wed-1130">volno</label>
-                  </td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w2-thu-1130" />
-                    <label for="slot-jana-w2-thu-1130">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 12:00 -->
-                <tr>
-                  <th scope="row"><time datetime="12:00">12:00</time></th>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w2-mon-1200" />
-                    <label for="slot-jana-w2-mon-1200">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w2-thu-1200" />
-                    <label for="slot-jana-w2-thu-1200">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="closed">zavřeno</td>
+                  <th>9:00</th>
+                  <td class="free"><input type="radio" name="slot" id="w2-j-1"><label for="w2-j-1">9:00</label></td>
+                  <td class="free"><input type="radio" name="slot" id="w2-j-2"><label for="w2-j-2">9:00</label></td>
+                  <td class="occupied">X</td>
+                  <td class="occupied">X</td>
+                  <td class="free"><input type="radio" name="slot" id="w2-j-3"><label for="w2-j-3">9:00</label></td>
                 </tr>
               </tbody>
             </table>
-
-            <h3>MUDr. Pavel Chronos</h3>
-            <table class="slots-table" aria-label="Rozvrh termínů – MUDr. Pavel Chronos, příští týden">
-              <thead>
-                <tr>
-                  <th scope="col">Čas</th>
-                  <th scope="col">Pondělí</th>
-                  <th scope="col">Úterý</th>
-                  <th scope="col">Středa</th>
-                  <th scope="col">Čtvrtek</th>
-                  <th scope="col">Pátek</th>
-                  <th scope="col">Sobota</th>
-                  <th scope="col">Neděle</th>
-                </tr>
-              </thead>
-              <tbody>
-                <!-- 9:00 -->
-                <tr>
-                  <th scope="row"><time datetime="09:00">9:00</time></th>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w2-mon-0900" />
-                    <label for="slot-pavel-w2-mon-0900">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w2-wed-0900" />
-                    <label for="slot-pavel-w2-wed-0900">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w2-sat-0900" />
-                    <label for="slot-pavel-w2-sat-0900">volno</label>
-                  </td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 9:30 -->
-                <tr>
-                  <th scope="row"><time datetime="09:30">9:30</time></th>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w2-tue-0930" />
-                    <label for="slot-pavel-w2-tue-0930">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w2-thu-0930" />
-                    <label for="slot-pavel-w2-thu-0930">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 10:00 -->
-                <tr>
-                  <th scope="row"><time datetime="10:00">10:00</time></th>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w2-wed-1000" />
-                    <label for="slot-pavel-w2-wed-1000">volno</label>
-                  </td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w2-thu-1000" />
-                    <label for="slot-pavel-w2-thu-1000">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w2-sat-1000" />
-                    <label for="slot-pavel-w2-sat-1000">volno</label>
-                  </td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 10:30 -->
-                <tr>
-                  <th scope="row"><time datetime="10:30">10:30</time></th>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w2-mon-1030" />
-                    <label for="slot-pavel-w2-mon-1030">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w2-thu-1030b" />
-                    <label for="slot-pavel-w2-thu-1030b">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 11:00 -->
-                <tr>
-                  <th scope="row"><time datetime="11:00">11:00</time></th>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w2-tue-1100" />
-                    <label for="slot-pavel-w2-tue-1100">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w2-thu-1100" />
-                    <label for="slot-pavel-w2-thu-1100">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w2-sat-1100" />
-                    <label for="slot-pavel-w2-sat-1100">volno</label>
-                  </td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 11:30 -->
-                <tr>
-                  <th scope="row"><time datetime="11:30">11:30</time></th>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w2-mon-1130" />
-                    <label for="slot-pavel-w2-mon-1130">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w2-wed-1130" />
-                    <label for="slot-pavel-w2-wed-1130">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 12:00 -->
-                <tr>
-                  <th scope="row"><time datetime="12:00">12:00</time></th>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w2-tue-1200" />
-                    <label for="slot-pavel-w2-tue-1200">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w2-thu-1200" />
-                    <label for="slot-pavel-w2-thu-1200">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-              </tbody>
-            </table>
+            </div>
           </div>
 
-          <!-- TÝDEN 3 (opět staticky) -->
-          <div class="week-content week3-content">
-            <h3>MUDr. Jana Světelná</h3>
-            <table class="slots-table" aria-label="Rozvrh termínů – MUDr. Jana Světelná, týden za dva týdny">
-              <thead>
-                <tr>
-                  <th scope="col">Čas</th>
-                  <th scope="col">Pondělí</th>
-                  <th scope="col">Úterý</th>
-                  <th scope="col">Středa</th>
-                  <th scope="col">Čtvrtek</th>
-                  <th scope="col">Pátek</th>
-                  <th scope="col">Sobota</th>
-                  <th scope="col">Neděle</th>
-                </tr>
-              </thead>
-              <tbody>
-                <!-- 9:00 -->
-                <tr>
-                  <th scope="row"><time datetime="09:00">9:00</time></th>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w3-mon-0900" />
-                    <label for="slot-jana-w3-mon-0900">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w3-wed-0900" />
-                    <label for="slot-jana-w3-wed-0900">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w3-sat-0900" />
-                    <label for="slot-jana-w3-sat-0900">volno</label>
-                  </td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 9:30 -->
-                <tr>
-                  <th scope="row"><time datetime="09:30">9:30</time></th>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w3-tue-0930" />
-                    <label for="slot-jana-w3-tue-0930">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w3-thu-0930" />
-                    <label for="slot-jana-w3-thu-0930">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 10:00 -->
-                <tr>
-                  <th scope="row"><time datetime="10:00">10:00</time></th>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w3-wed-1000" />
-                    <label for="slot-jana-w3-wed-1000">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w3-fri-1000" />
-                    <label for="slot-jana-w3-fri-1000">volno</label>
-                  </td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w3-sat-1000" />
-                    <label for="slot-jana-w3-sat-1000">volno</label>
-                  </td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 10:30 -->
-                <tr>
-                  <th scope="row"><time datetime="10:30">10:30</time></th>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w3-mon-1030" />
-                    <label for="slot-jana-w3-mon-1030">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w3-thu-1030" />
-                    <label for="slot-jana-w3-thu-1030">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 11:00 -->
-                <tr>
-                  <th scope="row"><time datetime="11:00">11:00</time></th>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w3-tue-1100" />
-                    <label for="slot-jana-w3-tue-1100">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w3-thu-1100" />
-                    <label for="slot-jana-w3-thu-1100">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w3-sat-1100" />
-                    <label for="slot-jana-w3-sat-1100">volno</label>
-                  </td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 11:30 -->
-                <tr>
-                  <th scope="row"><time datetime="11:30">11:30</time></th>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w3-mon-1130" />
-                    <label for="slot-jana-w3-mon-1130">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w3-wed-1130" />
-                    <label for="slot-jana-w3-wed-1130">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 12:00 -->
-                <tr>
-                  <th scope="row"><time datetime="12:00">12:00</time></th>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w3-tue-1200" />
-                    <label for="slot-jana-w3-tue-1200">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-jana-w3-thu-1200" />
-                    <label for="slot-jana-w3-thu-1200">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-              </tbody>
-            </table>
+           <div class="week-content week3-content"><p>Termíny pro týden 27. 10. ...</p></div>
+           <div class="week-content week4-content"><p>Termíny pro týden 3. 11. ...</p></div>
+           <div class="week-content week5-content"><p>Termíny pro týden 10. 11. ...</p></div>
 
-            <h3>MUDr. Pavel Chronos</h3>
-            <table class="slots-table" aria-label="Rozvrh termínů – MUDr. Pavel Chronos, týden za dva týdny">
-              <thead>
-                <tr>
-                  <th scope="col">Čas</th>
-                  <th scope="col">Pondělí</th>
-                  <th scope="col">Úterý</th>
-                  <th scope="col">Středa</th>
-                  <th scope="col">Čtvrtek</th>
-                  <th scope="col">Pátek</th>
-                  <th scope="col">Sobota</th>
-                  <th scope="col">Neděle</th>
-                </tr>
-              </thead>
-              <tbody>
-                <!-- 9:00 -->
-                <tr>
-                  <th scope="row"><time datetime="09:00">9:00</time></th>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w3-tue-0900" />
-                    <label for="slot-pavel-w3-tue-0900">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w3-thu-0900" />
-                    <label for="slot-pavel-w3-thu-0900">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w3-sat-0900" />
-                    <label for="slot-pavel-w3-sat-0900">volno</label>
-                  </td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 9:30 -->
-                <tr>
-                  <th scope="row"><time datetime="09:30">9:30</time></th>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w3-mon-0930" />
-                    <label for="slot-pavel-w3-mon-0930">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w3-wed-0930" />
-                    <label for="slot-pavel-w3-wed-0930">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 10:00 -->
-                <tr>
-                  <th scope="row"><time datetime="10:00">10:00</time></th>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w3-tue-1000" />
-                    <label for="slot-pavel-w3-tue-1000">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w3-thu-1000" />
-                    <label for="slot-pavel-w3-thu-1000">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w3-sat-1000" />
-                    <label for="slot-pavel-w3-sat-1000">volno</label>
-                  </td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 10:30 -->
-                <tr>
-                  <th scope="row"><time datetime="10:30">10:30</time></th>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w3-mon-1030" />
-                    <label for="slot-pavel-w3-mon-1030">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w3-thu-1030" />
-                    <label for="slot-pavel-w3-thu-1030">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 11:00 -->
-                <tr>
-                  <th scope="row"><time datetime="11:00">11:00</time></th>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w3-tue-1100" />
-                    <label for="slot-pavel-w3-tue-1100">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w3-thu-1100" />
-                    <label for="slot-pavel-w3-thu-1100">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w3-sat-1100" />
-                    <label for="slot-pavel-w3-sat-1100">volno</label>
-                  </td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 11:30 -->
-                <tr>
-                  <th scope="row"><time datetime="11:30">11:30</time></th>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w3-mon-1130" />
-                    <label for="slot-pavel-w3-mon-1130">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w3-wed-1130" />
-                    <label for="slot-pavel-w3-wed-1130">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-                <!-- 12:00 -->
-                <tr>
-                  <th scope="row"><time datetime="12:00">12:00</time></th>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w3-tue-1200" />
-                    <label for="slot-pavel-w3-tue-1200">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="free">
-                    <input type="radio" name="slot" id="slot-pavel-w3-thu-1200" />
-                    <label for="slot-pavel-w3-thu-1200">volno</label>
-                  </td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="occupied">obsazeno</td>
-                  <td class="closed">zavřeno</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
         </div>
       </fieldset>
 
       <fieldset>
-        <legend>4. Kontaktní údaje</legend>
+        <legend>3. Kontakt</legend>
         <label for="jmeno">Jméno a příjmení</label>
         <input id="jmeno" name="jmeno" type="text" required />
         <label for="email">E-mail</label>
         <input id="email" name="email" type="email" required />
-        <label for="zprava">Poznámka (volitelné)</label>
-        <textarea id="zprava" name="zprava" rows="4"></textarea>
-      </fieldset>
-
-      <section class="surface">
-        <h2>5. Shrnutí</h2>
-        <p>Tato ukázka neodesílá formulář. Slouží k demonstraci kompletního procesu od výběru služby
-          přes volbu lékaře a termínu až po zadání kontaktních údajů.</p>
         <button class="primary" type="button">Potvrdit rezervaci</button>
-      </section>
+      </fieldset>
     </form>
   </main>
 
-  <div class="wrapper">
-    <footer class="site-footer">
-      <section class="footer-grid" aria-label="Rozšířená patička">
+  <footer class="site-footer">
+      <div class="footer-grid">
         <div>
-          <h3>O nás</h3>
-          <p>Klinika cirkadiánní medicíny — specializovaná péče o spánek, světelnou hygienu,
-            chronoterapii a načasování léčby.</p>
-          <p><time datetime="2025-10-12">Aktualizováno: 12. 10. 2025</time></p>
+          <h3>Klinika cirkadiánní medicíny</h3>
+          <p>© 2025 Studentský projekt</p>
         </div>
-        <div>
-          <h3>Rychlé odkazy</h3>
-          <ul>
-            <li><a href="seznam.html">Vyšetření &amp; Programy</a></li>
-            <li><a href="rezervace.html">Objednat se</a></li>
-            <li><a href="kontakt.html">Kudy k nám</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3>Otevírací doba</h3>
-          <table>
-            <thead><tr><th>Den</th><th>Čas</th></tr></thead>
-            <tbody>
-              <tr><td>Pondělí–Pátek</td><td><time datetime="09:00">9:00</time>–<time datetime="18:00">18:00</time></td></tr>
-              <tr><td>Sobota</td><td><time datetime="09:00">9:00</time>–<time datetime="12:00">12:00</time></td></tr>
-              <tr><td>Neděle</td><td>zavřeno</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <aside aria-label="Poznámka" class="footer-note">
-          <p><strong>Studentský projekt:</strong> Tato prezentace slouží k výukovým účelům. Všechny texty
-            a obrázky jsou generované pomocí AI.</p>
-          <p>Autoři: <span class="authors">Vojtěch Mykiska, Jakub Obruča, Vojtěch Hampl</span></p>
-        </aside>
-      </section>
-      <p class="legal">© 2025 Klinika cirkadiánní medicíny — Studentský projekt</p>
-    </footer>
-  </div>
+      </div>
+  </footer>
 </body>
 </html>
