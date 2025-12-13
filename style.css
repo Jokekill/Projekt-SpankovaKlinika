@@ -213,12 +213,35 @@ input, select, textarea {
 }
 
 /* === 4. ZJEDNODUŠENÁ PATIČKA === */
+/* === 4. OPRAVENÁ PATIČKA (Dark Mode) === */
 .site-footer {
-  margin-top: 3rem;
-  background: #fff;
-  border-top: 4px solid var(--primary);
-  text-align: center; /* Vše na střed */
-  padding: 2rem 1rem;
+  margin-top: 4rem;             /* Odstup od obsahu */
+  background: #0B1A33;          /* Tmavě modrá (skoro černá) */
+  color: rgba(255, 255, 255, 0.8); /* Světle šedý text */
+  padding: 3rem 1rem;
+  text-align: center;
+  border-top: none;             /* Linku už nepotřebujeme, barva stačí */
+}
+
+.footer-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.footer-grid h3 {
+  color: #fff;                  /* Nadpis čistě bílý */
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+}
+
+.footer-grid p {
+  margin: 0;
+  font-size: 0.9rem;
 }
 
 .footer-grid {
@@ -645,4 +668,108 @@ input, select, textarea {
   background: #ECFDF5;        /* Světle zelenkavá */
   color: #047857;             /* Tmavší zelená */
   border-color: #A7F3D0;
+}
+
+/* === FIX TABULKY REZERVACÍ === */
+
+.table-container {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 1.5rem;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    min-width: 500px; /* Aby se na mobilu dalo scrollovat */
+}
+
+th, td {
+    padding: 0; /* Padding řešíme uvnitř pro větší klikací plochu */
+    text-align: center;
+    border: 1px solid #eee;
+    height: 3.5rem; /* Fixní výška řádku */
+    vertical-align: middle;
+}
+
+thead th {
+    padding: 1rem;
+    background: #f8fafc;
+    color: var(--muted);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* První sloupec (Časy) */
+tbody th {
+    padding: 0.5rem;
+    background: #fff;
+    color: var(--text);
+    font-weight: 700;
+}
+
+/* --- BUŇKA VOLNO (Interaktivní) --- */
+td.free {
+    background: #fff;
+    position: relative; /* Nutné pro absolutní pozici inputu */
+}
+
+/* 1. Absolutní skrytí radio buttonu (to kolečko musí pryč!) */
+td.free input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    margin: 0;
+    cursor: pointer;
+    z-index: 2; /* Musí být nad labelem, aby šlo kliknout */
+}
+
+/* 2. Label vypadá jako tlačítko */
+td.free label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-weight: 700;
+    color: var(--primary);
+    background: #F0F7FF; /* Světle modrá */
+    transition: all 0.2s;
+}
+
+/* 3. Stav: Zaškrtnuto (Checked) */
+/* Využíváme selektor: input je zaškrtnutý -> ovlivni sousední label */
+td.free input[type="radio"]:checked + label {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* 4. Stav: Hover (Najetí myší) */
+td.free:hover label {
+    background: #D9E4FF;
+}
+
+/* --- BUŇKA OBSAZENO (Neaktivní) --- */
+td.occupied {
+    background: #f9f9f9;
+    color: #cbd5e1; /* Velmi světle šedá */
+    font-size: 0.9rem;
+    cursor: not-allowed;
+    user-select: none; /* Nejde označit text */
+}
+
+/* Zavřeno (X) */
+td.closed {
+    background: #f1f5f9;
+    color: #e2e8f0;
 }
