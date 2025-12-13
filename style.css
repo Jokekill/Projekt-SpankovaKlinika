@@ -558,3 +558,73 @@ input, select, textarea {
     max-width: 600px; /* Aby nebyl přes celou šířku */
   }
 }
+
+/* ======================================================================
+   FINAL POLISH: "Midnight Blue" téma & Grid Layout
+   ====================================================================== */
+
+/* 1. Změna "Béžové" na "Noční Modrou" (funguje na mobilu i PC) */
+.panel.image {
+  /* Elegantní tmavší modrá, ale ne černá (Slate Blue / Navy) */
+  background: #2B4C7E; 
+  color: #ffffff; /* Bílý text pro kontrast */
+  border: none;   /* Rámeček už není potřeba, barva drží tvar */
+  
+  /* Jemný přechod pro modernější look (volitelné, vypadá to "dražší") */
+  background: linear-gradient(145deg, #2B4C7E 0%, #1A365D 100%);
+}
+
+/* Nadpisy a odkazy uvnitř modrého panelu musí být světlé */
+.panel.image h2, 
+.panel.image h3,
+.panel.image p {
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2); /* Lepší čitelnost */
+}
+
+.panel.image .meta {
+  color: rgba(255, 255, 255, 0.7); /* Jemně šedá pro doplňkové info */
+}
+
+/* 2. Oprava Desktop Layoutu (Zarovnání výšek) */
+@media (min-width: 900px) {
+  
+  /* Použijeme Grid místo Flexboxu = zaručí stejně vysoké sloupce */
+  .feature-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dva stejně široké sloupce */
+    gap: 3rem;
+    align-items: stretch; /* Roztáhne karty na stejnou výšku */
+  }
+
+  /* Obrázky uvnitř panelu se přizpůsobí, aby vyplnily místo */
+  .panel.image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Obsah vertikálně na střed */
+  }
+
+  .panel.image img {
+    margin-top: auto; /* Obrázek se zarovná dolů, pokud je místo */
+    align-self: center;
+    max-width: 90%;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Stín pod obrázkem, aby "vylezl" */
+  }
+
+  /* Textové karty vedle obrázků - čistší vzhled */
+  .card.text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid #eef2f6;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03); /* Velmi jemný stín */
+  }
+}
+
+/* 3. Drobná oprava pro Badge (štítky) v kartách */
+.badge {
+  background: #E3F2FD; /* Světlejší modrá podklad */
+  color: #1565D8;      /* Tmavší modrá text */
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
