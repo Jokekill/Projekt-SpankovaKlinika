@@ -327,3 +327,134 @@ input, select, textarea {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
+
+
+/* ======================================================================
+   DESKTOP STYLY (Media Queries)
+   Aplikují se pouze pokud je okno širší než 900px
+   ====================================================================== */
+
+@media (min-width: 900px) {
+
+  /* 1. LAYOUT & WRAPPER */
+  .wrapper {
+    max-width: 1100px; /* Omezíme maximální šířku, aby se web neroztáhl do nekonečna */
+    margin: 0 auto;
+  }
+
+  /* 2. HLAVIČKA A NAVIGACE */
+  .site-header {
+    display: flex;
+    justify-content: space-between; /* Logo vlevo, menu vpravo */
+    align-items: center;
+    padding: 0 2rem;
+    max-width: 1140px; /* Aby lícovala s obsahem */
+    margin: 0 auto;
+    border-bottom: 1px solid var(--border); /* Linka je teď přímo pod obsahem */
+    /* Na desktopu nepotřebujeme sticky header přes celou šířku, nebo ho můžeme nechat */
+  }
+
+  /* Reset wrapperů uvnitř hlavičky, aby byly vedle sebe */
+  .site-header .wrapper {
+    width: auto;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Schováme hamburger tlačítko */
+  .nav-toggle-label { display: none; }
+  .nav-toggle { display: none; }
+
+  /* Zobrazíme menu jako řádek */
+  .nav-list {
+    display: flex !important; /* Přepíšeme display: none z mobilu */
+    flex-direction: row;
+    gap: 1rem;
+    background: transparent;
+    border: none;
+    align-items: center;
+  }
+
+  .nav-list li { border: none; }
+  
+  /* Odkazy v menu */
+  .nav-list a {
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    font-weight: 500;
+  }
+  .nav-list a:hover { background: var(--surface-2); }
+  
+  /* Tlačítko hledat v menu uděláme kompaktní */
+  .nav-search { padding: 0; background: transparent; }
+  .site-search input { width: 200px; padding: 0.5rem; margin: 0; }
+  .site-search button { padding: 0.5rem 1rem; margin: 0; }
+
+
+  /* 3. HERO SEKCE & FEATURE ROWS (Obrázek vedle textu) */
+  .hero { gap: 4rem; padding: 3rem 0; }
+
+  .feature-row {
+    flex-direction: row; /* Vedle sebe */
+    align-items: center; /* Zarovnat na střed svisle */
+    gap: 3rem;
+  }
+
+  /* Pokud chceme prohodit pořadí (obrázek vlevo) */
+  .feature-row.reverse {
+    flex-direction: row-reverse;
+  }
+
+  /* Položky zaberou půlku šířky */
+  .feature-row > article {
+    flex: 1;
+  }
+  
+  /* Karty (Vstupy, Seznam) - 3 vedle sebe */
+  .cards {
+    grid-template-columns: repeat(3, 1fr); /* 3 sloupce */
+    gap: 2rem;
+  }
+
+
+  /* 4. DETAIL STRÁNKY (Sidebar vpravo) */
+  .detail {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Obsah 2/3, Panel 1/3 */
+    gap: 3rem;
+    align-items: start;
+  }
+  
+  /* Tabulky na desktopu nemusí scrollovat, pokud se vejdou */
+  .table-container {
+    overflow-x: visible; 
+  }
+
+
+  /* 5. REZERVACE (Formulář do dvou sloupců) */
+  form[aria-labelledby="rezervace-form"] {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  
+  /* Kalendář (fieldset s termínem) a Kontakt roztáhneme přes oba sloupce,
+     nebo necháme Službu vlevo a Kontakt vpravo? 
+     Uděláme to jednodušeji: Služba a Kontakt vedle sebe, Kalendář pod nimi. */
+     
+  form fieldset:nth-of-type(1) { grid-column: 1 / 2; } /* Služba vlevo */
+  form fieldset:nth-of-type(3) { grid-column: 2 / 3; } /* Kontakt vpravo */
+  form fieldset:nth-of-type(2) { grid-column: 1 / -1; } /* Kalendář přes celou šířku */
+
+
+  /* 6. PATIČKA */
+  .site-footer {
+    text-align: left;
+    padding: 3rem 0;
+  }
+  .footer-grid {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
