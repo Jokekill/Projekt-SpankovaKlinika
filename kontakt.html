@@ -4,12 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kontakt – Klinika cirkadiánní medicíny</title>
-  <meta name="description" content="Kontakt, mapa, doprava a otevírací doba." />
+  <meta name="description" content="Kde nás najdete: Adresa, mapa, doprava a otevírací doba." />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  
   <header class="site-header">
-<div class="wrapper brand">
+    <div class="wrapper brand">
       <a href="index.html" class="brand-link">
         <img src="images/logo.webp" alt="Logo" />
         <div class="title">
@@ -17,10 +18,10 @@
         </div>
       </a>
     </div>
+    
     <div class="wrapper">
-<nav aria-label="Hlavní navigace">
+      <nav aria-label="Hlavní navigace">
         <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-        
         <label for="nav-toggle" class="nav-toggle-label">
           <span></span>
           <span></span>
@@ -29,7 +30,7 @@
 
         <ul class="nav-list">
           <li><a href="index.html">Domů</a></li>
-          <li><a href="seznam.html">Vyšetření & Programy</a></li>
+          <li><a href="seznam.html">Vyšetření</a></li>
           <li><a href="rezervace.html">Rezervace</a></li>
           <li><a href="kontakt.html" aria-current="page">Kontakt</a></li>
           
@@ -43,48 +44,110 @@
       </nav>
     </div>
   </header>
+
   <main id="obsah" class="wrapper">
 
-  <header>
-    <h1>Kontakt a doprava</h1>
-  </header>
-  <section class="surface">
-    <h2>Adresa</h2>
-    <p>Světelná 25, 110 00 Praha</p>
-    <p class="meta">MHD: tram 3, 10 — zastávka „Biorytmická“</p>
-  </section>
-  <section class="surface">
-    <h2>Mapa & navigace</h2>
-    <p><a href="#" aria-label="Otevřít mapu">Otevřít na Mapy.cz / Google Maps</a></p>
-    <img src="images/placeholder.svg" alt="Ilustrační mapa — AI generovaná" />
-  </section>
-  <section class="surface">
-    <h2>Kontakty</h2>
-    <p>E-mail: info@cirkadiana.cz (demo)</p>
-    <p>Telefon: +420 123 456 789 (demo)</p>
-  </section>
-  <section class="surface">
-    <h2>Otevírací doba</h2>
-    <div class="table-container"> <table>
-        <thead><tr><th>Den</th><th>Čas</th></tr></thead>
-        <tbody>
-          <tr><td>Pondělí–Pátek</td><td><time datetime="09:00">9:00</time>–<time datetime="18:00">18:00</time></td></tr>
-          <tr><td>Sobota</td><td><time datetime="09:00">9:00</time>–<time datetime="12:00">12:00</time></td></tr>
-          <tr><td>Neděle</td><td>zavřeno</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
+    <header>
+      <h1>Kontakt a doprava</h1>
+      <p>Jsme tu pro vás v centru Prahy. Zastavte se osobně nebo nám zavolejte.</p>
+    </header>
+
+    <section class="hero" aria-label="Kontaktní informace">
+
+      <div class="feature-row">
+        
+        <article class="card text">
+          <h3>Kde nás najdete</h3>
+          <p>Naše klinika sídlí v klidné části centra s výbornou dostupností MHD. Budova je bezbariérová.</p>
+          
+          <div style="margin-top: 1rem;">
+            <p><strong>Adresa:</strong><br>
+            Světelná 25<br>
+            110 00 Praha 1</p>
+            
+            <p><strong>Doprava (MHD):</strong><br>
+            Tramvaj č. 3, 10 — zastávka „Biorytmická“<br>
+            Metro B — stanice „Náměstí Republiky“ (5 min chůze)</p>
+          </div>
+          
+          <span class="badge ok">Parkování ve dvoře</span>
+        </article>
+
+        <article class="panel image">
+          <h2>Mapa</h2>
+          <p>Kliknutím na mapu otevřete navigaci.</p>
+          <a href="https://mapy.cz" target="_blank" rel="noopener" style="display:block; margin-top:1rem;">
+            <img src="images/placeholder.svg" alt="Mapa okolí kliniky" style="width:100%; opacity: 0.9;" />
+          </a>
+          <p class="meta" style="color: rgba(255,255,255,0.8); margin-top: 0.5rem;">Otevřít na Mapy.cz / Google Maps</p>
+        </article>
+      </div>
+
+      <div class="feature-row reverse">
+        
+        <article class="panel image">
+          <h2>Spojte se s námi</h2>
+          <p>Máte dotaz k vyšetření nebo potřebujete změnit termín? Jsme na příjmu.</p>
+          
+          <div style="margin-top: 2rem; font-size: 1.1rem;">
+            <p><strong>Telefon:</strong><br>
+            <a href="tel:+420123456789" style="color: #fff; text-decoration: underline;">+420 123 456 789</a></p>
+            
+            <p><strong>E-mail:</strong><br>
+            <a href="mailto:info@cirkadiana.cz" style="color: #fff; text-decoration: underline;">info@cirkadiana.cz</a></p>
+          </div>
+          
+          <p class="meta" style="margin-top: auto;">Toto je studentský projekt (demo data).</p>
+        </article>
+
+        <article class="card text">
+          <h3>Otevírací doba</h3>
+          <p>Ordinační hodiny pro objednané pacienty. Recepce je otevřena o 30 minut dříve.</p>
+          
+          <div class="table-container" style="box-shadow: none; border: 1px solid #eee;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Den</th>
+                  <th>Čas</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Pondělí – Pátek</strong></td>
+                  <td><time datetime="09:00">9:00</time> – <time datetime="18:00">18:00</time></td>
+                </tr>
+                <tr>
+                  <td><strong>Sobota</strong></td>
+                  <td><time datetime="09:00">9:00</time> – <time datetime="12:00">12:00</time></td>
+                </tr>
+                <tr>
+                  <td style="color: var(--muted);">Neděle</td>
+                  <td style="color: var(--muted);">Zavřeno</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="cluster mt-4">
+            <a class="btn-primary" href="rezervace.html">Rezervovat termín</a>
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+
   </main>
-  <div class="wrapper">
-   <footer class="site-footer">
-      <div class="footer-grid">
-        <div>
-          <h3>Klinika cirkadiánní medicíny</h3>
-          <p>© 2025 Studentský projekt</p>
-        </div>
-        </div>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <h3>Klinika cirkadiánní medicíny</h3>
+        <p>© 2025 Studentský projekt</p>
+      </div>
+    </div>
   </footer>
-</div>
+
 </body>
 </html>
