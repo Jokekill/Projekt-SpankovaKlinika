@@ -1,21 +1,21 @@
 /* ======================================================================
-   KLINIKA CIRKADIÁNNÍ MEDICÍNY — MASTER STYLESHEET (FINAL v2)
-   Autor: Studentský projekt
+   KLINIKA CIRKADIÁNNÍ MEDICÍNY — MASTER STYLESHEET (FINAL v3)
+   Status: Cleaned, Formatted, Mobile-First, Fixed Layouts
    ====================================================================== */
 
 /* =========================================
    1. PROMĚNNÉ (VARIABLES)
    ========================================= */
 :root {
-  /* Barvy */
+  /* Hlavní barvy */
   --primary: #1565D8;
   --primary-weak: #4EA1FF;
   --primary-dark: #0d4bb3;
   
+  /* Pozadí a text */
   --bg: #F5F8FF;
   --surface: #FFFFFF;
   --surface-2: #EEF3FF;
-  
   --text: #0B1A33;
   --muted: #6b7c93;
   --border: #D9E4FF;
@@ -27,7 +27,7 @@
 }
 
 /* =========================================
-   2. RESET & BASE
+   2. RESET & BASE (ZÁKLAD)
    ========================================= */
 * { box-sizing: border-box; }
 
@@ -38,10 +38,16 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.6;
   
+  /* STICKY FOOTER SETUP (Pro všechny zařízení) */
+  min-height: 100vh;      
+  display: flex;          
+  flex-direction: column; 
+}
 
-  min-height: 100vh;      /* Roztáhne stránku na celou výšku okna */
-  display: flex;          /* Zapne Flexbox */
-  flex-direction: column; /* Prvky řadí pod sebe */
+/* Toto zajistí, že se obsah roztáhne a patička bude vždy dole */
+main {
+  flex: 1;
+  width: 100%;
 }
 
 img {
@@ -54,6 +60,7 @@ img {
 a { color: var(--primary); text-decoration: none; transition: 0.2s; }
 a:active { opacity: 0.8; }
 
+/* Typografie */
 h1, h2, h3 { margin: 1.5rem 0 0.5rem; line-height: 1.2; color: var(--text); }
 h1 { font-size: 1.8rem; }
 h2 { font-size: 1.5rem; }
@@ -66,18 +73,15 @@ p { margin: 0 0 1rem; color: #4b5563; }
   margin: 0 auto; 
 }
 
-/* Klikací logo - reset stylu odkazu */
+/* Reset loga */
 .brand-link {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  color: inherit;
-  white-space: nowrap; /* Aby se název nezalomil */
+  display: flex; align-items: center; gap: 1rem;
+  color: inherit; white-space: nowrap;
 }
 .brand-link:hover { opacity: 0.8; }
 
 /* =========================================
-   3. HEADER & NAVIGACE (MOBILE FIRST)
+   3. HEADER & NAVIGACE (MOBILE DEFAULT)
    ========================================= */
 .site-header {
   background: #fff;
@@ -88,73 +92,46 @@ p { margin: 0 0 1rem; color: #4b5563; }
 }
 
 .brand {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.75rem 1rem;
+  display: flex; align-items: center; gap: 1rem; padding: 0.75rem 1rem;
 }
 .brand img { width: 32px; height: 32px; }
 .brand .title { font-weight: bold; color: var(--primary); font-size: 1rem; }
 
-/* Hamburger Menu Logic */
+/* Hamburger Menu (Mobile) */
 .nav-toggle { display: none; }
-
 .nav-toggle-label {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-  background: var(--bg);
-  border-radius: 8px;
-  border: 1px solid var(--border);
+  position: absolute; top: 1rem; right: 1rem;
+  width: 40px; height: 40px;
+  display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 6px;
+  cursor: pointer; background: var(--bg); border-radius: 8px; border: 1px solid var(--border);
 }
-
 .nav-toggle-label span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: var(--primary);
-  border-radius: 2px;
-  transition: 0.3s;
+  display: block; width: 24px; height: 2px;
+  background: var(--primary); border-radius: 2px; transition: 0.3s;
 }
 
-/* Mobilní menu - defaultně skryto */
+/* Seznam odkazů (Skryto na mobilu) */
 .nav-list {
   display: none;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  background: #fff;
-  border-top: 1px solid var(--border);
+  list-style: none; padding: 0; margin: 0;
+  background: #fff; border-top: 1px solid var(--border);
   flex-direction: column;
 }
 
+/* Otevření menu */
 #nav-toggle:checked ~ .nav-list { display: flex; }
 
 .nav-list li { border-bottom: 1px solid var(--bg); }
 .nav-list a {
-  display: block;
-  padding: 1rem;
-  font-weight: 600;
-  text-align: center;
-  color: var(--text);
+  display: block; padding: 1rem; font-weight: 600;
+  text-align: center; color: var(--text);
 }
 .nav-list a:hover { background: var(--bg); color: var(--primary); }
 
-/* AKTIVNÍ STAV (MOBILE) */
-.nav-list a[aria-current="page"] {
-  color: var(--primary);
-  background: var(--surface-2);
-}
+/* Aktivní stránka (Mobile) */
+.nav-list a[aria-current="page"] { color: var(--primary); background: var(--surface-2); }
 
-/* Vyhledávání v menu */
+/* Search v menu */
 .nav-search { padding: 1rem; background: var(--bg); }
 .site-search { display: flex; gap: 0.5rem; }
 .site-search input { flex: 1; padding: 0.75rem; border: 1px solid var(--border); border-radius: 6px; }
@@ -165,118 +142,76 @@ p { margin: 0 0 1rem; color: #4b5563; }
    ========================================= */
 /* Tlačítka */
 .btn-primary, button.primary {
-  display: inline-block;
-  width: 100%;
-  text-align: center;
-  background: var(--primary);
-  color: #fff;
-  padding: 0.8rem 1.5rem;
-  border-radius: 50px;
-  font-weight: 700;
-  border: none;
-  cursor: pointer;
-  margin-top: 1rem;
-  transition: background 0.2s;
+  display: inline-block; width: 100%; text-align: center;
+  background: var(--primary); color: #fff;
+  padding: 0.8rem 1.5rem; border-radius: 50px;
+  font-weight: 700; border: none; cursor: pointer;
+  margin-top: 1rem; transition: background 0.2s;
 }
 .btn-primary:hover, button.primary:hover { background: var(--primary-dark); }
 
 /* Badges (Štítky) */
 .badge {
-  display: inline-flex;
-  align-self: flex-start;
-  margin-top: auto;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 0.5rem 1rem;
-  border-radius: 50px;
-  background: #F0F7FF;
-  color: #1565D8;
-  border: 1px solid #D9E4FF;
+  display: inline-flex; align-self: flex-start; margin-top: auto;
+  font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.05em; padding: 0.5rem 1rem; border-radius: 50px;
+  background: #F0F7FF; color: #1565D8; border: 1px solid #D9E4FF;
 }
+.badge.ok { background: #ECFDF5; color: #047857; border-color: #A7F3D0; }
 
-.badge.ok {
-  background: #ECFDF5;
-  color: #047857;
-  border-color: #A7F3D0;
-}
-
-/* Velký vyhledávací řádek (stránka Výsledky) */
+/* Search Bar (Stránka Výsledky) */
 .results-search-form {
-  display: flex;
-  gap: 0.5rem;
-  margin: 1.5rem 0;
-  padding: 1.5rem;
-  background: var(--surface-2);
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
+  display: flex; gap: 0.5rem; margin: 1.5rem 0; padding: 1.5rem;
+  background: var(--surface-2); border-radius: var(--radius); border: 1px solid var(--border);
 }
 .results-search-form input { margin-bottom: 0; background: #fff; flex: 1; }
 .results-search-form button { margin-top: 0; width: auto; box-shadow: 0 2px 5px rgba(21, 101, 216, 0.3); }
 
 /* =========================================
-   5. KARTY & PANELY
-   ========================================= */
-/* =========================================
-   5. KARTY & PANELY (FIXED FOCUS)
+   5. KARTY & PANELY (VZHLED)
    ========================================= */
 .hero { display: flex; flex-direction: column; gap: 1.5rem; padding: 1.5rem 0; }
 .feature-row { display: flex; flex-direction: column; gap: 1rem; }
 .cards { display: grid; gap: 1rem; grid-template-columns: 1fr; }
 
+/* Základní Karta (Bílá) */
 .card, .panel {
   background: #fff;
-  /* Výchozí rámeček je velmi jemný šedý */
-  border: 1px solid #eef2f6; 
+  border: 1px solid #eef2f6;
   border-radius: var(--radius);
   padding: 1.5rem;
   box-shadow: var(--shadow-sm);
-  display: flex;
-  flex-direction: column;
+  display: flex; flex-direction: column;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   position: relative;
 }
 
-/* Klikací trik (odkaz přes celou kartu) */
-.card h3 a::before { 
-  content: ""; 
-  position: absolute; 
-  inset: 0; 
-  z-index: 1;
-}
+/* Full-card Click Trik */
+.card h3 a::before { content: ""; position: absolute; inset: 0; z-index: 1; }
+.card h3 a:focus { outline: none; } /* Odstraní modrý obrys linku */
 
-/* Zrušení výchozího modrého obrysu prohlížeče při kliknutí */
-.card h3 a:focus { outline: none; }
-
-/* HOVER & FOCUS STAV (Sjednocený)
-   Když na kartu najedeš myší NEBO když na ni klikneš (focus-within),
-   bude vypadat stejně hezky. */
-.card:hover,
-.card:focus-within {
+/* Hover & Focus Efekt */
+.card:hover, .card:focus-within {
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
-  /* Tady nastavujeme tu naši modrou, kterou chceme */
-  border-color: var(--primary-weak); 
+  border-color: var(--primary-weak);
 }
 
-
-/* Midnight Blue Panel (Obrázkové karty na homepage) */
+/* Midnight Blue Panel (Obrázkové karty) */
 .panel.image {
   background: linear-gradient(145deg, #2B4C7E 0%, #1A365D 100%);
   color: #ffffff;
-  /* Průhledný rámeček (aby karta neposkočila při hoveru) */
-  border: 2px solid transparent; 
+  border: 2px solid transparent; /* Průhledný border pro stabilitu */
 }
 .panel.image h2, .panel.image h3, .panel.image p { color: #ffffff; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
 .panel.image .meta { color: rgba(255, 255, 255, 0.7); }
 .panel.image img { margin-top: 1rem; width: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
 
-/* Hover efekt pro tmavé panely */
+/* Hover Efekt pro Tmavé Panely */
 .panel.image:hover {
   transform: translateY(-5px);
-  border-color: #ffffff; /* Bílý rámeček */
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35); /* Hluboký stín */
+  border-color: #ffffff; /* Bílý border svítí */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
 }
 
 .meta { font-size: 0.9rem; color: var(--muted); margin-top: 0.5rem; }
@@ -312,6 +247,7 @@ legend { font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem; color: var(-
   box-shadow: 0 4px 10px rgba(21, 101, 216, 0.3);
 }
 
+/* Zobrazení obsahu pro vybraný týden */
 .week-content { display: none; }
 .week-picker:has(#week1:checked) .week1-content { display: block; }
 .week-picker:has(#week2:checked) .week2-content { display: block; }
@@ -319,17 +255,18 @@ legend { font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem; color: var(-
 .week-picker:has(#week4:checked) .week4-content { display: block; }
 .week-picker:has(#week5:checked) .week5-content { display: block; }
 
+/* Styly Tabulky */
 .table-container {
     overflow-x: auto; border: 1px solid var(--border);
     border-radius: var(--radius); background: #fff; margin-bottom: 2rem;
     box-shadow: var(--shadow-sm);
 }
-
 table { width: 100%; border-collapse: collapse; min-width: 600px; }
 th, td { border: 1px solid #eee; text-align: center; padding: 0; height: 60px; vertical-align: middle; }
 thead th { background: #f8fafc; color: var(--muted); font-size: 0.85rem; text-transform: uppercase; padding: 1rem; }
 tbody th { background: #fff; font-weight: 700; color: var(--text); padding: 0.5rem; }
 
+/* Volné buňky (Tlačítka) */
 td.free { position: relative; background: #fff; }
 td.free input[type="radio"] {
     position: absolute; opacity: 0; width: 100%; height: 100%;
@@ -345,10 +282,10 @@ td.free:hover label { background: #D9E4FF; }
 td.occupied { background: #fcfcfc; color: #ccc; font-size: 0.9rem; cursor: not-allowed; }
 
 /* =========================================
-   8. PATIČKA
+   8. PATIČKA (GLOBAL FIX)
    ========================================= */
 .site-footer {
-  margin-top: 5rem;
+  margin-top: 5rem; /* Vzduch nad patičkou */
   background: #0B1A33;
   color: #fff;
   padding: 3rem 1rem;
@@ -370,230 +307,67 @@ td.occupied { background: #fcfcfc; color: #ccc; font-size: 0.9rem; cursor: not-a
   /* Layout */
   .wrapper { max-width: 1100px; margin: 0 auto; }
   
-  /* HEADER - VŠE V JEDNOM ŘÁDKU */
+  /* HEADER: Logo vlevo, Menu hned vedle */
   .site-header { padding: 0 2rem; }
-  
   .site-header .wrapper { 
     max-width: 1140px; 
     display: flex; 
+    justify-content: flex-start; /* Zarovnání doleva */
     align-items: center;
-    justify-content: space-between; /* Logo vlevo, menu vpravo */
-    flex-wrap: nowrap; /* Zákaz zalamování */
+    gap: 3rem; /* Odstup menu od loga */
     padding: 0;
   }
+
+  .site-header .brand { flex-shrink: 0; padding: 1rem 0; }
   
-  /* Navigace */
+  /* Navigace na PC */
   .nav-toggle-label, .nav-toggle { display: none; }
   
   .nav-list {
     display: flex !important;
-    flex-direction: row; 
-    gap: 0.5rem; /* Menší mezery, aby se to vešlo */
+    flex-direction: row; gap: 1.5rem;
     background: transparent; border: none; align-items: center;
-    margin-left: auto; /* Tlačí menu doprava */
-    flex-shrink: 0; /* Menu se nesmí smrsknout */
+    margin: 0; padding: 0;
   }
-  
   .nav-list li { border: none; }
-  .nav-list a { padding: 0.5rem 1rem; border-radius: 8px; font-weight: 500; transition: all 0.2s; }
-  .nav-list a:hover { background: var(--surface-2); color: var(--primary); }
+  .nav-list a { 
+    padding: 0.5rem 0; border-radius: 0; 
+    font-weight: 600; color: var(--text); position: relative; 
+  }
+  .nav-list a:hover { background: transparent; color: var(--primary); }
   
-  /* AKTIVNÍ STAV (DESKTOP) - Podtržení nebo zvýraznění */
-  .nav-list a[aria-current="page"] {
-    background: transparent;
-    color: var(--primary);
-    box-shadow: 0 2px 0 0 var(--primary); /* Modré podtržení */
-    border-radius: 0;
+  /* Highlight aktivní stránky (Podtržení) */
+  .nav-list a[aria-current="page"] { color: var(--primary); background: transparent; }
+  .nav-list a[aria-current="page"]::after {
+    content: ""; display: block; width: 100%; height: 3px;
+    background: var(--primary); position: absolute; bottom: -5px; left: 0; border-radius: 2px;
   }
   
   /* Search v menu */
-  .nav-search { padding: 0; background: transparent; margin-left: 1rem; }
-  .site-search input { width: 180px; margin: 0; padding: 0.5rem; }
-  .site-search button { margin: 0; padding: 0.5rem 1rem; }
-
-  /* CENTROVÁNÍ HLAVIČKY NA STRÁNCE REZERVACE (a jiných) */
-main {
-  /* Toto řekne obsahu: "Roztáhni se a zaber všechno volné místo" */
-  flex: 1; 
-  width: 100%; /* Pro jistotu */
-}
-
-  main > header {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 3rem auto;
-  }
-  main > header p {
-    font-size: 1.1rem;
-  }
-
-  /* Grid Layout pro Hero */
-  .hero { gap: 4rem; padding: 3rem 0; }
-  .feature-row {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: stretch;
-  }
-  
-  .cards { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-  .panel.image { justify-content: center; }
-  .panel.image img { align-self: center; margin-top: auto; max-width: 90%; }
-  
-  .detail { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: start; }
-  
-  /* FORMULÁŘ NA PC - CENTROVANÝ */
-  form[aria-labelledby="rezervace-form"] {
-    display: block;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  form fieldset { margin-bottom: 2rem; }
-  .btn-primary, button.primary { width: auto; min-width: 200px; margin-left: auto; margin-right: auto; display: block; }
-  
-  .results-search-form { max-width: 600px; }
-}
-
-/* ======================================================================
-   9. DESKTOP MEDIA QUERIES (> 900px)
-   ====================================================================== */
-@media (min-width: 900px) {
-  
-  /* Layout */
-  .wrapper { max-width: 1100px; margin: 0 auto; }
-  
-  /* --- OPRAVA HLAVIČKY (DVA BLOKY VEDLE SEBE) --- */
-  .site-header {
-    /* Toto udělá z hlavičky kontejner, který dá své děti (logo a menu) vedle sebe */
-    display: flex;
-    justify-content: flex-start; /* Zarovnání vlevo (logo a hned menu) */
-    align-items: center;         /* Svislé centrování */
-    gap: 3rem;                   /* Mezera mezi logem a menu */
-    padding: 0 2rem;
-    max-width: 1140px;
-    margin: 0 auto;
-  }
-  
-  /* Resetujeme wrappery uvnitř, aby se chovaly jako běžné prvky */
-  .site-header .wrapper {
-    width: auto;
-    margin: 0;
-    padding: 0;
-    max-width: none;
-  }
-
-  /* Logo vlevo se nebude smrskávat */
-  .site-header .brand {
-    flex-shrink: 0;
-    padding: 1rem 0; /* Menší padding na PC */
-  }
-  
-  /* Navigace */
-  .nav-toggle-label, .nav-toggle { display: none; }
-  
-  .nav-list {
-    display: flex !important;
-    flex-direction: row; 
-    gap: 1.5rem; /* Rozestupy mezi odkazy */
-    background: transparent; 
-    border: none; 
-    align-items: center;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .nav-list li { border: none; }
-  
-  /* Styl odkazů v menu */
-  .nav-list a { 
-    padding: 0.5rem 0; 
-    border-radius: 0; 
-    font-weight: 600; 
-    color: var(--text);
-    position: relative; /* Pro podtržítko */
-  }
-  
-  .nav-list a:hover { 
-    background: transparent; 
-    color: var(--primary); 
-  }
-
-  /* --- ZVÝRAZNĚNÍ AKTIVNÍ STRÁNKY (HIGHLIGHT) --- */
-  /* V HTML musíš mít u odkazu: aria-current="page" */
-  .nav-list a[aria-current="page"] {
-    color: var(--primary);
-  }
-  
-  /* Efektní podtržítko pro aktivní stránku */
-  .nav-list a[aria-current="page"]::after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 3px;
-    background: var(--primary);
-    position: absolute;
-    bottom: -5px; /* Posunutí pod text */
-    left: 0;
-    border-radius: 2px;
-  }
-
-  /* Search v menu - hned vedle odkazů */
   .nav-search { 
-    padding: 0; 
-    background: transparent; 
-    margin-left: 2rem; /* Odsazení vyhledávání od menu */
-    border-left: 1px solid #eee; /* Jemná oddělovací čára */
-    padding-left: 2rem;
+    padding: 0; background: transparent; 
+    margin-left: 2rem; padding-left: 2rem; border-left: 1px solid #eee; 
   }
-  
-  .site-search input { 
-    width: 200px; 
-    margin: 0; 
-    padding: 0.6rem 1rem; 
-    font-size: 0.9rem;
-    background: #f8fafc;
-  }
-  
-  .site-search button { 
-    margin: 0; 
-    padding: 0.6rem 1.2rem; 
-  }
+  .site-search input { width: 200px; margin: 0; padding: 0.6rem 1rem; font-size: 0.9rem; background: #f8fafc; }
+  .site-search button { margin: 0; padding: 0.6rem 1.2rem; }
 
-  /* 1. OBRÁZKOVÉ PANELY (Tmavé) */
-  .panel.image {
-    display: flex;
-    flex-direction: column;
-    /* ZMĚNA: Místo 'center' dáme 'flex-start'. 
-       Tím zajistíme, že nadpis začne hned nahoře a bude lícovat s vedlejší kartou. */
-    justify-content: flex-start; 
-  }
-
-  .panel.image img {
-    /* Magie: I když text začíná nahoře, obrázek odtlačíme až dolů */
-    margin-top: auto; 
-    align-self: center;
-    max-width: 90%;
-    /* Stín obrázku zůstává */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2); 
-  }
-
-  /* 2. TEXTOVÉ KARTY (Světlé) */
-  .card.text {
-    display: flex;
-    flex-direction: column;
-    /* ZMĚNA: I tady zarovnáme obsah nahoru */
-    justify-content: flex-start;
-    
-    border: 1px solid #eef2f6;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-  }
-
-  /* --- OSTATNÍ DESKTOP ÚPRAVY (ZŮSTÁVAJÍ STEJNÉ) --- */
+  /* Centrování nadpisů */
   main > header { text-align: center; max-width: 700px; margin: 0 auto 3rem auto; }
+  
+  /* GRID LAYOUT A ZAROVNÁNÍ KARET */
   .hero { gap: 4rem; padding: 3rem 0; }
   .feature-row { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: stretch; }
-  .cards { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-  .panel.image { justify-content: center; }
-  .panel.image img { align-self: center; margin-top: auto; max-width: 90%; }
-  .detail { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: start; }
   
+  /* DŮLEŽITÉ: Zarovnání obsahu karet nahoru (aby lícovaly nadpisy) */
+  .panel.image, .card.text { justify-content: flex-start; }
+  
+  /* Obrázek v panelu odtlačíme dolů */
+  .panel.image img { margin-top: auto; align-self: center; max-width: 90%; }
+  
+  .cards { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .detail { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: start; }
+  
+  /* Formulář */
   form[aria-labelledby="rezervace-form"] { display: block; max-width: 700px; margin: 0 auto; }
   .btn-primary, button.primary { width: auto; min-width: 200px; margin-left: auto; margin-right: auto; display: block; }
   .results-search-form { max-width: 600px; }
