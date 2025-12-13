@@ -1,18 +1,44 @@
 /* ======================================================================
-   Klinika cirkadiánní medicíny — MOBILE FIRST FIX
+   KLINIKA CIRKADIÁNNÍ MEDICÍNY — MASTER STYLESHEET
+   Autor: Studentský projekt
+   Struktura:
+   1. Proměnné (Variables)
+   2. Reset & Base
+   3. Header & Navigace (Mobile)
+   4. Komponenty (Tlačítka, Badges, Search)
+   5. Karty & Panely
+   6. Formuláře
+   7. Tabulky & Rezervace (Logic)
+   8. Patička
+   9. Desktop Media Queries (PC verze)
    ====================================================================== */
 
+/* =========================================
+   1. PROMĚNNÉ (VARIABLES)
+   ========================================= */
 :root {
+  /* Barvy */
   --primary: #1565D8;
+  --primary-weak: #4EA1FF;
   --primary-dark: #0d4bb3;
+  
   --bg: #F5F8FF;
   --surface: #FFFFFF;
+  --surface-2: #EEF3FF;
+  
   --text: #0B1A33;
-  --border: #D9E4FF;
   --muted: #6b7c93;
+  --border: #D9E4FF;
+
+  /* Design Tokens */
   --radius: 12px;
+  --shadow-sm: 0 4px 6px rgba(0,0,0,0.03);
+  --shadow-md: 0 8px 16px rgba(21, 101, 216, 0.1);
 }
 
+/* =========================================
+   2. RESET & BASE
+   ========================================= */
 * { box-sizing: border-box; }
 
 body {
@@ -20,19 +46,47 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  padding-bottom: 2rem;
+  line-height: 1.6;
+  padding-bottom: 0; /* Patička to řeší marginem */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-img { max-width: 100%; height: auto; display: block; border-radius: var(--radius); }
-a { color: var(--primary); text-decoration: none; }
-h1, h2, h3 { margin: 1.5rem 0 0.5rem; line-height: 1.2; }
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius);
+}
+
+a { color: var(--primary); text-decoration: none; transition: 0.2s; }
+a:active { opacity: 0.8; }
+
+h1, h2, h3 { margin: 1.5rem 0 0.5rem; line-height: 1.2; color: var(--text); }
 h1 { font-size: 1.8rem; }
-p { margin: 0 0 1rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; margin-top: 0; }
+p { margin: 0 0 1rem; color: #4b5563; }
 
-.wrapper { padding: 0 1rem; max-width: 100%; margin: 0 auto; }
+.wrapper { 
+  padding: 0 1rem; 
+  width: 100%; 
+  margin: 0 auto; 
+}
 
-/* === 1. HEADER & HAMBURGER MENU === */
+/* Klikací logo - reset stylu odkazu */
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: inherit;
+}
+.brand-link:hover { opacity: 0.8; }
+
+/* =========================================
+   3. HEADER & NAVIGACE (MOBILE FIRST)
+   ========================================= */
 .site-header {
   background: #fff;
   border-bottom: 1px solid var(--border);
@@ -49,12 +103,10 @@ p { margin: 0 0 1rem; }
 }
 .brand img { width: 32px; height: 32px; }
 .brand .title { font-weight: bold; color: var(--primary); font-size: 1rem; }
-.brand .title small { display: none; } /* Na mobilu schováme */
 
-/* Checkbox Hack - skrytý input */
+/* Hamburger Menu Logic (Checkbox Hack) */
 .nav-toggle { display: none; }
 
-/* Tlačítko Hamburgeru */
 .nav-toggle-label {
   position: absolute;
   top: 1rem;
@@ -81,9 +133,9 @@ p { margin: 0 0 1rem; }
   transition: 0.3s;
 }
 
-/* Menu seznam - defaultně skrytý */
+/* Mobilní menu - defaultně skryto */
 .nav-list {
-  display: none; /* Skryto */
+  display: none;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -92,8 +144,9 @@ p { margin: 0 0 1rem; }
   flex-direction: column;
 }
 
-.nav-list li { border-bottom: 1px solid var(--bg); }
+#nav-toggle:checked ~ .nav-list { display: flex; }
 
+.nav-list li { border-bottom: 1px solid var(--bg); }
 .nav-list a {
   display: block;
   padding: 1rem;
@@ -101,675 +154,267 @@ p { margin: 0 0 1rem; }
   text-align: center;
   color: var(--text);
 }
-.nav-list a:hover, .nav-list a:focus { background: var(--bg); color: var(--primary); }
-
-/* Když je checkbox zaškrtnutý -> zobraz menu */
-#nav-toggle:checked ~ .nav-list { display: flex; }
+.nav-list a:hover { background: var(--bg); color: var(--primary); }
 
 /* Vyhledávání v menu */
 .nav-search { padding: 1rem; background: var(--bg); }
 .site-search { display: flex; gap: 0.5rem; }
-.site-search input { 
-    flex: 1; padding: 0.75rem; border: 1px solid var(--border); border-radius: 6px; 
+.site-search input { flex: 1; padding: 0.75rem; border: 1px solid var(--border); border-radius: 6px; }
+.site-search button { padding: 0 1rem; background: var(--primary); color: #fff; border: none; border-radius: 6px; font-weight: bold; }
+
+/* =========================================
+   4. KOMPONENTY (UI)
+   ========================================= */
+/* Tlačítka */
+.btn-primary, button.primary {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  background: var(--primary);
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background 0.2s;
 }
-.site-search button {
-    padding: 0 1rem; background: var(--primary); color: #fff; border: none; border-radius: 6px; font-weight: bold;
+.btn-primary:hover, button.primary:hover { background: var(--primary-dark); }
+
+/* Badges (Štítky) */
+.badge {
+  display: inline-flex;
+  align-self: flex-start;
+  margin-top: auto;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  background: #F0F7FF;
+  color: #1565D8;
+  border: 1px solid #D9E4FF;
 }
 
-/* === 2. OBSAH & KARTY === */
+.badge.ok {
+  background: #ECFDF5;
+  color: #047857;
+  border-color: #A7F3D0;
+}
+
+/* Velký vyhledávací řádek (stránka Výsledky) */
+.results-search-form {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  background: var(--surface-2);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+.results-search-form input { margin-bottom: 0; background: #fff; flex: 1; }
+.results-search-form button { margin-top: 0; width: auto; box-shadow: 0 2px 5px rgba(21, 101, 216, 0.3); }
+
+/* =========================================
+   5. KARTY & PANELY
+   ========================================= */
 .hero { display: flex; flex-direction: column; gap: 1.5rem; padding: 1.5rem 0; }
 .feature-row { display: flex; flex-direction: column; gap: 1rem; }
+.cards { display: grid; gap: 1rem; grid-template-columns: 1fr; }
 
 .card, .panel {
   background: #fff;
-  border: 1px solid var(--border);
+  border: 1px solid #eef2f6;
   border-radius: var(--radius);
   padding: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.panel.image { background: #fffcf0; border-color: #ffeeba; }
-.panel.image img { margin-top: 1rem; width: 100%; }
+/* Interaktivní karty */
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-weak);
+}
+.card h3 a::before { content: ""; position: absolute; inset: 0; } /* Klikací celá karta */
 
-.cards { display: grid; gap: 1rem; grid-template-columns: 1fr; }
-
-/* Tlačítka */
-.btn-primary, button.primary {
-  display: block; width: 100%;
-  text-align: center;
-  background: var(--primary);
-  color: #fff;
-  padding: 0.8rem;
-  border-radius: 50px;
-  font-weight: bold;
-  margin-top: 1rem;
+/* Midnight Blue Panel (Obrázkové karty) */
+.panel.image {
+  background: linear-gradient(145deg, #2B4C7E 0%, #1A365D 100%);
+  color: #ffffff;
   border: none;
 }
-.badge {
-    display: inline-block; padding: 0.25rem 0.75rem; background: #eef2ff; 
-    color: var(--primary); border-radius: 50px; font-size: 0.85rem; font-weight: bold;
-}
+.panel.image h2, .panel.image h3, .panel.image p { color: #ffffff; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
+.panel.image .meta { color: rgba(255, 255, 255, 0.7); }
+.panel.image img { margin-top: 1rem; width: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
 
-/* === 3. TABULKY A REZERVACE (OPRAVA) === */
-/* Tabulka musí scrollovat */
-.week-content, .table-container {
-    overflow-x: auto;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    margin-bottom: 1.5rem;
-}
+/* Pomocné */
+.meta { font-size: 0.9rem; color: var(--muted); margin-top: 0.5rem; }
+.cluster { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+.mt-4 { margin-top: 1.5rem; }
 
-table { width: 100%; border-collapse: collapse; white-space: nowrap; }
-th, td { padding: 1rem; text-align: center; border: 1px solid var(--border); }
-thead th { background: #f9fafb; color: var(--muted); font-size: 0.85rem; text-transform: uppercase; }
-
-/* OPRAVA RADIO BUTTONU: Skryjeme ten ošklivý kroužek a necháme jen Label */
-td.free { padding: 0; height: 100%; } /* Reset paddingu pro buňku */
-
-td.free input[type="radio"] {
-    position: absolute;
-    width: 0; height: 0; opacity: 0; /* Úplně neviditelný */
-}
-
-td.free label {
-    display: block;
-    padding: 0.75rem 1rem;
-    color: var(--primary);
-    font-weight: bold;
-    cursor: pointer;
-    background: #eef6ff;
-    border-radius: 4px;
-    margin: 4px; /* Odsazení od okrajů buňky */
-}
-
-/* Když je vybráno */
-td.free input[type="radio"]:checked + label {
-    background: var(--primary);
-    color: #fff;
-    box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--primary);
-}
-
-td.occupied { color: #999; background: #f5f5f5; font-size: 0.9rem; }
-td.closed { background: #eee; color: #aaa; }
-
-/* Přepínač týdnů */
-.week-picker { margin-top: 1rem; }
-.week-switch { display: flex; overflow-x: auto; gap: 0.5rem; padding-bottom: 1rem; }
-.week-switch label {
-    padding: 0.5rem 1rem; background: #fff; border: 1px solid var(--border); border-radius: 50px; white-space: nowrap;
-}
-.week-radio:checked + label { background: var(--text); color: #fff; border-color: var(--text); }
-.week-radio { display: none; }
-.week-content { display: none; }
-.week-picker:has(#week1:checked) .week1-content { display: block; }
-.week-picker:has(#week2:checked) .week2-content { display: block; }
-.week-picker:has(#week3:checked) .week3-content { display: block; }
-
-/* Formuláře */
+/* =========================================
+   6. FORMULÁŘE
+   ========================================= */
 form label { font-weight: 600; display: block; margin-bottom: 0.5rem; }
 input, select, textarea { 
     width: 100%; padding: 0.8rem; margin-bottom: 1rem; 
-    border: 1px solid var(--border); border-radius: 8px; 
+    border: 1px solid var(--border); border-radius: 8px; font-size: 1rem;
 }
+fieldset { border: none; padding: 0; margin: 0 0 2rem 0; }
+legend { font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem; color: var(--primary); }
 
-/* === 4. ZJEDNODUŠENÁ PATIČKA === */
-/* === 4. OPRAVENÁ PATIČKA (Dark Mode) === */
-.site-footer {
-  margin-top: 4rem;             /* Odstup od obsahu */
-  background: #0B1A33;          /* Tmavě modrá (skoro černá) */
-  color: rgba(255, 255, 255, 0.8); /* Světle šedý text */
-  padding: 3rem 1rem;
-  text-align: center;
-  border-top: none;             /* Linku už nepotřebujeme, barva stačí */
-}
-
-.footer-grid {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.footer-grid h3 {
-  color: #fff;                  /* Nadpis čistě bílý */
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
-  margin-top: 0;
-}
-
-.footer-grid p {
-  margin: 0;
-  font-size: 0.9rem;
-}
-
-.footer-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.footer-grid h3 { color: var(--primary); font-size: 1.2rem; margin-bottom: 0.5rem; }
-.site-footer ul { list-style: none; padding: 0; }
-.site-footer li { margin: 0.5rem 0; }
-.site-footer a { color: var(--text); text-decoration: underline; }
-
-/* Zjednodušení otevírací doby v patičce */
-.site-footer table { margin: 0 auto; width: auto; font-size: 0.9rem; border: none; }
-.site-footer th, .site-footer td { border: none; padding: 0.25rem 0.5rem; text-align: left; background: transparent; }
-
-.footer-note {
-    background: #f0f0f0; padding: 1rem; border-radius: 8px; font-size: 0.8rem; color: #666;
-}
-
-.legal { margin-top: 2rem; color: #999; font-size: 0.8rem; }
-
-
-/* === CSS PRO POSUVNÉ TÝDNY === */
-
+/* =========================================
+   7. TABULKY & REZERVACE (FIXED)
+   ========================================= */
 /* Kontejner pro scrollování týdnů */
 .week-scroller {
   display: flex;
-  overflow-x: auto; /* Dovolí posouvání do boku */
+  overflow-x: auto;
   gap: 0.5rem;
   padding-bottom: 1rem;
   margin-bottom: 1rem;
-  scrollbar-width: thin; /* Tenčí scrollbar pro moderní prohlížeče */
 }
-
-/* Položka týdne (obal inputu a labelu) */
-.week-item {
-  flex: 0 0 auto; /* Položky se nezmenšují */
-}
-
-/* Skryjeme radio button */
+.week-item { flex: 0 0 auto; }
 .week-radio { display: none; }
-
-/* Styl tlačítka týdne */
 .week-item label {
-  display: block;
-  padding: 0.75rem 1.25rem;
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  font-weight: 600;
-  color: var(--text);
-  white-space: nowrap;
-  cursor: pointer;
-  transition: all 0.2s;
+  display: block; padding: 0.75rem 1.25rem;
+  background: #fff; border: 1px solid var(--border);
+  border-radius: 8px; font-weight: 600; white-space: nowrap; cursor: pointer;
 }
-
-/* Aktivní týden (vybraný) */
 .week-radio:checked + label {
-  background: var(--primary);
-  color: #fff;
-  border-color: var(--primary);
+  background: var(--primary); color: #fff; border-color: var(--primary);
   box-shadow: 0 4px 10px rgba(21, 101, 216, 0.3);
 }
 
-/* Zobrazení obsahu na základě výběru */
-.week-content { display: none; } /* Vše skryto */
-
-/* Magie CSS :has() - zobrazí obsah podle toho, co je zaškrtnuté */
+/* Zobrazení obsahu týdnů */
+.week-content { display: none; }
 .week-picker:has(#week1:checked) .week1-content { display: block; }
 .week-picker:has(#week2:checked) .week2-content { display: block; }
 .week-picker:has(#week3:checked) .week3-content { display: block; }
 .week-picker:has(#week4:checked) .week4-content { display: block; }
 .week-picker:has(#week5:checked) .week5-content { display: block; }
 
-
-/* Klikací logo */
-.brand-link {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  text-decoration: none;
-  color: inherit; /* Převezme barvu nadřazeného prvku */
-}
-.brand-link:hover {
-  opacity: 0.8; /* Jemný efekt při najetí */
-}
-
-/* === Vyhledávací lišta ve výsledcích === */
-.results-search-form {
-  display: flex;
-  gap: 0.5rem;
-  margin-top: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.results-search-form input {
-  margin-bottom: 0; /* Zrušíme spodní mezeru, aby lícoval s tlačítkem */
-  flex: 1; /* Roztáhne se na maximum */
-}
-
-.results-search-form button {
-  margin-top: 0; /* Zrušíme horní mezeru */
-  width: auto;   /* Tlačítko bude jen tak široké, jak potřebuje */
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-
-
-/* ======================================================================
-   DESKTOP STYLY (Media Queries)
-   Aplikují se pouze pokud je okno širší než 900px
-   ====================================================================== */
-
-@media (min-width: 900px) {
-
-  /* 1. LAYOUT & WRAPPER */
-  .wrapper {
-    max-width: 1100px; /* Omezíme maximální šířku, aby se web neroztáhl do nekonečna */
-    margin: 0 auto;
-  }
-
-  /* 2. HLAVIČKA A NAVIGACE */
-  .site-header {
-    display: flex;
-    justify-content: space-between; /* Logo vlevo, menu vpravo */
-    align-items: center;
-    padding: 0 2rem;
-    max-width: 1140px; /* Aby lícovala s obsahem */
-    margin: 0 auto;
-    border-bottom: 1px solid var(--border); /* Linka je teď přímo pod obsahem */
-    /* Na desktopu nepotřebujeme sticky header přes celou šířku, nebo ho můžeme nechat */
-  }
-
-  /* Reset wrapperů uvnitř hlavičky, aby byly vedle sebe */
-  .site-header .wrapper {
-    width: auto;
-    margin: 0;
-    padding: 0;
-  }
-
-  /* Schováme hamburger tlačítko */
-  .nav-toggle-label { display: none; }
-  .nav-toggle { display: none; }
-
-  /* Zobrazíme menu jako řádek */
-  .nav-list {
-    display: flex !important; /* Přepíšeme display: none z mobilu */
-    flex-direction: row;
-    gap: 1rem;
-    background: transparent;
-    border: none;
-    align-items: center;
-  }
-
-  .nav-list li { border: none; }
-  
-  /* Odkazy v menu */
-  .nav-list a {
-    padding: 0.5rem 1rem;
-    border-radius: var(--radius);
-    font-weight: 500;
-  }
-  .nav-list a:hover { background: var(--surface-2); }
-  
-  /* Tlačítko hledat v menu uděláme kompaktní */
-  .nav-search { padding: 0; background: transparent; }
-  .site-search input { width: 200px; padding: 0.5rem; margin: 0; }
-  .site-search button { padding: 0.5rem 1rem; margin: 0; }
-
-
-  /* 3. HERO SEKCE & FEATURE ROWS (Obrázek vedle textu) */
-  .hero { gap: 4rem; padding: 3rem 0; }
-
-  .feature-row {
-    flex-direction: row; /* Vedle sebe */
-    align-items: center; /* Zarovnat na střed svisle */
-    gap: 3rem;
-  }
-
-  /* Pokud chceme prohodit pořadí (obrázek vlevo) */
-  .feature-row.reverse {
-    flex-direction: row-reverse;
-  }
-
-  /* Položky zaberou půlku šířky */
-  .feature-row > article {
-    flex: 1;
-  }
-  
-  /* Karty (Vstupy, Seznam) - 3 vedle sebe */
-  .cards {
-    grid-template-columns: repeat(3, 1fr); /* 3 sloupce */
-    gap: 2rem;
-  }
-
-
-  /* 4. DETAIL STRÁNKY (Sidebar vpravo) */
-  .detail {
-    display: grid;
-    grid-template-columns: 2fr 1fr; /* Obsah 2/3, Panel 1/3 */
-    gap: 3rem;
-    align-items: start;
-  }
-  
-  /* Tabulky na desktopu nemusí scrollovat, pokud se vejdou */
-  .table-container {
-    overflow-x: visible; 
-  }
-
-
-  /* 5. REZERVACE (Formulář do dvou sloupců) */
-  form[aria-labelledby="rezervace-form"] {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-  }
-  
-  /* Kalendář (fieldset s termínem) a Kontakt roztáhneme přes oba sloupce,
-     nebo necháme Službu vlevo a Kontakt vpravo? 
-     Uděláme to jednodušeji: Služba a Kontakt vedle sebe, Kalendář pod nimi. */
-     
-  form fieldset:nth-of-type(1) { grid-column: 1 / 2; } /* Služba vlevo */
-  form fieldset:nth-of-type(3) { grid-column: 2 / 3; } /* Kontakt vpravo */
-  form fieldset:nth-of-type(2) { grid-column: 1 / -1; } /* Kalendář přes celou šířku */
-
-
-  /* 6. PATIČKA */
-  .site-footer {
-    text-align: left;
-    padding: 3rem 0;
-  }
-  .footer-grid {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-}
-
-
-/* ======================================================================
-   FIX VZHLEDU: Vyhledávání a Karty (Visual Polish)
-   ====================================================================== */
-
-/* 1. Vylepšení vyhledávacího řádku */
-.results-search-form {
-  display: flex;
-  gap: 0.5rem;
-  margin: 1.5rem 0;
-  padding: 1.5rem;
-  background: var(--surface-2); /* Světle modré pozadí */
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-}
-
-.results-search-form input {
-  margin-bottom: 0;
-  background: #fff;
-  border: 1px solid #cdd7e1;
-  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.results-search-form button {
-  margin-top: 0;
-  white-space: nowrap; /* Aby se text nezalomil */
-  padding-left: 2rem;
-  padding-right: 2rem;
-  box-shadow: 0 2px 5px rgba(21, 101, 216, 0.3);
-}
-
-/* 2. Vylepšení Karet (aby nebyly prázdné) */
-.card {
-  display: flex;
-  flex-direction: column;
-  height: 100%; /* Aby byly stejně vysoké v řádku */
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  position: relative; /* Pro pozicování badge */
-  border-color: #eef2f6;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-}
-
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 16px rgba(21, 101, 216, 0.1);
-  border-color: var(--primary-weak);
-}
-
-.card h3 {
-  margin-top: 0;
-  font-size: 1.25rem;
-}
-.card h3 a {
-  text-decoration: none;
-}
-.card h3 a::before {
-  /* Klikací celá karta (trik) */
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-}
-
-.card p {
-  color: #4b5563;
-  flex-grow: 1; /* Roztáhne text, aby tlačítko/badge bylo dole */
-  margin-bottom: 1.5rem;
-}
-
-/* Štítky (Vyšetření/Terapie) zarovnané dolů */
-.card .badge {
-  align-self: flex-start;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  background: #e0f2fe;
-  color: #0369a1;
-  padding: 0.35rem 0.75rem;
-}
-
-/* 3. Oprava Desktop zobrazení (aby nebyly roztažené) */
-@media (min-width: 900px) {
-  .cards {
-    /* Grid definujeme tak, aby se karty neroztahovaly do nekonečna */
-    /* Minimálně 300px, maximálně 1fr (podíl). Pokud je málo karet, nebudou přes celou šířku. */
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
-    gap: 2rem;
-  }
-  
-  /* Pokud jsou jen 2 výsledky, nechceme aby byly obří. 
-     Toto pravidlo je omezí na rozumnou šířku. */
-  section[aria-label="Výsledky"] {
-    max-width: 100%;
-  }
-  
-  /* Vyhledávací box na desktopu */
-  .results-search-form {
-    max-width: 600px; /* Aby nebyl přes celou šířku */
-  }
-}
-
-/* ======================================================================
-   FINAL POLISH: "Midnight Blue" téma & Grid Layout
-   ====================================================================== */
-
-/* 1. Změna "Béžové" na "Noční Modrou" (funguje na mobilu i PC) */
-.panel.image {
-  /* Elegantní tmavší modrá, ale ne černá (Slate Blue / Navy) */
-  background: #2B4C7E; 
-  color: #ffffff; /* Bílý text pro kontrast */
-  border: none;   /* Rámeček už není potřeba, barva drží tvar */
-  
-  /* Jemný přechod pro modernější look (volitelné, vypadá to "dražší") */
-  background: linear-gradient(145deg, #2B4C7E 0%, #1A365D 100%);
-}
-
-/* Nadpisy a odkazy uvnitř modrého panelu musí být světlé */
-.panel.image h2, 
-.panel.image h3,
-.panel.image p {
-  color: #ffffff;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.2); /* Lepší čitelnost */
-}
-
-.panel.image .meta {
-  color: rgba(255, 255, 255, 0.7); /* Jemně šedá pro doplňkové info */
-}
-
-/* 2. Oprava Desktop Layoutu (Zarovnání výšek) */
-@media (min-width: 900px) {
-  
-  /* Použijeme Grid místo Flexboxu = zaručí stejně vysoké sloupce */
-  .feature-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Dva stejně široké sloupce */
-    gap: 3rem;
-    align-items: stretch; /* Roztáhne karty na stejnou výšku */
-  }
-
-  /* Obrázky uvnitř panelu se přizpůsobí, aby vyplnily místo */
-  .panel.image {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Obsah vertikálně na střed */
-  }
-
-  .panel.image img {
-    margin-top: auto; /* Obrázek se zarovná dolů, pokud je místo */
-    align-self: center;
-    max-width: 90%;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Stín pod obrázkem, aby "vylezl" */
-  }
-
-  /* Textové karty vedle obrázků - čistší vzhled */
-  .card.text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border: 1px solid #eef2f6;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.03); /* Velmi jemný stín */
-  }
-}
-
-/* Opravený Badge (Štítek) */
-.badge {
-  display: inline-flex;       /* Aby se velikost přizpůsobila textu */
-  align-self: flex-start;     /* Zarovnání vlevo v rámci Flexboxu */
-  margin-top: auto;           /* Tlačí se dolů, pokud je v kartě místo */
-  
-  font-size: 0.75rem;         /* Menší, decentní písmo */
-  font-weight: 700;           /* Tučné */
-  text-transform: uppercase;  /* Velká písmena */
-  letter-spacing: 0.05em;     /* Mírné rozestupy znaků */
-  
-  padding: 0.5rem 1rem;       /* Vnitřní odsazení */
-  border-radius: 50px;        /* Tvar pilulky */
-  
-  background: #F0F7FF;        /* Velmi světle modrá */
-  color: #1565D8;             /* Tmavě modrý text */
-  border: 1px solid #D9E4FF;  /* Jemný rámeček pro definici tvaru */
-}
-
-/* Varianta OK (např. pro otevřený program) */
-.badge.ok {
-  background: #ECFDF5;        /* Světle zelenkavá */
-  color: #047857;             /* Tmavší zelená */
-  border-color: #A7F3D0;
-}
-
-/* === FIX TABULKY REZERVACÍ === */
-
+/* Tabulka samotná */
 .table-container {
     overflow-x: auto;
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    margin-bottom: 1.5rem;
     background: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-sm);
 }
 
-table { 
-    width: 100%; 
-    border-collapse: collapse; 
-    min-width: 500px; /* Aby se na mobilu dalo scrollovat */
-}
+table { width: 100%; border-collapse: collapse; min-width: 600px; }
+th, td { border: 1px solid #eee; text-align: center; padding: 0; height: 60px; vertical-align: middle; }
 
-th, td {
-    padding: 0; /* Padding řešíme uvnitř pro větší klikací plochu */
-    text-align: center;
-    border: 1px solid #eee;
-    height: 3.5rem; /* Fixní výška řádku */
-    vertical-align: middle;
-}
+thead th { background: #f8fafc; color: var(--muted); font-size: 0.85rem; text-transform: uppercase; padding: 1rem; }
+tbody th { background: #fff; font-weight: 700; color: var(--text); padding: 0.5rem; }
 
-thead th {
-    padding: 1rem;
-    background: #f8fafc;
-    color: var(--muted);
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 600;
-}
+/* --- BUŇKA VOLNO (Klikací Tlačítko) --- */
+td.free { position: relative; background: #fff; }
 
-/* První sloupec (Časy) */
-tbody th {
-    padding: 0.5rem;
-    background: #fff;
-    color: var(--text);
-    font-weight: 700;
-}
-
-/* --- BUŇKA VOLNO (Interaktivní) --- */
-td.free {
-    background: #fff;
-    position: relative; /* Nutné pro absolutní pozici inputu */
-}
-
-/* 1. Absolutní skrytí radio buttonu (to kolečko musí pryč!) */
+/* Skrytí radio buttonu */
 td.free input[type="radio"] {
-    position: absolute;
-    opacity: 0;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    margin: 0;
-    cursor: pointer;
-    z-index: 2; /* Musí být nad labelem, aby šlo kliknout */
+    position: absolute; opacity: 0; width: 100%; height: 100%;
+    top: 0; left: 0; margin: 0; cursor: pointer; z-index: 2;
 }
-
-/* 2. Label vypadá jako tlačítko */
+/* Label jako tlačítko */
 td.free label {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    font-weight: 700;
-    color: var(--primary);
-    background: #F0F7FF; /* Světle modrá */
-    transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center;
+    width: 100%; height: 100%; color: var(--primary); font-weight: 700;
+    background: #F0F7FF; transition: all 0.2s;
 }
+/* Aktivní stav */
+td.free input:checked + label { background: var(--primary); color: #fff; box-shadow: inset 0 2px 4px rgba(0,0,0,0.2); }
+td.free:hover label { background: #D9E4FF; }
 
-/* 3. Stav: Zaškrtnuto (Checked) */
-/* Využíváme selektor: input je zaškrtnutý -> ovlivni sousední label */
-td.free input[type="radio"]:checked + label {
-    background: var(--primary);
-    color: #fff;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+/* --- BUŇKA OBSAZENO --- */
+td.occupied { background: #fcfcfc; color: #ccc; font-size: 0.9rem; cursor: not-allowed; }
+
+/* =========================================
+   8. PATIČKA (DARK MODE)
+   ========================================= */
+.site-footer {
+  margin-top: auto;
+  background: #0B1A33;
+  color: #fff;
+  padding: 3rem 1rem;
+  text-align: center;
 }
-
-/* 4. Stav: Hover (Najetí myší) */
-td.free:hover label {
-    background: #D9E4FF;
+.footer-grid {
+  max-width: 800px; margin: 0 auto;
+  display: flex; flex-direction: column; gap: 1rem;
+  justify-content: center; align-items: center;
 }
+.footer-grid h3 { color: #fff; margin: 0; font-size: 1.2rem; }
+.footer-grid p { color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; margin: 0; }
 
-/* --- BUŇKA OBSAZENO (Neaktivní) --- */
-td.occupied {
-    background: #f9f9f9;
-    color: #cbd5e1; /* Velmi světle šedá */
-    font-size: 0.9rem;
-    cursor: not-allowed;
-    user-select: none; /* Nejde označit text */
-}
+/* =========================================
+   9. DESKTOP MEDIA QUERIES (> 900px)
+   ========================================= */
+@media (min-width: 900px) {
+  
+  /* Layout */
+  .wrapper { max-width: 1100px; margin: 0 auto; }
+  
+  /* Header */
+  .site-header { padding: 0 2rem; }
+  .site-header .wrapper { max-width: 1140px; display: flex; justify-content: space-between; align-items: center; padding: 0; }
+  
+  /* Navigace */
+  .nav-toggle-label, .nav-toggle { display: none; }
+  .nav-list {
+    display: flex !important;
+    flex-direction: row; gap: 1rem;
+    background: transparent; border: none; align-items: center;
+  }
+  .nav-list li { border: none; }
+  .nav-list a { padding: 0.5rem 1rem; border-radius: var(--radius); }
+  .nav-list a:hover { background: var(--surface-2); }
+  
+  /* Search v menu */
+  .nav-search { padding: 0; background: transparent; }
+  .site-search input { width: 200px; margin: 0; padding: 0.5rem; }
+  .site-search button { margin: 0; padding: 0.5rem 1rem; }
 
-/* Zavřeno (X) */
-td.closed {
-    background: #f1f5f9;
-    color: #e2e8f0;
+  /* Grid Layout pro Hero Sekci */
+  .hero { gap: 4rem; padding: 3rem 0; }
+  .feature-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dva sloupce */
+    gap: 3rem;
+    align-items: stretch; /* Stejná výška */
+  }
+  
+  .feature-row.reverse { /* Prohození není v gridu nutné, stačí HTML pořadí, ale pro jistotu */ }
+  
+  /* Karty - 3 sloupce */
+  .cards { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  
+  /* Specifické úpravy karet */
+  .panel.image { justify-content: center; }
+  .panel.image img { align-self: center; margin-top: auto; max-width: 90%; }
+  
+  /* Detail stránky */
+  .detail { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: start; }
+  
+  /* FIX FORMULÁŘE NA PC - CENTROVANÝ */
+  form[aria-labelledby="rezervace-form"] {
+    display: block;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  form fieldset { margin-bottom: 2rem; }
+  
+  /* Tlačítko omezíme šířku */
+  .btn-primary, button.primary { width: auto; min-width: 200px; margin-left: auto; margin-right: auto; display: block; }
+
+  /* Vyhledávání na PC */
+  .results-search-form { max-width: 600px; }
 }
