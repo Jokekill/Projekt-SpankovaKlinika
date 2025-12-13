@@ -218,56 +218,66 @@ p { margin: 0 0 1rem; color: #4b5563; }
 /* =========================================
    5. KARTY & PANELY
    ========================================= */
+/* =========================================
+   5. KARTY & PANELY (FIXED FOCUS)
+   ========================================= */
 .hero { display: flex; flex-direction: column; gap: 1.5rem; padding: 1.5rem 0; }
 .feature-row { display: flex; flex-direction: column; gap: 1rem; }
 .cards { display: grid; gap: 1rem; grid-template-columns: 1fr; }
 
 .card, .panel {
   background: #fff;
-  border: 1px solid #eef2f6;
+  /* Výchozí rámeček je velmi jemný šedý */
+  border: 1px solid #eef2f6; 
   border-radius: var(--radius);
   padding: 1.5rem;
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  position: relative;
 }
 
-.card:hover {
+/* Klikací trik (odkaz přes celou kartu) */
+.card h3 a::before { 
+  content: ""; 
+  position: absolute; 
+  inset: 0; 
+  z-index: 1;
+}
+
+/* Zrušení výchozího modrého obrysu prohlížeče při kliknutí */
+.card h3 a:focus { outline: none; }
+
+/* HOVER & FOCUS STAV (Sjednocený)
+   Když na kartu najedeš myší NEBO když na ni klikneš (focus-within),
+   bude vypadat stejně hezky. */
+.card:hover,
+.card:focus-within {
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
-  border-color: var(--primary-weak);
+  /* Tady nastavujeme tu naši modrou, kterou chceme */
+  border-color: var(--primary-weak); 
 }
-.card h3 a::before { content: ""; position: absolute; inset: 0; } 
 
-/* Midnight Blue Panel */
-/* Midnight Blue Panel (Obrázkové karty) */
+
+/* Midnight Blue Panel (Obrázkové karty na homepage) */
 .panel.image {
   background: linear-gradient(145deg, #2B4C7E 0%, #1A365D 100%);
   color: #ffffff;
-  
-  /* ZMĚNA: Rezervujeme místo pro tlustší rámeček (2px), aby se karta při najetí "necukala" */
+  /* Průhledný rámeček (aby karta neposkočila při hoveru) */
   border: 2px solid transparent; 
-  
-  /* Přidáme přechod i pro border, aby se barva měnila plynule */
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-}
-
-/* NOVÉ: Hover efekt specificky pro tmavé panely */
-.panel.image:hover {
-  /* Zvedneme kartu trochu víc (z -3px na -5px) */
-  transform: translateY(-5px); 
-  
-  /* 1. Rámeček: Čistě bílý a 2px tlustý (viz definice výše) */
-  border-color: #ffffff; 
-
-  /* 2. Stín: Mnohem větší a tmavší, aby bílý rámeček svítil */
-  /* (posun x, posun y, rozmazání, barva - tmavá průhledná) */
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
 }
 .panel.image h2, .panel.image h3, .panel.image p { color: #ffffff; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
 .panel.image .meta { color: rgba(255, 255, 255, 0.7); }
 .panel.image img { margin-top: 1rem; width: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+
+/* Hover efekt pro tmavé panely */
+.panel.image:hover {
+  transform: translateY(-5px);
+  border-color: #ffffff; /* Bílý rámeček */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35); /* Hluboký stín */
+}
 
 .meta { font-size: 0.9rem; color: var(--muted); margin-top: 0.5rem; }
 .cluster { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
