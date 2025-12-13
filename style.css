@@ -307,3 +307,23 @@ input, select, textarea {
 .brand-link:hover {
   opacity: 0.8; /* Jemný efekt při najetí */
 }
+
+/* === Vyhledávací lišta ve výsledcích === */
+.results-search-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.results-search-form input {
+  margin-bottom: 0; /* Zrušíme spodní mezeru, aby lícoval s tlačítkem */
+  flex: 1; /* Roztáhne se na maximum */
+}
+
+.results-search-form button {
+  margin-top: 0; /* Zrušíme horní mezeru */
+  width: auto;   /* Tlačítko bude jen tak široké, jak potřebuje */
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}

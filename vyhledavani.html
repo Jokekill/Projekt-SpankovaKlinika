@@ -48,23 +48,30 @@
   </header>
   <main id="obsah" class="wrapper">
 
-  <header>
-    <h1>Výsledky vyhledávání</h1>
-    <p class="meta">Ukázková stránka — výsledky se zobrazují pro zadané dotazy (např. „melatonin“).</p>
-  </header>
+    <header>
+      <h1>Výsledky vyhledávání</h1>
+      
+      <form class="results-search-form" role="search" action="vyhledavani.html">
+        <input name="q" type="search" value="melatonin" aria-label="Hledaný výraz" />
+        <button type="submit" class="primary">Hledat</button>
+      </form>
 
-  <section class="cards" aria-label="Výsledky">
-    <article class="card">
-      <h3><a href="detail.html#dlmo">DLMO & melatonin</a></h3>
-      <p>Vyšetření pro odhad cirkadiánní fáze pomocí melatoninu.</p>
-      <p class="meta">Nalezeno pro dotaz: „melatonin“</p>
-    </article>
-    <article class="card">
-      <h3><a href="detail.html#svetelna-terapie">Světelná terapie</a></h3>
-      <p>Ranní/večerní světlo — personalizovaný protokol.</p>
-      <p class="meta">Nalezeno pro dotaz: „světlo“</p>
-    </article>
-  </section>
+      <p class="meta">Nalezeno 2 výsledků pro dotaz: „melatonin“</p>
+    </header>
+
+    <section class="cards" aria-label="Výsledky">
+      <article class="card">
+        <h3><a href="detail.html#dlmo">DLMO & melatonin</a></h3>
+        <p>Vyšetření pro odhad cirkadiánní fáze pomocí melatoninu.</p>
+        <span class="badge">Vyšetření</span>
+      </article>
+      <article class="card">
+        <h3><a href="detail.html#svetelna-terapie">Světelná terapie</a></h3>
+        <p>Ranní/večerní světlo — personalizovaný protokol.</p>
+        <span class="badge">Terapie</span>
+      </article>
+    </section>
+
   </main>
   <div class="wrapper"><footer class="site-footer">
       <div class="footer-grid">
