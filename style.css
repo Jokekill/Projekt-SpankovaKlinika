@@ -413,3 +413,122 @@ td.occupied { background: #fcfcfc; color: #ccc; font-size: 0.9rem; cursor: not-a
   
   .results-search-form { max-width: 600px; }
 }
+
+/* ======================================================================
+   9. DESKTOP MEDIA QUERIES (> 900px)
+   ====================================================================== */
+@media (min-width: 900px) {
+  
+  /* Layout */
+  .wrapper { max-width: 1100px; margin: 0 auto; }
+  
+  /* --- OPRAVA HLAVIČKY (DVA BLOKY VEDLE SEBE) --- */
+  .site-header {
+    /* Toto udělá z hlavičky kontejner, který dá své děti (logo a menu) vedle sebe */
+    display: flex;
+    justify-content: flex-start; /* Zarovnání vlevo (logo a hned menu) */
+    align-items: center;         /* Svislé centrování */
+    gap: 3rem;                   /* Mezera mezi logem a menu */
+    padding: 0 2rem;
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+  
+  /* Resetujeme wrappery uvnitř, aby se chovaly jako běžné prvky */
+  .site-header .wrapper {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    max-width: none;
+  }
+
+  /* Logo vlevo se nebude smrskávat */
+  .site-header .brand {
+    flex-shrink: 0;
+    padding: 1rem 0; /* Menší padding na PC */
+  }
+  
+  /* Navigace */
+  .nav-toggle-label, .nav-toggle { display: none; }
+  
+  .nav-list {
+    display: flex !important;
+    flex-direction: row; 
+    gap: 1.5rem; /* Rozestupy mezi odkazy */
+    background: transparent; 
+    border: none; 
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-list li { border: none; }
+  
+  /* Styl odkazů v menu */
+  .nav-list a { 
+    padding: 0.5rem 0; 
+    border-radius: 0; 
+    font-weight: 600; 
+    color: var(--text);
+    position: relative; /* Pro podtržítko */
+  }
+  
+  .nav-list a:hover { 
+    background: transparent; 
+    color: var(--primary); 
+  }
+
+  /* --- ZVÝRAZNĚNÍ AKTIVNÍ STRÁNKY (HIGHLIGHT) --- */
+  /* V HTML musíš mít u odkazu: aria-current="page" */
+  .nav-list a[aria-current="page"] {
+    color: var(--primary);
+  }
+  
+  /* Efektní podtržítko pro aktivní stránku */
+  .nav-list a[aria-current="page"]::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: var(--primary);
+    position: absolute;
+    bottom: -5px; /* Posunutí pod text */
+    left: 0;
+    border-radius: 2px;
+  }
+
+  /* Search v menu - hned vedle odkazů */
+  .nav-search { 
+    padding: 0; 
+    background: transparent; 
+    margin-left: 2rem; /* Odsazení vyhledávání od menu */
+    border-left: 1px solid #eee; /* Jemná oddělovací čára */
+    padding-left: 2rem;
+  }
+  
+  .site-search input { 
+    width: 200px; 
+    margin: 0; 
+    padding: 0.6rem 1rem; 
+    font-size: 0.9rem;
+    background: #f8fafc;
+  }
+  
+  .site-search button { 
+    margin: 0; 
+    padding: 0.6rem 1.2rem; 
+  }
+
+  /* --- OSTATNÍ DESKTOP ÚPRAVY (ZŮSTÁVAJÍ STEJNÉ) --- */
+  main > header { text-align: center; max-width: 700px; margin: 0 auto 3rem auto; }
+  .hero { gap: 4rem; padding: 3rem 0; }
+  .feature-row { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: stretch; }
+  .cards { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .panel.image { justify-content: center; }
+  .panel.image img { align-self: center; margin-top: auto; max-width: 90%; }
+  .detail { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: start; }
+  
+  form[aria-labelledby="rezervace-form"] { display: block; max-width: 700px; margin: 0 auto; }
+  .btn-primary, button.primary { width: auto; min-width: 200px; margin-left: auto; margin-right: auto; display: block; }
+  .results-search-form { max-width: 600px; }
+}
