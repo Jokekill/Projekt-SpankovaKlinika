@@ -621,10 +621,28 @@ input, select, textarea {
   }
 }
 
-/* 3. Drobná oprava pro Badge (štítky) v kartách */
+/* Opravený Badge (Štítek) */
 .badge {
-  background: #E3F2FD; /* Světlejší modrá podklad */
-  color: #1565D8;      /* Tmavší modrá text */
-  font-weight: 700;
-  letter-spacing: 0.5px;
+  display: inline-flex;       /* Aby se velikost přizpůsobila textu */
+  align-self: flex-start;     /* Zarovnání vlevo v rámci Flexboxu */
+  margin-top: auto;           /* Tlačí se dolů, pokud je v kartě místo */
+  
+  font-size: 0.75rem;         /* Menší, decentní písmo */
+  font-weight: 700;           /* Tučné */
+  text-transform: uppercase;  /* Velká písmena */
+  letter-spacing: 0.05em;     /* Mírné rozestupy znaků */
+  
+  padding: 0.5rem 1rem;       /* Vnitřní odsazení */
+  border-radius: 50px;        /* Tvar pilulky */
+  
+  background: #F0F7FF;        /* Velmi světle modrá */
+  color: #1565D8;             /* Tmavě modrý text */
+  border: 1px solid #D9E4FF;  /* Jemný rámeček pro definici tvaru */
+}
+
+/* Varianta OK (např. pro otevřený program) */
+.badge.ok {
+  background: #ECFDF5;        /* Světle zelenkavá */
+  color: #047857;             /* Tmavší zelená */
+  border-color: #A7F3D0;
 }
