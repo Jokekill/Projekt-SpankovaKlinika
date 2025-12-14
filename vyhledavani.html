@@ -1,99 +1,90 @@
 <!doctype html>
 <html lang="cs">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Výsledky vyhledávání – Klinika cirkadiánní medicíny</title>
-  <meta name="description" content="Ukázkové výsledky vyhledávání." />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header class="site-header">
-<div class="wrapper brand">
-      <a href="index.html" class="brand-link">
-        <img src="images/logo.webp" alt="Logo" />
-        <div class="title">
-          <strong>Klinika cirkadiánní medicíny</strong>
-        </div>
-      </a>
-    </div>
-    <div class="wrapper">
-      <nav aria-label="Hlavní navigace">
-<nav aria-label="Hlavní navigace">
-        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-        
-        <label for="nav-toggle" class="nav-toggle-label">
-          <span></span>
-          <span></span>
-          <span></span>
-        </label>
-
-        <ul class="nav-list">
-          <li><a href="index.html">Domů</a></li>
-          <li><a href="seznam.html">Vyšetření</a></li>
-          <li><a href="rezervace.html">Rezervace</a></li>
-          <li><a href="kontakt.html">Kontakt</a></li>
-          
-          <li class="nav-search">
-            <form class="site-search" role="search" action="vyhledavani.html">
-              <input id="q" name="q" type="search" placeholder="Hledat..." />
-              <button type="submit">Hledat</button>
+   <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Výsledky vyhledávání – Klinika cirkadiánní medicíny</title>
+      <meta name="description" content="Ukázkové výsledky vyhledávání." />
+      <link rel="stylesheet" href="style.css" />
+   </head>
+   <body>
+      <header class="site-header">
+         <div class="wrapper brand">
+            <a href="index.html" class="brand-link">
+               <img src="images/logo.webp" alt="Logo" />
+               <div class="title">
+                  <strong>Klinika cirkadiánní medicíny</strong>
+               </div>
+            </a>
+         </div>
+         <div class="wrapper">
+            <nav aria-label="Hlavní navigace">
+               <nav aria-label="Hlavní navigace">
+                  <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+                  <label for="nav-toggle" class="nav-toggle-label">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  </label>
+                  <ul class="nav-list">
+                     <li><a href="index.html">Domů</a></li>
+                     <li><a href="seznam.html">Vyšetření</a></li>
+                     <li><a href="rezervace.html">Rezervace</a></li>
+                     <li><a href="kontakt.html">Kontakt</a></li>
+                     <li class="nav-search">
+                        <form class="site-search" role="search" action="vyhledavani.html">
+                           <input id="q" name="q" type="search" placeholder="Hledat..." />
+                           <button type="submit">Hledat</button>
+                        </form>
+                     </li>
+                  </ul>
+               </nav>
+            </nav>
+         </div>
+      </header>
+      <main id="obsah" class="wrapper">
+         <header>
+            <h1>Výsledky vyhledávání</h1>
+            <form class="results-search-form" role="search" action="vyhledavani.html">
+               <input name="q" type="search" value="melatonin" aria-label="Hledaný výraz" />
+               <button type="submit" class="primary">Hledat</button>
             </form>
-          </li>
-        </ul>
-      </nav>
-
-      </nav>
-    </div>
-  </header>
-  <main id="obsah" class="wrapper">
-
-    <header>
-      <h1>Výsledky vyhledávání</h1>
-      
-      <form class="results-search-form" role="search" action="vyhledavani.html">
-        <input name="q" type="search" value="melatonin" aria-label="Hledaný výraz" />
-        <button type="submit" class="primary">Hledat</button>
-      </form>
-
-      <p class="meta">Nalezeno 2 výsledků pro dotaz: „melatonin“</p>
-    </header>
-
-    <section class="cards" aria-label="Výsledky">
-      <article class="card">
-        <h3><a href="detail.html#dlmo">DLMO & melatonin</a></h3>
-        <p>Vyšetření pro odhad cirkadiánní fáze pomocí melatoninu.</p>
-        <span class="badge">Vyšetření</span>
-      </article>
-      <article class="card">
-        <h3><a href="detail.html#svetelna-terapie">Světelná terapie</a></h3>
-        <p>Ranní/večerní světlo — personalizovaný protokol.</p>
-        <span class="badge">Terapie</span>
-      </article>
-    </section>
-
-  </main>
-  <div class="wrapper">
-    <footer class="site-footer">
-  <div class="wrapper footer-grid-layout">
-    <div class="footer-col">
-      <h3>Klinika cirkadiánní medicíny</h3>
-      <p>Světelná 25, Praha 1<br>info@cirkadiana.cz</p>
-    </div>
-    <div class="footer-col">
-      <h3>Rychlé odkazy</h3>
-      <ul>
-        <li><a href="seznam.html" style="color:#fff">Vyšetření</a></li>
-        <li><a href="rezervace.html" style="color:#fff">Rezervace</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h3>Autoři projektu</h3>
-      <p>Vojtěch Mykiska<br>Jakub Obruča<br>Vojtěch Hampl</p>
-      <p style="opacity: 0.5; font-size: 0.8rem">© 2025 Studentský projekt</p>
-    </div>
-  </div>
-</footer>
-</div>
-</body>
+            <p class="meta">Nalezeno 2 výsledků pro dotaz: „melatonin“</p>
+         </header>
+         <section class="cards" aria-label="Výsledky">
+            <article class="card">
+               <h3><a href="detail.html#dlmo">DLMO & melatonin</a></h3>
+               <p>Vyšetření pro odhad cirkadiánní fáze pomocí melatoninu.</p>
+               <span class="badge">Vyšetření</span>
+            </article>
+            <article class="card">
+               <h3><a href="detail.html#svetelna-terapie">Světelná terapie</a></h3>
+               <p>Ranní/večerní světlo — personalizovaný protokol.</p>
+               <span class="badge">Terapie</span>
+            </article>
+         </section>
+      </main>
+      <div class="wrapper">
+         <footer class="site-footer">
+            <div class="wrapper footer-grid-layout">
+               <div class="footer-col">
+                  <h3>Klinika cirkadiánní medicíny</h3>
+                  <p>Světelná 25, Praha 1<br>info@cirkadiana.cz</p>
+               </div>
+               <div class="footer-col">
+                  <h3>Rychlé odkazy</h3>
+                  <ul>
+                     <li><a href="seznam.html" style="color:#fff">Vyšetření</a></li>
+                     <li><a href="rezervace.html" style="color:#fff">Rezervace</a></li>
+                  </ul>
+               </div>
+               <div class="footer-col">
+                  <h3>Autoři projektu</h3>
+                  <p>Vojtěch Mykiska<br>Jakub Obruča<br>Vojtěch Hampl</p>
+                  <p style="opacity: 0.5; font-size: 0.8rem">© 2025 Studentský projekt</p>
+               </div>
+            </div>
+         </footer>
+      </div>
+   </body>
 </html>

@@ -1,197 +1,217 @@
 <!doctype html>
 <html lang="cs">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rezervace – Klinika cirkadiánní medicíny</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header class="site-header">
-<div class="wrapper brand">
-      <a href="index.html" class="brand-link">
-        <img src="images/logo.webp" alt="Logo" />
-        <div class="title">
-          <strong>Klinika cirkadiánní medicíny</strong>
-        </div>
-      </a>
-    </div>
-    <div class="wrapper">
-      <nav aria-label="Hlavní navigace">
-        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-        <label for="nav-toggle" class="nav-toggle-label">
-          <span></span>
-          <span></span>
-          <span></span>
-        </label>
-        <ul class="nav-list">
-          <li><a href="index.html">Domů</a></li>
-          <li><a href="seznam.html">Vyšetření</a></li>
-          <li><a href="rezervace.html" aria-current="page">Rezervace</a></li>
-          <li><a href="kontakt.html">Kontakt</a></li>
-          <li class="nav-search">
-            <form class="site-search" action="vyhledavani.html">
-              <input name="q" type="search" placeholder="Hledat..." />
-              <button type="submit">Hledat</button>
-            </form>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main class="wrapper">
-    <header>
-      <h1>On-line rezervace</h1>
-      <p>Vyberte službu a následně termín v kalendáři níže.</p>
-    </header>
-
-    <form aria-labelledby="rezervace-form">
-      <fieldset>
-        <legend>1. Vyberte službu</legend>
-        <label for="sluzba">Služba</label>
-        <select id="sluzba" name="sluzba" required>
-          <option value="">— vyberte —</option>
-          <option>Světelná terapie</option>
-          <option>DLMO &amp; melatonin</option>
-          <option>Chronoterapie u migrény</option>
-          <option>Směnný provoz (program)</option>
-        </select>
-      </fieldset>
-
-      <fieldset>
-        <legend>2. Termín</legend>
-        <p class="meta">Vyberte týden (posunujte lištu do boku) a klikněte na volný čas.</p>
-
-        <div class="week-picker">
-          <div class="week-scroller">
-            <div class="week-item">
-                <input class="week-radio" type="radio" name="week" id="week1" checked />
-                <label for="week1">13. – 19. 10.</label>
+   <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Rezervace – Klinika cirkadiánní medicíny</title>
+      <link rel="stylesheet" href="style.css" />
+   </head>
+   <body>
+      <header class="site-header">
+         <div class="wrapper brand">
+            <a href="index.html" class="brand-link">
+               <img src="images/logo.webp" alt="Logo" />
+               <div class="title">
+                  <strong>Klinika cirkadiánní medicíny</strong>
+               </div>
+            </a>
+         </div>
+         <div class="wrapper">
+            <nav aria-label="Hlavní navigace">
+               <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+               <label for="nav-toggle" class="nav-toggle-label">
+               <span></span>
+               <span></span>
+               <span></span>
+               </label>
+               <ul class="nav-list">
+                  <li><a href="index.html">Domů</a></li>
+                  <li><a href="seznam.html">Vyšetření</a></li>
+                  <li><a href="rezervace.html" aria-current="page">Rezervace</a></li>
+                  <li><a href="kontakt.html">Kontakt</a></li>
+                  <li class="nav-search">
+                     <form class="site-search" action="vyhledavani.html">
+                        <input name="q" type="search" placeholder="Hledat..." />
+                        <button type="submit">Hledat</button>
+                     </form>
+                  </li>
+               </ul>
+            </nav>
+         </div>
+      </header>
+      <main class="wrapper">
+         <header>
+            <h1>On-line rezervace</h1>
+            <p>Vyberte službu a následně termín v kalendáři níže.</p>
+         </header>
+         <form aria-labelledby="rezervace-form">
+            <fieldset>
+               <legend>1. Vyberte službu</legend>
+               <label for="sluzba">Služba</label>
+               <select id="sluzba" name="sluzba" required>
+                  <option value="">— vyberte —</option>
+                  <option>Světelná terapie</option>
+                  <option>DLMO &amp; melatonin</option>
+                  <option>Chronoterapie u migrény</option>
+                  <option>Směnný provoz (program)</option>
+               </select>
+            </fieldset>
+            <fieldset>
+               <legend>2. Termín</legend>
+               <p class="meta">Vyberte týden (posunujte lištu do boku) a klikněte na volný čas.</p>
+               <div class="week-picker">
+                  <div class="week-scroller">
+                     <div class="week-item">
+                        <input class="week-radio" type="radio" name="week" id="week1" checked />
+                        <label for="week1">13. – 19. 10.</label>
+                     </div>
+                     <div class="week-item">
+                        <input class="week-radio" type="radio" name="week" id="week2" />
+                        <label for="week2">20. – 26. 10.</label>
+                     </div>
+                     <div class="week-item">
+                        <input class="week-radio" type="radio" name="week" id="week3" />
+                        <label for="week3">27. 10. – 2. 11.</label>
+                     </div>
+                     <div class="week-item">
+                        <input class="week-radio" type="radio" name="week" id="week4" />
+                        <label for="week4">3. – 9. 11.</label>
+                     </div>
+                     <div class="week-item">
+                        <input class="week-radio" type="radio" name="week" id="week5" />
+                        <label for="week5">10. – 16. 11.</label>
+                     </div>
+                  </div>
+                  <div class="week-content week1-content">
+                     <h3>MUDr. Jana Světelná (13. – 19. 10.)</h3>
+                     <div class="table-container">
+                        <table>
+                           <thead>
+                              <tr>
+                                 <th>Čas</th>
+                                 <th>Po</th>
+                                 <th>Út</th>
+                                 <th>St</th>
+                                 <th>Čt</th>
+                                 <th>Pá</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <th>9:00</th>
+                                 <td class="free"><input type="radio" name="slot" id="w1-j-1"><label for="w1-j-1">9:00</label></td>
+                                 <td class="occupied">X</td>
+                                 <td class="free"><input type="radio" name="slot" id="w1-j-2"><label for="w1-j-2">9:00</label></td>
+                                 <td class="occupied">X</td>
+                                 <td class="occupied">X</td>
+                              </tr>
+                              <tr>
+                                 <th>10:00</th>
+                                 <td class="occupied">X</td>
+                                 <td class="free"><input type="radio" name="slot" id="w1-j-3"><label for="w1-j-3">10:00</label></td>
+                                 <td class="occupied">X</td>
+                                 <td class="free"><input type="radio" name="slot" id="w1-j-4"><label for="w1-j-4">10:00</label></td>
+                                 <td class="free"><input type="radio" name="slot" id="w1-j-5"><label for="w1-j-5">10:00</label></td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <h3>MUDr. Pavel Chronos (13. – 19. 10.)</h3>
+                     <div class="table-container">
+                        <table>
+                           <thead>
+                              <tr>
+                                 <th>Čas</th>
+                                 <th>Po</th>
+                                 <th>Út</th>
+                                 <th>St</th>
+                                 <th>Čt</th>
+                                 <th>Pá</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <th>9:00</th>
+                                 <td class="occupied">X</td>
+                                 <td class="free"><input type="radio" name="slot" id="w1-p-1"><label for="w1-p-1">9:00</label></td>
+                                 <td class="occupied">X</td>
+                                 <td class="free"><input type="radio" name="slot" id="w1-p-2"><label for="w1-p-2">9:00</label></td>
+                                 <td class="occupied">X</td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
+                  <div class="week-content week2-content">
+                     <p class="meta">Zobrazuji termíny pro týden: <strong>20. – 26. 10.</strong></p>
+                     <h3>MUDr. Jana Světelná</h3>
+                     <div class="table-container">
+                        <table>
+                           <thead>
+                              <tr>
+                                 <th>Čas</th>
+                                 <th>Po</th>
+                                 <th>Út</th>
+                                 <th>St</th>
+                                 <th>Čt</th>
+                                 <th>Pá</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <th>9:00</th>
+                                 <td class="free"><input type="radio" name="slot" id="w2-j-1"><label for="w2-j-1">9:00</label></td>
+                                 <td class="free"><input type="radio" name="slot" id="w2-j-2"><label for="w2-j-2">9:00</label></td>
+                                 <td class="occupied">X</td>
+                                 <td class="occupied">X</td>
+                                 <td class="free"><input type="radio" name="slot" id="w2-j-3"><label for="w2-j-3">9:00</label></td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
+                  <div class="week-content week3-content">
+                     <p>Termíny pro týden 27. 10. ...</p>
+                  </div>
+                  <div class="week-content week4-content">
+                     <p>Termíny pro týden 3. 11. ...</p>
+                  </div>
+                  <div class="week-content week5-content">
+                     <p>Termíny pro týden 10. 11. ...</p>
+                  </div>
+               </div>
+            </fieldset>
+            <fieldset>
+               <legend>3. Kontakt</legend>
+               <label for="jmeno">Jméno a příjmení</label>
+               <input id="jmeno" name="jmeno" type="text" required />
+               <label for="email">E-mail</label>
+               <input id="email" name="email" type="email" required />
+               <button class="primary" type="button">Potvrdit rezervaci</button>
+            </fieldset>
+         </form>
+      </main>
+      <div class="wrapper">
+         <footer class="site-footer">
+            <div class="wrapper footer-grid-layout">
+               <div class="footer-col">
+                  <h3>Klinika cirkadiánní medicíny</h3>
+                  <p>Světelná 25, Praha 1<br>info@cirkadiana.cz</p>
+               </div>
+               <div class="footer-col">
+                  <h3>Rychlé odkazy</h3>
+                  <ul>
+                     <li><a href="seznam.html" style="color:#fff">Vyšetření</a></li>
+                     <li><a href="rezervace.html" style="color:#fff">Rezervace</a></li>
+                  </ul>
+               </div>
+               <div class="footer-col">
+                  <h3>Autoři projektu</h3>
+                  <p>Vojtěch Mykiska<br>Jakub Obruča<br>Vojtěch Hampl</p>
+                  <p style="opacity: 0.5; font-size: 0.8rem">© 2025 Studentský projekt</p>
+               </div>
             </div>
-            <div class="week-item">
-                <input class="week-radio" type="radio" name="week" id="week2" />
-                <label for="week2">20. – 26. 10.</label>
-            </div>
-            <div class="week-item">
-                <input class="week-radio" type="radio" name="week" id="week3" />
-                <label for="week3">27. 10. – 2. 11.</label>
-            </div>
-            <div class="week-item">
-                <input class="week-radio" type="radio" name="week" id="week4" />
-                <label for="week4">3. – 9. 11.</label>
-            </div>
-             <div class="week-item">
-                <input class="week-radio" type="radio" name="week" id="week5" />
-                <label for="week5">10. – 16. 11.</label>
-            </div>
-          </div>
-
-          <div class="week-content week1-content">
-            <h3>MUDr. Jana Světelná (13. – 19. 10.)</h3>
-            <div class="table-container">
-            <table>
-              <thead><tr><th>Čas</th><th>Po</th><th>Út</th><th>St</th><th>Čt</th><th>Pá</th></tr></thead>
-              <tbody>
-                <tr>
-                  <th>9:00</th>
-                  <td class="free"><input type="radio" name="slot" id="w1-j-1"><label for="w1-j-1">9:00</label></td>
-                  <td class="occupied">X</td>
-                  <td class="free"><input type="radio" name="slot" id="w1-j-2"><label for="w1-j-2">9:00</label></td>
-                  <td class="occupied">X</td>
-                  <td class="occupied">X</td>
-                </tr>
-                <tr>
-                  <th>10:00</th>
-                  <td class="occupied">X</td>
-                  <td class="free"><input type="radio" name="slot" id="w1-j-3"><label for="w1-j-3">10:00</label></td>
-                  <td class="occupied">X</td>
-                  <td class="free"><input type="radio" name="slot" id="w1-j-4"><label for="w1-j-4">10:00</label></td>
-                  <td class="free"><input type="radio" name="slot" id="w1-j-5"><label for="w1-j-5">10:00</label></td>
-                </tr>
-              </tbody>
-            </table>
-            </div>
-
-            <h3>MUDr. Pavel Chronos (13. – 19. 10.)</h3>
-            <div class="table-container">
-            <table>
-              <thead><tr><th>Čas</th><th>Po</th><th>Út</th><th>St</th><th>Čt</th><th>Pá</th></tr></thead>
-              <tbody>
-                <tr>
-                  <th>9:00</th>
-                  <td class="occupied">X</td>
-                  <td class="free"><input type="radio" name="slot" id="w1-p-1"><label for="w1-p-1">9:00</label></td>
-                  <td class="occupied">X</td>
-                  <td class="free"><input type="radio" name="slot" id="w1-p-2"><label for="w1-p-2">9:00</label></td>
-                  <td class="occupied">X</td>
-                </tr>
-              </tbody>
-            </table>
-            </div>
-          </div>
-
-          <div class="week-content week2-content">
-            <p class="meta">Zobrazuji termíny pro týden: <strong>20. – 26. 10.</strong></p>
-            <h3>MUDr. Jana Světelná</h3>
-            <div class="table-container">
-            <table>
-              <thead><tr><th>Čas</th><th>Po</th><th>Út</th><th>St</th><th>Čt</th><th>Pá</th></tr></thead>
-              <tbody>
-                <tr>
-                  <th>9:00</th>
-                  <td class="free"><input type="radio" name="slot" id="w2-j-1"><label for="w2-j-1">9:00</label></td>
-                  <td class="free"><input type="radio" name="slot" id="w2-j-2"><label for="w2-j-2">9:00</label></td>
-                  <td class="occupied">X</td>
-                  <td class="occupied">X</td>
-                  <td class="free"><input type="radio" name="slot" id="w2-j-3"><label for="w2-j-3">9:00</label></td>
-                </tr>
-              </tbody>
-            </table>
-            </div>
-          </div>
-
-           <div class="week-content week3-content"><p>Termíny pro týden 27. 10. ...</p></div>
-           <div class="week-content week4-content"><p>Termíny pro týden 3. 11. ...</p></div>
-           <div class="week-content week5-content"><p>Termíny pro týden 10. 11. ...</p></div>
-
-        </div>
-      </fieldset>
-
-      <fieldset>
-        <legend>3. Kontakt</legend>
-        <label for="jmeno">Jméno a příjmení</label>
-        <input id="jmeno" name="jmeno" type="text" required />
-        <label for="email">E-mail</label>
-        <input id="email" name="email" type="email" required />
-        <button class="primary" type="button">Potvrdit rezervaci</button>
-      </fieldset>
-    </form>
-  </main>
-
-<div class="wrapper">
-    
-    <footer class="site-footer">
-      <div class="wrapper footer-grid-layout">
-        <div class="footer-col">
-          <h3>Klinika cirkadiánní medicíny</h3>
-          <p>Světelná 25, Praha 1<br>info@cirkadiana.cz</p>
-        </div>
-        <div class="footer-col">
-          <h3>Rychlé odkazy</h3>
-          <ul>
-            <li><a href="seznam.html" style="color:#fff">Vyšetření</a></li>
-            <li><a href="rezervace.html" style="color:#fff">Rezervace</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h3>Autoři projektu</h3>
-          <p>Vojtěch Mykiska<br>Jakub Obruča<br>Vojtěch Hampl</p>
-          <p style="opacity: 0.5; font-size: 0.8rem">© 2025 Studentský projekt</p>
-        </div>
+         </footer>
       </div>
-    </footer>
-
-  </div>
-</body>
+   </body>
 </html>

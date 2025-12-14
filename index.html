@@ -1,176 +1,154 @@
-
 <!doctype html>
 <html lang="cs">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Klinika cirkadiánní medicíny – studentský projekt</title>
-  <meta name="description" content="Studentský projekt: Klinika cirkadiánní medicíny – spánek, světelná hygiena, chronoterapie, načasování léčby." />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header class="site-header">
-<div class="wrapper brand">
-      <a href="index.html" class="brand-link">
-        <img src="images/logo.webp" alt="Logo" />
-        <div class="title">
-          <strong>Klinika cirkadiánní medicíny</strong>
-        </div>
-      </a>
-    </div>
-<div class="wrapper">
-      <nav aria-label="Hlavní navigace">
-        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-        
-        <label for="nav-toggle" class="nav-toggle-label">
-          <span></span>
-          <span></span>
-          <span></span>
-        </label>
-
-        <ul class="nav-list">
-          <li><a href="index.html" aria-current="page">Domů</a></li>
-          <li><a href="seznam.html">Vyšetření</a></li>
-          <li><a href="rezervace.html">Rezervace</a></li>
-          <li><a href="kontakt.html">Kontakt</a></li>
-          
-          <li class="nav-search">
-            <form class="site-search" role="search" action="vyhledavani.html">
-              <input id="q" name="q" type="search" placeholder="Hledat..." />
-              <button type="submit">Hledat</button>
-            </form>
-          </li>
-        </ul>
-      </nav>
-    </div>
-
-  </header>
-  <main id="obsah" class="wrapper">
-
-  <section class="hero" aria-label="Hlavní přehled">
-
-  <!-- Řádek 1: text vlevo (užší), obrázek vpravo (širší) -->
-  <div class="feature-row">
-<article class="card text">
-      <h1>Lepší zdraví díky <em>načasování</em></h1>
-      <p>Jsme první klinika v ČR zaměřená na cirkadiánní medicínu. Pomáháme pacientům se spánkem, prací na směny, jet-lagem i s <strong>chronoterapií</strong> – načasováním léčby a medikace.</p>
-      
-      <p>Neléčíme jen symptomy, ale hledáme příčinu v rozladěných biologických hodinách. Na základě vaší genetiky a životního stylu nastavíme režim, který vrátí tělu přirozený rytmus.</p>
-
-      <div class="cluster mt-4">
-        <a class="btn-primary" href="rezervace.html">Objednat se</a>
-        <a class="badge" href="seznam.html">Zobrazit vyšetření</a>
+   <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Klinika cirkadiánní medicíny – studentský projekt</title>
+      <meta name="description" content="Studentský projekt: Klinika cirkadiánní medicíny – spánek, světelná hygiena, chronoterapie, načasování léčby." />
+      <link rel="stylesheet" href="style.css" />
+   </head>
+   <body>
+      <header class="site-header">
+         <div class="wrapper brand">
+            <a href="index.html" class="brand-link">
+               <img src="images/logo.webp" alt="Logo" />
+               <div class="title">
+                  <strong>Klinika cirkadiánní medicíny</strong>
+               </div>
+            </a>
+         </div>
+         <div class="wrapper">
+            <nav aria-label="Hlavní navigace">
+               <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+               <label for="nav-toggle" class="nav-toggle-label">
+               <span></span>
+               <span></span>
+               <span></span>
+               </label>
+               <ul class="nav-list">
+                  <li><a href="index.html" aria-current="page">Domů</a></li>
+                  <li><a href="seznam.html">Vyšetření</a></li>
+                  <li><a href="rezervace.html">Rezervace</a></li>
+                  <li><a href="kontakt.html">Kontakt</a></li>
+                  <li class="nav-search">
+                     <form class="site-search" role="search" action="vyhledavani.html">
+                        <input id="q" name="q" type="search" placeholder="Hledat..." />
+                        <button type="submit">Hledat</button>
+                     </form>
+                  </li>
+               </ul>
+            </nav>
+         </div>
+      </header>
+      <main id="obsah" class="wrapper">
+         <section class="hero" aria-label="Hlavní přehled">
+            <!-- Řádek 1: text vlevo (užší), obrázek vpravo (širší) -->
+            <div class="feature-row">
+               <article class="card text">
+                  <h1>Lepší zdraví díky <em>načasování</em></h1>
+                  <p>Jsme první klinika v ČR zaměřená na cirkadiánní medicínu. Pomáháme pacientům se spánkem, prací na směny, jet-lagem i s <strong>chronoterapií</strong> – načasováním léčby a medikace.</p>
+                  <p>Neléčíme jen symptomy, ale hledáme příčinu v rozladěných biologických hodinách. Na základě vaší genetiky a životního stylu nastavíme režim, který vrátí tělu přirozený rytmus.</p>
+                  <div class="cluster mt-4">
+                     <a class="btn-primary" href="rezervace.html">Objednat se</a>
+                     <a class="badge" href="seznam.html">Zobrazit vyšetření</a>
+                  </div>
+               </article>
+               <article class="panel image">
+                  <h2>Světelná terapie</h2>
+                  <p>Diagnostika světelné expozice (actigrafie), návrh světelné hygieny a personalizované protokoly.</p>
+                  <img src="images/light-therapy.webp" alt="Světelná terapie – vyšetření světlem" />
+               </article>
+            </div>
+            <!-- Řádek 2: obrázek vlevo (širší), text vpravo (užší) -->
+            <div class="feature-row reverse">
+               <article class="panel image">
+                  <h2>
+                  Chronotyp &amp; spánková laboratoř</h3>
+                  <p>Zmapujeme váš spánkový rytmus a kvalitu spánku včetně biologické noci. Nabízíme <strong>DLMO</strong> (slinný melatonin ve večerním tlumeném světle), <strong>polygrafii/polysomnografii</strong>, <strong>actigrafii</strong> z hodinek a <strong>MCTQ</strong> se spánkovým deníkem. Z výsledků získáte <strong>srozumitelnou zprávu</strong> a doporučení: jak nastavit světlo, spánkové okno, pohyb i okna pro jídlo/kofein. Pokud je potřeba posun režimu, připravíme <strong>protokol</strong> a kontrolu po 3–4&nbsp;týdnech.</p>
+                  <p class="meta">Doba vyšetření: 60–120&nbsp;min</p>
+                  <img src="images/lab.webp" alt="Spánková laboratoř – vyšetření" />
+               </article>
+               <article class="card text">
+                  <h3>Chronoterapie u migrény</h3>
+                  <p>Migréna má silnou vazbu na cirkadiánní systém. Častým spouštěčem je nepravidelný režim, zejména tzv. „víkendová migréna“ způsobená dospáváním a posunem budíku.</p>
+                  <p>V rámci terapie vás naučíme pracovat se světlem (ráno intenzivní expozice, večer přísná blokace modré složky) a stabilizovat hladinu glukózy pravidelnou stravou. Cílem je zvýšit práh pro spuštění záchvatu a zefektivnit akutní medikaci jejím správným načasováním.</p>
+                  <p class="meta">Délka úvodní konzultace: 45 min</p>
+               </article>
+            </div>
+            <!-- Řádek 3: text + obrázek vpravo -->
+            <div class="feature-row">
+               <article class="card text">
+                  <h3>Směnný provoz</h3>
+                  <p>Práce v noci je pro tělo extrémní zátěž (WHO ji řadí mezi karcinogeny), ale správnou strategií lze zdravotní rizika pro metabolismus a srdce minimalizovat.</p>
+                  <p>Vytvoříme vám protokol na míru: kdy si dát „kofeinový nap“ (šlofík), jaké jídlo zvolit uprostřed noci (bílkoviny vs. cukry) a jak bezpečně usnout po ranním návratu domů (teplota, tma, oranžové brýle). Řešíme i rychle rotující směny.</p>
+                  <span class="badge ok">Nábor do programu otevřen</span>
+               </article>
+               <article class="panel image">
+                  <h2>
+                  Jet-lag plán</h3>
+                  <p>Připavíme <strong>osobní plán</strong> dle směru letu a počtu pásem. Před odletem postupně posuneme <strong>spánek a světlo</strong>, určíme časy <strong>ranní/večerní expozice</strong>, <strong>kofeinu</strong> a dle indikace i <strong>melatoninu</strong>, včetně krátkých <strong>power-naps</strong>. Dostanete <strong>den-po-dni itinerář</strong> (odlet, první dny po příletu, návrat) a „short-stay“ režim pro velmi krátké cesty.</p>
+                  <p class="meta">Délka úvodní konzultace: 30&nbsp;min</p>
+                  <img src="images/jetlag.webp" alt="Jet-lag – plán posunů spánku" />
+               </article>
+            </div>
+            <!-- Řádek 4: obrázek vlevo + text -->
+            <div class="feature-row reverse">
+               <article class="panel image">
+                  <h2>
+                  Chronofarmakologie</h3>
+                  <p>Některé léky působí lépe či jsou lépe tolerované v určitou denní dobu. Podle vašeho <strong>chronotypu</strong>, režimu (včetně <strong>směn</strong>), jídelních návyků a současné léčby připravíme <strong>časový plán dávkování</strong> pro běžné dny i víkendy. Sladíme jej se světlem, spánkem a aktivitou, abychom snížili kolísání účinku a NÚ. Plán vždy <strong>ladíme s&nbsp;předepisujícím lékařem</strong>; dostanete přehlednou kartičku s ikonami a následnou kontrolu.</p>
+                  <p class="meta">Pozn.: Změny medikace provádíme pouze ve spolupráci s&nbsp;ošetřujícím lékařem.</p>
+                  <img src="images/chronopharma.webp" alt="Načasování léčby – chronofarmakologie" />
+               </article>
+               <aside class="card text" aria-label="Krátké info">
+                  <h3>Pilotní studie: Statiny</h3>
+                  <p>Hledáme dobrovolníky do studie sledující účinnost léků na cholesterol v závislosti na čase užití (ráno vs. večer). Syntéza cholesterolu v játrech totiž přirozeně vrcholí v noci.</p>
+                  <p>Pokud užíváte statiny a máte zájem o bezplatnou optimalizaci léčby pod dohledem odborníků, kontaktujte nás.</p>
+                  <p class="meta">Nábor probíhá do: 30. 11. 2025</p>
+               </aside>
+            </div>
+         </section>
+         <section aria-label="Vstupy">
+            <div class="cards">
+               <article class="card">
+                  <h3>Vyšetření & programy</h3>
+                  <p>Prohlédněte si kompletní nabídku vyšetření, testů a programů.</p>
+                  <a href="seznam.html">Přejít na seznam →</a>
+               </article>
+               <article class="card">
+                  <h3>Jak se objednat</h3>
+                  <p>On‑line rezervace krok za krokem – vyberte službu, termín a potvrďte.</p>
+                  <a href="rezervace.html">Objednat se →</a>
+               </article>
+               <article class="card">
+                  <h3>Kudy k nám</h3>
+                  <p>Adresa, mapka, MHD a parkování. Vše potřebné na jednom místě.</p>
+                  <a href="kontakt.html">Kontakt →</a>
+               </article>
+            </div>
+         </section>
+      </main>
+      <div class="wrapper">
+         <footer class="site-footer">
+            <div class="wrapper footer-grid-layout">
+               <div class="footer-col">
+                  <h3>Klinika cirkadiánní medicíny</h3>
+                  <p>Světelná 25, Praha 1<br>info@cirkadiana.cz</p>
+               </div>
+               <div class="footer-col">
+                  <h3>Rychlé odkazy</h3>
+                  <ul>
+                     <li><a href="seznam.html" style="color:#fff">Vyšetření</a></li>
+                     <li><a href="rezervace.html" style="color:#fff">Rezervace</a></li>
+                  </ul>
+               </div>
+               <div class="footer-col">
+                  <h3>Autoři projektu</h3>
+                  <p>Vojtěch Mykiska<br>Jakub Obruča<br>Vojtěch Hampl</p>
+                  <p style="opacity: 0.5; font-size: 0.8rem">© 2025 Studentský projekt</p>
+               </div>
+            </div>
+         </footer>
       </div>
-    </article>
-    <article class="panel image">
-      <h2>Světelná terapie</h2>
-      <p>Diagnostika světelné expozice (actigrafie), návrh světelné hygieny a personalizované protokoly.</p>
-      <img src="images/light-therapy.webp" alt="Světelná terapie – vyšetření světlem" />
-    </article>
-  </div>
-
-  <!-- Řádek 2: obrázek vlevo (širší), text vpravo (užší) -->
-  <div class="feature-row reverse">
-    <article class="panel image">
-<h2>Chronotyp &amp; spánková laboratoř</h3>
-<p>Zmapujeme váš spánkový rytmus a kvalitu spánku včetně biologické noci. Nabízíme <strong>DLMO</strong> (slinný melatonin ve večerním tlumeném světle), <strong>polygrafii/polysomnografii</strong>, <strong>actigrafii</strong> z hodinek a <strong>MCTQ</strong> se spánkovým deníkem. Z výsledků získáte <strong>srozumitelnou zprávu</strong> a doporučení: jak nastavit světlo, spánkové okno, pohyb i okna pro jídlo/kofein. Pokud je potřeba posun režimu, připravíme <strong>protokol</strong> a kontrolu po 3–4&nbsp;týdnech.</p>
-<p class="meta">Doba vyšetření: 60–120&nbsp;min</p>
-
-      <img src="images/lab.webp" alt="Spánková laboratoř – vyšetření" />
-    </article>
-<article class="card text">
-      <h3>Chronoterapie u migrény</h3>
-      <p>Migréna má silnou vazbu na cirkadiánní systém. Častým spouštěčem je nepravidelný režim, zejména tzv. „víkendová migréna“ způsobená dospáváním a posunem budíku.</p>
-      
-      <p>V rámci terapie vás naučíme pracovat se světlem (ráno intenzivní expozice, večer přísná blokace modré složky) a stabilizovat hladinu glukózy pravidelnou stravou. Cílem je zvýšit práh pro spuštění záchvatu a zefektivnit akutní medikaci jejím správným načasováním.</p>
-      
-      <p class="meta">Délka úvodní konzultace: 45 min</p>
-    </article>
-  </div>
-
-  <!-- Řádek 3: text + obrázek vpravo -->
-  <div class="feature-row">
-<article class="card text">
-      <h3>Směnný provoz</h3>
-      <p>Práce v noci je pro tělo extrémní zátěž (WHO ji řadí mezi karcinogeny), ale správnou strategií lze zdravotní rizika pro metabolismus a srdce minimalizovat.</p>
-      
-      <p>Vytvoříme vám protokol na míru: kdy si dát „kofeinový nap“ (šlofík), jaké jídlo zvolit uprostřed noci (bílkoviny vs. cukry) a jak bezpečně usnout po ranním návratu domů (teplota, tma, oranžové brýle). Řešíme i rychle rotující směny.</p>
-      
-      <span class="badge ok">Nábor do programu otevřen</span>
-    </article>
-    <article class="panel image">
-<h2>Jet-lag plán</h3>
-<p>Připavíme <strong>osobní plán</strong> dle směru letu a počtu pásem. Před odletem postupně posuneme <strong>spánek a světlo</strong>, určíme časy <strong>ranní/večerní expozice</strong>, <strong>kofeinu</strong> a dle indikace i <strong>melatoninu</strong>, včetně krátkých <strong>power-naps</strong>. Dostanete <strong>den-po-dni itinerář</strong> (odlet, první dny po příletu, návrat) a „short-stay“ režim pro velmi krátké cesty.</p>
-<p class="meta">Délka úvodní konzultace: 30&nbsp;min</p>
-
-      <img src="images/jetlag.webp" alt="Jet-lag – plán posunů spánku" />
-    </article>
-  </div>
-
-  <!-- Řádek 4: obrázek vlevo + text -->
-  <div class="feature-row reverse">
-    <article class="panel image">
-<h2>Chronofarmakologie</h3>
-<p>Některé léky působí lépe či jsou lépe tolerované v určitou denní dobu. Podle vašeho <strong>chronotypu</strong>, režimu (včetně <strong>směn</strong>), jídelních návyků a současné léčby připravíme <strong>časový plán dávkování</strong> pro běžné dny i víkendy. Sladíme jej se světlem, spánkem a aktivitou, abychom snížili kolísání účinku a NÚ. Plán vždy <strong>ladíme s&nbsp;předepisujícím lékařem</strong>; dostanete přehlednou kartičku s ikonami a následnou kontrolu.</p>
-<p class="meta">Pozn.: Změny medikace provádíme pouze ve spolupráci s&nbsp;ošetřujícím lékařem.</p>
-
-      <img src="images/chronopharma.webp" alt="Načasování léčby – chronofarmakologie" />
-    </article>
-<aside class="card text" aria-label="Krátké info">
-      <h3>Pilotní studie: Statiny</h3>
-      <p>Hledáme dobrovolníky do studie sledující účinnost léků na cholesterol v závislosti na čase užití (ráno vs. večer). Syntéza cholesterolu v játrech totiž přirozeně vrcholí v noci.</p>
-      
-      <p>Pokud užíváte statiny a máte zájem o bezplatnou optimalizaci léčby pod dohledem odborníků, kontaktujte nás.</p>
-      
-      <p class="meta">Nábor probíhá do: 30. 11. 2025</p>
-    </aside>
-  </div>
-
-</section>
-
-
-  <section aria-label="Vstupy">
-    <div class="cards">
-      <article class="card">
-        <h3>Vyšetření & programy</h3>
-        <p>Prohlédněte si kompletní nabídku vyšetření, testů a programů.</p>
-        <a href="seznam.html">Přejít na seznam →</a>
-      </article>
-      <article class="card">
-        <h3>Jak se objednat</h3>
-        <p>On‑line rezervace krok za krokem – vyberte službu, termín a potvrďte.</p>
-        <a href="rezervace.html">Objednat se →</a>
-      </article>
-      <article class="card">
-        <h3>Kudy k nám</h3>
-        <p>Adresa, mapka, MHD a parkování. Vše potřebné na jednom místě.</p>
-        <a href="kontakt.html">Kontakt →</a>
-      </article>
-    </div>
-  </section>
-
-  </main>
-  <div class="wrapper">
-<footer class="site-footer">
-  <div class="wrapper footer-grid-layout">
-    <div class="footer-col">
-      <h3>Klinika cirkadiánní medicíny</h3>
-      <p>Světelná 25, Praha 1<br>info@cirkadiana.cz</p>
-    </div>
-    <div class="footer-col">
-      <h3>Rychlé odkazy</h3>
-      <ul>
-        <li><a href="seznam.html" style="color:#fff">Vyšetření</a></li>
-        <li><a href="rezervace.html" style="color:#fff">Rezervace</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h3>Autoři projektu</h3>
-      <p>Vojtěch Mykiska<br>Jakub Obruča<br>Vojtěch Hampl</p>
-      <p style="opacity: 0.5; font-size: 0.8rem">© 2025 Studentský projekt</p>
-    </div>
-  </div>
-</footer>
-</div>
-</body>
+   </body>
 </html>
