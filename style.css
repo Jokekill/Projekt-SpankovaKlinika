@@ -345,22 +345,78 @@ td.free:hover label { background: #D9E4FF; }
 td.occupied { background: #fcfcfc; color: #ccc; font-size: 0.9rem; cursor: not-allowed; }
 
 /* =========================================
-   8. PATIČKA
+   8. PATIČKA (FINÁLNÍ ÚPRAVA)
    ========================================= */
 .site-footer {
   margin-top: 5rem;
-  background: #0B1A33;
+  background: #0B1A33; /* Tmavě modrá */
   color: #fff;
-  padding: 3rem 1rem;
-  text-align: center;
+  padding: 4rem 0 2rem; /* Větší odsazení nahoře */
+  font-size: 0.95rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
-.footer-grid {
-  max-width: 800px; margin: 0 auto;
-  display: flex; flex-direction: column; gap: 1rem;
-  justify-content: center; align-items: center;
+
+/* Kontejner pro sloupce - Mobile First (sloupce pod sebou) */
+.footer-grid-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  text-align: center; /* Na mobilu centrujeme */
 }
-.footer-grid h3 { color: #fff; margin: 0; font-size: 1.2rem; }
-.footer-grid p { color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; margin: 0; }
+
+/* Nadpisy v patičce */
+.footer-col h3 {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.9;
+}
+
+/* Texty v patičce */
+.footer-col p {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+/* Seznamy odkazů (odstranění teček) */
+.footer-col ul {
+  list-style: none; /* Zruší odrážky (tečky) */
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.8rem;
+}
+
+/* Odkazy v patičce */
+.footer-col a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.footer-col a:hover {
+  color: #fff;
+  text-decoration: underline;
+  padding-left: 5px; /* Efekt posunu při najetí */
+}
+
+/* DESKTOP VERZE (> 900px) */
+@media (min-width: 900px) {
+  .footer-grid-layout {
+    display: grid;
+    /* 3 sloupce: První širší, další dva stejně široké */
+    grid-template-columns: 2fr 1fr 1fr; 
+    gap: 4rem;
+    text-align: left; /* Na PC zarovnáme text doleva */
+    align-items: start; /* Zarovnání nahoru */
+  }
+}
 
 /* =========================================
    9. DESKTOP MEDIA QUERIES (> 900px)
