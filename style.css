@@ -373,8 +373,33 @@ td.occupied { background: #fcfcfc; color: #ccc; font-size: 0.9rem; cursor: not-a
   gap: 1rem;
   grid-template-columns: repeat(2, 1fr); /* Mobile: 2 sloupce */
 }
-.gallery-grid > div { background-color: var(--surface-2); border-radius: var(--radius); padding: 1rem; display:flex; align-items:center; justify-content:center; font-weight:600; color:var(--primary); }
 
+/* Styl pro buňku gridu */
+.gallery-grid > div { 
+  background-color: var(--surface-2); 
+  border-radius: var(--radius); 
+  
+  /* ZMĚNA: Odstraníme padding, aby byl obrázek až do kraje */
+  padding: 0; 
+  overflow: hidden; /* Ořízne obrázek podle kulatých rohů */
+  
+  /* Flexbox už nepotřebujeme pro centrování textu, ale nevadí tam */
+  display: flex; 
+}
+
+/* NOVÉ: Styl pro samotný obrázek uvnitř */
+.gallery-grid > div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Klíčové: ořízne obrázek tak, aby vyplnil plochu a nedeformoval se */
+  display: block;
+  transition: transform 0.3s ease; /* Efekt při najetí */
+}
+
+/* Volitelné: Efekt zvětšení při najetí myší */
+.gallery-grid > div:hover img {
+  transform: scale(1.05);
+}
 /* ======================================================================
    10. DESKTOP MEDIA QUERIES (> 900px)
    ====================================================================== */
