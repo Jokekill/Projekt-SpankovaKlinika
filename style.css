@@ -1,5 +1,5 @@
 /* ======================================================================
-   KLINIKA CIRKADIÁNNÍ MEDICÍNY — MASTER STYLESHEET (FINAL FIXED)
+   KLINIKA CIRKADIÁNNÍ MEDICÍNY — MASTER STYLESHEET (FIXED MOBILE)
    Autor: Studentský projekt
    ====================================================================== */
 
@@ -7,235 +7,235 @@
    1. PROMĚNNÉ (VARIABLES)
    ========================================= */
 :root {
-	/* Barvy */
-	--primary: #1565D8;
-	--primary-weak: #4EA1FF;
-	--primary-dark: #0d4bb3;
+    /* Barvy */
+    --primary: #1565D8;
+    --primary-weak: #4EA1FF;
+    --primary-dark: #0d4bb3;
 
-	--bg: #F5F8FF;
-	--surface: #FFFFFF;
-	--surface-2: #EEF3FF;
+    --bg: #F5F8FF;
+    --surface: #FFFFFF;
+    --surface-2: #EEF3FF;
 
-	--text: #0B1A33;
-	--muted: #6b7c93;
-	--border: #D9E4FF;
+    --text: #0B1A33;
+    --muted: #6b7c93;
+    --border: #D9E4FF;
 
-	/* Design Tokens */
-	--radius: 12px;
-	--shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.03);
-	--shadow-md: 0 8px 16px rgba(21, 101, 216, 0.1);
+    /* Design Tokens */
+    --radius: 12px;
+    --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.03);
+    --shadow-md: 0 8px 16px rgba(21, 101, 216, 0.1);
 }
 
 /* =========================================
    2. RESET & BASE
    ========================================= */
 * {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-	margin: 0;
-	background: var(--bg);
-	color: var(--text);
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-	line-height: 1.6;
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
 
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    /* CRITICAL FIX: Zabraňuje horizontálnímu posunu celé stránky na mobilu */
+    width: 100%;
+    overflow-x: hidden;
 }
 
 main {
-	flex: 1;
-	/* 4. Řekne hlavnímu obsahu: "Roztáhni se a zaber všechno volné místo!" */
-	width: 100%;
-	/* Pro jistotu, aby se obsah nerozbil */
+    flex: 1;
+    width: 100%;
+    /* Zajistí, že main se vejde do viewportu */
+    max-width: 100vw;
 }
 
 img {
-	max-width: 100%;
-	height: auto;
-	display: block;
-	border-radius: var(--radius);
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius);
 }
 
 a {
-	color: var(--primary);
-	text-decoration: none;
-	transition: 0.2s;
+    color: var(--primary);
+    text-decoration: none;
+    transition: 0.2s;
 }
 
 a:active {
-	opacity: 0.8;
+    opacity: 0.8;
 }
 
-h1,
-h2,
-h3 {
-	margin: 1.5rem 0 0.5rem;
-	line-height: 1.2;
-	color: var(--text);
+h1, h2, h3 {
+    margin: 1.5rem 0 0.5rem;
+    line-height: 1.2;
+    color: var(--text);
 }
 
-h1 {
-	font-size: 1.8rem;
-}
-
-h2 {
-	font-size: 1.5rem;
-}
-
-h3 {
-	font-size: 1.25rem;
-}
+h1 { font-size: 1.8rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
 
 p {
-	margin: 0 0 1rem;
-	color: #4b5563;
+    margin: 0 0 1rem;
+    color: #4b5563;
 }
 
 .wrapper {
-	padding: 0 1rem;
-	width: 100%;
-	margin: 0 auto;
+    padding: 0 1rem;
+    width: 100%;
+    margin: 0 auto;
+    /* Pojistka proti přetečení */
+    max-width: 100%;
 }
 
 /* Klikací logo */
 .brand-link {
-	display: flex;
-	align-items: center;
-	gap: 1rem;
-	color: inherit;
-	white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: inherit;
+    white-space: nowrap;
 }
 
 .brand-link:hover {
-	opacity: 0.8;
+    opacity: 0.8;
 }
 
 /* =========================================
    3. HEADER & NAVIGACE (MOBILE FIRST)
    ========================================= */
 .site-header {
-	background: #fff;
-	border-bottom: 1px solid var(--border);
-	position: sticky;
-	top: 0;
-	z-index: 100;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
 }
 
 .brand {
-	display: flex;
-	align-items: center;
-	gap: 1rem;
-	padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
 }
 
 .brand img {
-	width: 32px;
-	height: 32px;
+    width: 32px;
+    height: 32px;
 }
 
 .brand .title {
-	font-weight: bold;
-	color: var(--primary);
-	font-size: 1rem;
+    font-weight: bold;
+    color: var(--primary);
+    font-size: 1rem;
 }
 
 /* Hamburger Menu Logic */
 .nav-toggle {
-	display: none;
+    display: none;
 }
 
 .nav-toggle-label {
-	position: absolute;
-	top: 1rem;
-	right: 1rem;
-	width: 40px;
-	height: 40px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	gap: 6px;
-	cursor: pointer;
-	background: var(--bg);
-	border-radius: 8px;
-	border: 1px solid var(--border);
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    background: var(--bg);
+    border-radius: 8px;
+    border: 1px solid var(--border);
 }
 
 .nav-toggle-label span {
-	display: block;
-	width: 24px;
-	height: 2px;
-	background: var(--primary);
-	border-radius: 2px;
-	transition: 0.3s;
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--primary);
+    border-radius: 2px;
+    transition: 0.3s;
 }
 
 /* Mobilní menu */
 .nav-list {
-	display: none;
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	background: #fff;
-	border-top: 1px solid var(--border);
-	flex-direction: column;
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: #fff;
+    border-top: 1px solid var(--border);
+    flex-direction: column;
+    width: 100%;
 }
 
-#nav-toggle:checked~.nav-list {
-	display: flex;
+#nav-toggle:checked ~ .nav-list {
+    display: flex;
 }
 
 .nav-list li {
-	border-bottom: 1px solid var(--bg);
+    border-bottom: 1px solid var(--bg);
 }
 
 .nav-list a {
-	display: block;
-	padding: 1rem;
-	font-weight: 600;
-	text-align: center;
-	color: var(--text);
+    display: block;
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--text);
 }
 
 .nav-list a:hover {
-	background: var(--bg);
-	color: var(--primary);
+    background: var(--bg);
+    color: var(--primary);
 }
 
 /* Aktivní stav (Mobile) */
 .nav-list a[aria-current="page"] {
-	color: var(--primary);
-	background: var(--surface-2);
+    color: var(--primary);
+    background: var(--surface-2);
 }
 
 /* Vyhledávání v menu */
 .nav-search {
-	padding: 1rem;
-	background: var(--bg);
+    padding: 1rem;
+    background: var(--bg);
 }
 
 .site-search {
-	display: flex;
-	gap: 0.5rem;
+    display: flex;
+    gap: 0.5rem;
 }
 
 .site-search input {
-	flex: 1;
-	padding: 0.75rem;
-	border: 1px solid var(--border);
-	border-radius: 6px;
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    /* Fix pro iOS input zoom */
+    font-size: 16px; 
 }
 
 .site-search button {
-	padding: 0 1rem;
-	background: var(--primary);
-	color: #fff;
-	border: none;
-	border-radius: 6px;
-	font-weight: bold;
+    padding: 0 1rem;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
 }
 
 /* =========================================
@@ -244,451 +244,454 @@ p {
 /* Tlačítka */
 .btn-primary,
 button.primary {
-	display: inline-block;
-	width: 100%;
-	text-align: center;
-	background: var(--primary);
-	color: #fff;
-	padding: 0.8rem 1.5rem;
-	border-radius: 50px;
-	font-weight: 700;
-	border: none;
-	cursor: pointer;
-	margin-top: 1rem;
-	transition: background 0.2s;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    background: var(--primary);
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background 0.2s;
 }
 
 .btn-primary:hover,
 button.primary:hover {
-	background: var(--primary-dark);
+    background: var(--primary-dark);
 }
 
 /* Badges (Štítky) */
 .badge {
-	display: inline-flex;
-	align-self: flex-start;
-	margin-top: auto;
-	font-size: 0.75rem;
-	font-weight: 700;
-	text-transform: uppercase;
-	letter-spacing: 0.05em;
-	padding: 0.5rem 1rem;
-	border-radius: 50px;
-	background: #F0F7FF;
-	color: #1565D8;
-	border: 1px solid #D9E4FF;
+    display: inline-flex;
+    align-self: flex-start;
+    margin-top: auto;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    background: #F0F7FF;
+    color: #1565D8;
+    border: 1px solid #D9E4FF;
 }
 
 .badge.ok {
-	background: #ECFDF5;
-	color: #047857;
-	border-color: #A7F3D0;
+    background: #ECFDF5;
+    color: #047857;
+    border-color: #A7F3D0;
 }
 
 /* Velký vyhledávací řádek */
 .results-search-form {
-	display: flex;
-	gap: 0.5rem;
-	margin: 1.5rem 0;
-	padding: 1.5rem;
-	background: var(--surface-2);
-	border-radius: var(--radius);
-	border: 1px solid var(--border);
+    display: flex;
+    gap: 0.5rem;
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    background: var(--surface-2);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    flex-wrap: wrap; /* Aby se na mobilu nerozbilo */
 }
 
 .results-search-form input {
-	margin-bottom: 0;
-	background: #fff;
-	flex: 1;
+    margin-bottom: 0;
+    background: #fff;
+    flex: 1;
+    min-width: 150px;
 }
 
 .results-search-form button {
-	margin-top: 0;
-	width: auto;
-	box-shadow: 0 2px 5px rgba(21, 101, 216, 0.3);
+    margin-top: 0;
+    width: auto;
+    box-shadow: 0 2px 5px rgba(21, 101, 216, 0.3);
 }
 
 /* Drobečková navigace (Breadcrumbs) */
 .breadcrumbs ol {
-	list-style: none;
-	padding: 0;
-	display: flex;
-	gap: 0.5rem;
-	font-size: 0.9rem;
-	color: var(--muted);
-	margin-top: 1rem;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-top: 1rem;
+    flex-wrap: wrap;
 }
 
-.breadcrumbs li+li::before {
-	content: "/";
-	margin-right: 0.5rem;
+.breadcrumbs li + li::before {
+    content: "/";
+    margin-right: 0.5rem;
 }
 
 /* =========================================
    5. KARTY & PANELY
    ========================================= */
 .hero {
-	display: flex;
-	flex-direction: column;
-	gap: 1.5rem;
-	padding: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
 }
 
 .feature-row {
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .cards {
-	display: grid;
-	gap: 1rem;
-	grid-template-columns: 1fr;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
 }
 
 .card,
 .panel {
-	background: #fff;
-	border: 1px solid #eef2f6;
-	border-radius: var(--radius);
-	padding: 1.5rem;
-	box-shadow: var(--shadow-sm);
-	display: flex;
-	flex-direction: column;
-	transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-	position: relative;
+    background: #fff;
+    border: 1px solid #eef2f6;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    position: relative;
+    max-width: 100%;
 }
 
 /* Klikací trik */
 .card h3 a::before {
-	content: "";
-	position: absolute;
-	inset: 0;
-	z-index: 1;
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
 }
 
 .card h3 a:focus {
-	outline: none;
+    outline: none;
 }
 
 .card:hover,
 .card:focus-within {
-	transform: translateY(-3px);
-	box-shadow: var(--shadow-md);
-	border-color: var(--primary-weak);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-weak);
 }
 
 /* Tmavé karty (obrázkové) */
 .panel.image {
-	background: linear-gradient(145deg, #2B4C7E 0%, #1A365D 100%);
-	color: #ffffff;
-	border: 2px solid transparent;
+    background: linear-gradient(145deg, #2B4C7E 0%, #1A365D 100%);
+    color: #ffffff;
+    border: 2px solid transparent;
 }
 
 .panel.image h2,
 .panel.image h3,
 .panel.image p {
-	color: #ffffff;
-	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 
 .panel.image .meta {
-	color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .panel.image img {
-	margin-top: 1rem;
-	width: 100%;
-	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    margin-top: 1rem;
+    width: 100%;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
 .panel.image:hover {
-	transform: translateY(-5px);
-	border-color: #ffffff;
-	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    transform: translateY(-5px);
+    border-color: #ffffff;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.35);
 }
 
 .meta {
-	font-size: 0.9rem;
-	color: var(--muted);
-	margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-top: 0.5rem;
 }
 
 .cluster {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0.5rem;
-	align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
 }
 
 .mt-4 {
-	margin-top: 1.5rem;
+    margin-top: 1.5rem;
 }
 
 /* =========================================
    6. FORMULÁŘE
    ========================================= */
+form {
+    max-width: 100%;
+}
+
 form label {
-	font-weight: 600;
-	display: block;
-	margin-bottom: 0.5rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.5rem;
 }
 
 input,
 select,
 textarea {
-	width: 100%;
-	padding: 0.8rem;
-	margin-bottom: 1rem;
-	border: 1px solid var(--border);
-	border-radius: 8px;
-	font-size: 1rem;
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+    max-width: 100%; /* Pojistka */
 }
 
 fieldset {
-	border: none;
-	padding: 0;
-	margin: 0 0 2rem 0;
+    border: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+    min-width: 0; /* Fix pro flex itemy */
 }
 
 legend {
-	font-size: 1.2rem;
-	font-weight: bold;
-	margin-bottom: 1rem;
-	color: var(--primary);
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: var(--primary);
+    width: 100%;
 }
 
 /* =========================================
-   7. TABULKY & REZERVACE
+   7. TABULKY & REZERVACE (FIXED)
    ========================================= */
 .week-scroller {
-	display: flex;
-	overflow-x: auto;
-	gap: 0.5rem;
-	padding-bottom: 1rem;
-	margin-bottom: 1rem;
+    display: flex;
+    overflow-x: auto;
+    gap: 0.5rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    -webkit-overflow-scrolling: touch; /* Hladké scrollování na iOS */
 }
 
 .week-item {
-	flex: 0 0 auto;
+    flex: 0 0 auto;
 }
 
 .week-radio {
-	display: none;
+    display: none;
 }
 
 .week-item label {
-	display: block;
-	padding: 0.75rem 1.25rem;
-	background: #fff;
-	border: 1px solid var(--border);
-	border-radius: 8px;
-	font-weight: 600;
-	white-space: nowrap;
-	cursor: pointer;
+    display: block;
+    padding: 0.75rem 1.25rem;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
 }
 
-.week-radio:checked+label {
-	background: var(--primary);
-	color: #fff;
-	border-color: var(--primary);
-	box-shadow: 0 4px 10px rgba(21, 101, 216, 0.3);
+.week-radio:checked + label {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+    box-shadow: 0 4px 10px rgba(21, 101, 216, 0.3);
 }
 
 .week-content {
-	display: none;
+    display: none;
 }
 
-.week-picker:has(#week1:checked) .week1-content {
-	display: block;
-}
+.week-picker:has(#week1:checked) .week1-content { display: block; }
+.week-picker:has(#week2:checked) .week2-content { display: block; }
+.week-picker:has(#week3:checked) .week3-content { display: block; }
+.week-picker:has(#week4:checked) .week4-content { display: block; }
+.week-picker:has(#week5:checked) .week5-content { display: block; }
 
-.week-picker:has(#week2:checked) .week2-content {
-	display: block;
-}
-
-/* ... (případné další týdny) ... */
-
+/* Kontejner tabulky - klíčová oprava pro mobil */
 .table-container {
-	overflow-x: auto;
-	border: 1px solid var(--border);
-	border-radius: var(--radius);
-	background: #fff;
-	margin-bottom: 2rem;
-	box-shadow: var(--shadow-sm);
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto; /* Povolí skrolování JEN uvnitř kontejneru */
+    -webkit-overflow-scrolling: touch; /* Hladké skrolování na iOS */
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: #fff;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-sm);
 }
 
 table {
-	width: 100%;
-	border-collapse: collapse;
-	min-width: 600px;
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px; /* Toto způsobovalo roztažení stránky - nyní je to schované v overflow kontejneru */
 }
 
-th,
-td {
-	border: 1px solid #eee;
-	text-align: center;
-	padding: 0;
-	height: 60px;
-	vertical-align: middle;
+th, td {
+    border: 1px solid #eee;
+    text-align: center;
+    padding: 0;
+    height: 60px;
+    vertical-align: middle;
 }
 
 thead th {
-	background: #f8fafc;
-	color: var(--muted);
-	font-size: 0.85rem;
-	text-transform: uppercase;
-	padding: 1rem;
+    background: #f8fafc;
+    color: var(--muted);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    padding: 1rem;
 }
 
 tbody th {
-	background: #fff;
-	font-weight: 700;
-	color: var(--text);
-	padding: 0.5rem;
+    background: #fff;
+    font-weight: 700;
+    color: var(--text);
+    padding: 0.5rem;
 }
 
 td.free {
-	position: relative;
-	background: #fff;
+    position: relative;
+    background: #fff;
 }
 
 td.free input[type="radio"] {
-	position: absolute;
-	opacity: 0;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	margin: 0;
-	cursor: pointer;
-	z-index: 2;
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    margin: 0;
+    cursor: pointer;
+    z-index: 2;
 }
 
 td.free label {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-	height: 100%;
-	color: var(--primary);
-	font-weight: 700;
-	background: #F0F7FF;
-	transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: var(--primary);
+    font-weight: 700;
+    background: #F0F7FF;
+    transition: all 0.2s;
 }
 
-td.free input:checked+label {
-	background: var(--primary);
-	color: #fff;
-	box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+td.free input:checked + label {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
 }
 
 td.free:hover label {
-	background: #D9E4FF;
+    background: #D9E4FF;
 }
 
 td.occupied {
-	background: #fcfcfc;
-	color: #ccc;
-	font-size: 0.9rem;
-	cursor: not-allowed;
+    background: #fcfcfc;
+    color: #ccc;
+    font-size: 0.9rem;
+    cursor: not-allowed;
 }
 
 /* =========================================
    8. PATIČKA
    ========================================= */
 .site-footer {
-	margin-top: 5rem;
-	background: #0B1A33;
-	color: #fff;
-	padding: 4rem 0 2rem;
-	font-size: 0.95rem;
-	border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 5rem;
+    background: #0B1A33;
+    color: #fff;
+    padding: 4rem 0 2rem;
+    font-size: 0.95rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    width: 100%;
 }
 
 .footer-grid-layout {
-	display: flex;
-	flex-direction: column;
-	gap: 2.5rem;
-	text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    text-align: center;
 }
 
 .footer-col h3 {
-	color: #fff;
-	font-size: 1.1rem;
-	margin-top: 0;
-	margin-bottom: 1.2rem;
-	text-transform: uppercase;
-	letter-spacing: 0.05em;
-	opacity: 0.9;
+    color: #fff;
+    font-size: 1.1rem;
+    margin-top: 0;
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.9;
 }
 
 .footer-col p {
-	color: rgba(255, 255, 255, 0.7);
-	margin-bottom: 0.5rem;
-	line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
 }
 
 .footer-col ul {
-	list-style: none;
-	padding: 0;
-	margin: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .footer-col ul li {
-	margin-bottom: 0.8rem;
+    margin-bottom: 0.8rem;
 }
 
 .footer-col a {
-	color: rgba(255, 255, 255, 0.7);
-	text-decoration: none;
-	transition: all 0.2s;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 0.2s;
 }
 
 .footer-col a:hover {
-	color: #fff;
-	text-decoration: underline;
-	padding-left: 5px;
+    color: #fff;
+    text-decoration: underline;
+    padding-left: 5px;
 }
 
 /* =========================================
    9. GALERIE (Bento Grid)
    ========================================= */
 .gallery-grid {
-	display: grid;
-	gap: 1rem;
-	grid-template-columns: repeat(2, 1fr);
-	/* Mobile: 2 sloupce */
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
 }
 
-/* Styl pro buňku gridu */
-.gallery-grid>div {
-	background-color: var(--surface-2);
-	border-radius: var(--radius);
-
-	/* ZMĚNA: Odstraníme padding, aby byl obrázek až do kraje */
-	padding: 0;
-	overflow: hidden;
-	/* Ořízne obrázek podle kulatých rohů */
-
-	/* Flexbox už nepotřebujeme pro centrování textu, ale nevadí tam */
-	display: flex;
+.gallery-grid > div {
+    background-color: var(--surface-2);
+    border-radius: var(--radius);
+    padding: 0;
+    overflow: hidden;
+    display: flex;
 }
 
-/* NOVÉ: Styl pro samotný obrázek uvnitř */
-.gallery-grid>div img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	/* Klíčové: ořízne obrázek tak, aby vyplnil plochu a nedeformoval se */
-	display: block;
-	transition: transform 0.3s ease;
-	/* Efekt při najetí */
+.gallery-grid > div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
 }
 
-/* Volitelné: Efekt zvětšení při najetí myší */
-.gallery-grid>div:hover img {
-	transform: scale(1.05);
+.gallery-grid > div:hover img {
+    transform: scale(1.05);
 }
 
 /* ======================================================================
@@ -696,200 +699,200 @@ td.occupied {
    ====================================================================== */
 @media (min-width: 900px) {
 
-	/* Layout */
-	.wrapper {
-		max-width: 1100px;
-		margin: 0 auto;
-	}
+    /* Layout */
+    .wrapper {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
 
-	/* --- HLAVIČKA --- */
-	.site-header {
-		display: flex;
-		justify-content: flex-start;
-		align-items: center;
-		gap: 3rem;
-		padding: 0 2rem;
-		max-width: 1140px;
-		margin: 0 auto;
-	}
+    /* --- HLAVIČKA --- */
+    .site-header {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 3rem;
+        padding: 0 2rem;
+        max-width: 1140px;
+        margin: 0 auto;
+    }
 
-	.site-header .wrapper {
-		width: auto;
-		margin: 0;
-		padding: 0;
-		max-width: none;
-	}
+    .site-header .wrapper {
+        width: auto;
+        margin: 0;
+        padding: 0;
+        max-width: none;
+    }
 
-	.site-header .brand {
-		flex-shrink: 0;
-		padding: 1rem 0;
-	}
+    .site-header .brand {
+        flex-shrink: 0;
+        padding: 1rem 0;
+    }
 
-	/* Navigace */
-	.nav-toggle-label,
-	.nav-toggle {
-		display: none;
-	}
+    /* Navigace */
+    .nav-toggle-label,
+    .nav-toggle {
+        display: none;
+    }
 
-	.nav-list {
-		display: flex !important;
-		flex-direction: row;
-		gap: 1.5rem;
-		background: transparent;
-		border: none;
-		align-items: center;
-		margin: 0;
-		padding: 0;
-	}
+    .nav-list {
+        display: flex !important;
+        flex-direction: row;
+        gap: 1.5rem;
+        background: transparent;
+        border: none;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+    }
 
-	.nav-list li {
-		border: none;
-	}
+    .nav-list li {
+        border: none;
+    }
 
-	.nav-list a {
-		padding: 0.5rem 0;
-		border-radius: 0;
-		font-weight: 600;
-		color: var(--text);
-		position: relative;
-	}
+    .nav-list a {
+        padding: 0.5rem 0;
+        border-radius: 0;
+        font-weight: 600;
+        color: var(--text);
+        position: relative;
+    }
 
-	.nav-list a:hover {
-		background: transparent;
-		color: var(--primary);
-	}
+    .nav-list a:hover {
+        background: transparent;
+        color: var(--primary);
+    }
 
-	/* Podtržení aktivní stránky */
-	.nav-list a[aria-current="page"] {
-		color: var(--primary);
-	}
+    /* Podtržení aktivní stránky */
+    .nav-list a[aria-current="page"] {
+        color: var(--primary);
+    }
 
-	.nav-list a[aria-current="page"]::after {
-		content: "";
-		display: block;
-		width: 100%;
-		height: 3px;
-		background: var(--primary);
-		position: absolute;
-		bottom: -5px;
-		left: 0;
-		border-radius: 2px;
-	}
+    .nav-list a[aria-current="page"]::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 3px;
+        background: var(--primary);
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        border-radius: 2px;
+    }
 
-	/* Search v menu */
-	.nav-search {
-		padding: 0;
-		background: transparent;
-		margin-left: 2rem;
-		border-left: 1px solid #eee;
-		padding-left: 2rem;
-	}
+    /* Search v menu */
+    .nav-search {
+        padding: 0;
+        background: transparent;
+        margin-left: 2rem;
+        border-left: 1px solid #eee;
+        padding-left: 2rem;
+    }
 
-	.site-search input {
-		width: 200px;
-		margin: 0;
-		padding: 0.6rem 1rem;
-		font-size: 0.9rem;
-		background: #f8fafc;
-	}
+    .site-search input {
+        width: 200px;
+        margin: 0;
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+        background: #f8fafc;
+    }
 
-	.site-search button {
-		margin: 0;
-		padding: 0.6rem 1.2rem;
-	}
+    .site-search button {
+        margin: 0;
+        padding: 0.6rem 1.2rem;
+    }
 
-	/* --- OSTATNÍ DESKTOP --- */
-	main>header {
-		text-align: center;
-		max-width: 700px;
-		margin: 0 auto 3rem auto;
-	}
+    /* --- OSTATNÍ DESKTOP --- */
+    main > header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 3rem auto;
+    }
 
-	.hero {
-		gap: 4rem;
-		padding: 3rem 0;
-	}
+    .hero {
+        gap: 4rem;
+        padding: 3rem 0;
+    }
 
-	.feature-row {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 3rem;
-		align-items: stretch;
-	}
+    .feature-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: stretch;
+    }
 
-	.cards {
-		grid-template-columns: repeat(3, 1fr);
-		gap: 2rem;
-	}
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
 
-	.panel.image {
-		justify-content: center;
-	}
+    .panel.image {
+        justify-content: center;
+    }
 
-	.panel.image img {
-		align-self: center;
-		margin-top: auto;
-		max-width: 90%;
-	}
+    .panel.image img {
+        align-self: center;
+        margin-top: auto;
+        max-width: 90%;
+    }
 
-	.detail {
-		grid-template-columns: 2fr 1fr;
-		gap: 3rem;
-		align-items: start;
-	}
+    .detail {
+        grid-template-columns: 2fr 1fr;
+        gap: 3rem;
+        align-items: start;
+    }
 
-	form[aria-labelledby="rezervace-form"] {
-		display: block;
-		max-width: 700px;
-		margin: 0 auto;
-	}
+    form[aria-labelledby="rezervace-form"] {
+        display: block;
+        max-width: 700px;
+        margin: 0 auto;
+    }
 
-	form fieldset {
-		margin-bottom: 2rem;
-	}
+    form fieldset {
+        margin-bottom: 2rem;
+    }
 
-	.btn-primary,
-	button.primary {
-		width: auto;
-		min-width: 200px;
-		margin-left: auto;
-		margin-right: auto;
-		display: block;
-	}
+    .btn-primary,
+    button.primary {
+        width: auto;
+        min-width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
 
-	.results-search-form {
-		max-width: 600px;
-	}
+    .results-search-form {
+        max-width: 600px;
+    }
 
-	/* Patička - 3 sloupce */
-	.footer-grid-layout {
-		display: grid;
-		grid-template-columns: 2fr 1fr 1fr;
-		gap: 4rem;
-		text-align: left;
-		align-items: start;
-	}
+    /* Patička - 3 sloupce */
+    .footer-grid-layout {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 4rem;
+        text-align: left;
+        align-items: start;
+    }
 
-	/* Galerie - 4 sloupce */
-	.gallery-grid {
-		grid-template-columns: repeat(4, 1fr);
-		grid-template-rows: repeat(3, 200px);
-	}
+    /* Galerie - 4 sloupce */
+    .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, 200px);
+    }
 
-	.item-1 {
-		grid-column: span 2;
-		grid-row: span 2;
-		background: #E0E7FF;
-	}
+    .item-1 {
+        grid-column: span 2;
+        grid-row: span 2;
+        background: #E0E7FF;
+    }
 
-	.item-2 {
-		grid-column: span 2;
-		background: #DBEAFE;
-	}
+    .item-2 {
+        grid-column: span 2;
+        background: #DBEAFE;
+    }
 
-	.item-6 {
-		grid-row: span 2;
-		background: #EFF6FF;
-		height: 200px;
-	}
+    .item-6 {
+        grid-row: span 2;
+        background: #EFF6FF;
+        height: 200px;
+    }
 }
