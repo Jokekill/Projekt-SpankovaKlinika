@@ -464,7 +464,7 @@ td.occupied { background: #fcfcfc; color: #ccc; font-size: 0.9rem; cursor: not-a
   .panel.image { justify-content: center; }
   .panel.image img { align-self: center; margin-top: auto; max-width: 90%; }
   
-  .detail { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: start; }
+  .detail { grid-template-columns: 2fr 1fr; gap: 3rem; align-items: start; }
   
   form[aria-labelledby="rezervace-form"] { display: block; max-width: 700px; margin: 0 auto; }
   form fieldset { margin-bottom: 2rem; }
