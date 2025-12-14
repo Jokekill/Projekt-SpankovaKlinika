@@ -569,3 +569,40 @@ main {
   .btn-primary, button.primary { width: auto; min-width: 200px; margin-left: auto; margin-right: auto; display: block; }
   .results-search-form { max-width: 600px; }
 }
+
+/* Příklad komplexního Gridu pro splnění zadání */
+.gallery-grid {
+  display: grid;
+  gap: 1rem;
+  /* Mobile: 2 sloupce */
+  grid-template-columns: repeat(2, 1fr); 
+  /* Desktop (definováno v media query nebo pomocí auto-fit) */
+}
+
+@media (min-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 sloupce */
+    grid-template-rows: repeat(3, 200px); /* 3 řádky */
+  }
+  
+  /* Prvky přes více buněk */
+  .item-1 { grid-column: span 2; grid-row: span 2; background: #ccc; } /* Velká fotka */
+  .item-2 { grid-column: span 2; background: #ddd; } /* Široká fotka */
+  .item-6 { grid-row: span 2; background: #eee; } /* Vysoká fotka */
+  /* Ostatní items se poskládají automaticky */
+  .gallery-grid > div { background-color: var(--surface-2); border-radius: var(--radius); padding: 1rem; }
+}
+
+.breadcrumbs ol {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 1rem;
+}
+.breadcrumbs li + li::before {
+  content: "/";
+  margin-right: 0.5rem;
+}
