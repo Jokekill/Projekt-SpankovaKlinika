@@ -43,6 +43,11 @@ body {
   flex-direction: column; 
 }
 
+main {
+  flex: 1; /* 4. Řekne hlavnímu obsahu: "Roztáhni se a zaber všechno volné místo!" */
+  width: 100%; /* Pro jistotu, aby se obsah nerozbil */
+}
+
 img {
   max-width: 100%;
   height: auto;
