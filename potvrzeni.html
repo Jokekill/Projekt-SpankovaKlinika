@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="cs">
+   <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Rezervace přijata – Klinika cirkadiánní medicíny</title>
+      <meta name="description" content="Potvrzení přijetí rezervace na Klinice cirkadiánní medicíny." />
+      <link rel="stylesheet" href="style.css" />
+   </head>
+
+   <body>
+      <header class="site-header">
+         <div class="wrapper brand">
+            <a href="index.html" class="brand-link">
+               <img src="images/logo.webp" alt="Logo" />
+               <div class="title">
+                  <strong>Klinika cirkadiánní medicíny</strong>
+               </div>
+            </a>
+         </div>
+
+         <div class="wrapper">
+            <nav aria-label="Hlavní navigace">
+               <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+               <label for="nav-toggle" class="nav-toggle-label">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+               </label>
+
+               <ul class="nav-list">
+                  <li><a href="index.html">Domů</a></li>
+                  <li><a href="seznam.html">Vyšetření</a></li>
+                  <li><a href="rezervace.html" aria-current="page">Rezervace</a></li>
+                  <li><a href="kontakt.html">Kontakt</a></li>
+                  <li class="nav-search">
+                     <form class="site-search" role="search" action="vyhledavani.html">
+                        <input id="q" name="q" type="search" placeholder="Hledat..." aria-label="Hledat na webu" />
+                        <button type="submit">Hledat</button>
+                     </form>
+                  </li>
+               </ul>
+            </nav>
+         </div>
+      </header>
+
+      <main id="obsah" class="wrapper">
+         <nav aria-label="Drobečková navigace" class="meta" style="margin-top: 1rem;">
+            <a href="index.html">Domů</a> &rsaquo; <a href="rezervace.html">Rezervace</a> &rsaquo; <span aria-current="page">Potvrzení</span>
+         </nav>
+
+         <section class="card" style="margin: 1.25rem 0;">
+            <header>
+               <h1>Rezervace přijata</h1>
+               <p class="meta">
+                  Děkujeme. Vaši rezervaci jsme přijali.<br />
+                  Detaily jsme odeslali na váš e-mail.
+               </p>
+            </header>
+
+            <hr style="margin: 1rem 0; opacity: 0.25;" />
+
+            <p>
+               Pokud e-mail nevidíte, zkontrolujte prosím také složku Hromadné / Spam.
+            </p>
+
+            <p style="margin-top: 1rem;">
+               <a href="rezervace.html">Zpět na rezervace</a>
+               &nbsp;|&nbsp;
+               <a href="kontakt.html">Kontakt</a>
+            </p>
+         </section>
+      </main>
+
+      <div class="wrapper">
+         <footer class="site-footer">
+            <div class="wrapper footer-grid-layout">
+               <div class="footer-col">
+                  <h3>Klinika cirkadiánní medicíny</h3>
+                  <p>Světelná 25, Praha 1<br />info@cirkadiana.cz</p>
+               </div>
+
+               <div class="footer-col">
+                  <h3>Rychlé odkazy</h3>
+                  <ul>
+                     <li><a href="seznam.html" style="color:#fff">Vyšetření</a></li>
+                     <li><a href="rezervace.html" style="color:#fff">Rezervace</a></li>
+                  </ul>
+               </div>
+
+               <div class="footer-col">
+                  <h3>Autoři projektu</h3>
+                  <p>Vojtěch Mykiska<br />Jakub Obruča<br />Vojtěch Hampl</p>
+                  <p style="opacity: 0.5; font-size: 0.8rem">© 2025 Studentský projekt</p>
+               </div>
+            </div>
+         </footer>
+      </div>
+   </body>
+</html>
