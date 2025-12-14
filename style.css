@@ -1,5 +1,5 @@
 /* ======================================================================
-   KLINIKA CIRKADIÁNNÍ MEDICÍNY — MASTER STYLESHEET (FINAL v2)
+   KLINIKA CIRKADIÁNNÍ MEDICÍNY — MASTER STYLESHEET (FINAL FIXED)
    Autor: Studentský projekt
    ====================================================================== */
 
@@ -37,11 +37,10 @@ body {
   color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.6;
-  
 
-  min-height: 100vh;      /* Roztáhne stránku na celou výšku okna */
-  display: flex;          /* Zapne Flexbox */
-  flex-direction: column; /* Prvky řadí pod sebe */
+  min-height: 100vh;      
+  display: flex;          
+  flex-direction: column; 
 }
 
 img {
@@ -57,7 +56,7 @@ a:active { opacity: 0.8; }
 h1, h2, h3 { margin: 1.5rem 0 0.5rem; line-height: 1.2; color: var(--text); }
 h1 { font-size: 1.8rem; }
 h2 { font-size: 1.5rem; }
-h3 { font-size: 1.25rem; margin-top: 24; }
+h3 { font-size: 1.25rem; }
 p { margin: 0 0 1rem; color: #4b5563; }
 
 .wrapper { 
@@ -66,13 +65,13 @@ p { margin: 0 0 1rem; color: #4b5563; }
   margin: 0 auto; 
 }
 
-/* Klikací logo - reset stylu odkazu */
+/* Klikací logo */
 .brand-link {
   display: flex;
   align-items: center;
   gap: 1rem;
   color: inherit;
-  white-space: nowrap; /* Aby se název nezalomil */
+  white-space: nowrap; 
 }
 .brand-link:hover { opacity: 0.8; }
 
@@ -125,7 +124,7 @@ p { margin: 0 0 1rem; color: #4b5563; }
   transition: 0.3s;
 }
 
-/* Mobilní menu - defaultně skryto */
+/* Mobilní menu */
 .nav-list {
   display: none;
   list-style: none;
@@ -148,7 +147,7 @@ p { margin: 0 0 1rem; color: #4b5563; }
 }
 .nav-list a:hover { background: var(--bg); color: var(--primary); }
 
-/* AKTIVNÍ STAV (MOBILE) */
+/* Aktivní stav (Mobile) */
 .nav-list a[aria-current="page"] {
   color: var(--primary);
   background: var(--surface-2);
@@ -202,7 +201,7 @@ p { margin: 0 0 1rem; color: #4b5563; }
   border-color: #A7F3D0;
 }
 
-/* Velký vyhledávací řádek (stránka Výsledky) */
+/* Velký vyhledávací řádek */
 .results-search-form {
   display: flex;
   gap: 0.5rem;
@@ -215,11 +214,23 @@ p { margin: 0 0 1rem; color: #4b5563; }
 .results-search-form input { margin-bottom: 0; background: #fff; flex: 1; }
 .results-search-form button { margin-top: 0; width: auto; box-shadow: 0 2px 5px rgba(21, 101, 216, 0.3); }
 
+/* Drobečková navigace (Breadcrumbs) */
+.breadcrumbs ol {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 1rem;
+}
+.breadcrumbs li + li::before {
+  content: "/";
+  margin-right: 0.5rem;
+}
+
 /* =========================================
    5. KARTY & PANELY
-   ========================================= */
-/* =========================================
-   5. KARTY & PANELY (FIXED FOCUS)
    ========================================= */
 .hero { display: flex; flex-direction: column; gap: 1.5rem; padding: 1.5rem 0; }
 .feature-row { display: flex; flex-direction: column; gap: 1rem; }
@@ -227,7 +238,6 @@ p { margin: 0 0 1rem; color: #4b5563; }
 
 .card, .panel {
   background: #fff;
-  /* Výchozí rámeček je velmi jemný šedý */
   border: 1px solid #eef2f6; 
   border-radius: var(--radius);
   padding: 1.5rem;
@@ -238,45 +248,32 @@ p { margin: 0 0 1rem; color: #4b5563; }
   position: relative;
 }
 
-/* Klikací trik (odkaz přes celou kartu) */
+/* Klikací trik */
 .card h3 a::before { 
-  content: ""; 
-  position: absolute; 
-  inset: 0; 
-  z-index: 1;
+  content: ""; position: absolute; inset: 0; z-index: 1;
 }
-
-/* Zrušení výchozího modrého obrysu prohlížeče při kliknutí */
 .card h3 a:focus { outline: none; }
 
-/* HOVER & FOCUS STAV (Sjednocený)
-   Když na kartu najedeš myší NEBO když na ni klikneš (focus-within),
-   bude vypadat stejně hezky. */
-.card:hover,
-.card:focus-within {
+.card:hover, .card:focus-within {
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
-  /* Tady nastavujeme tu naši modrou, kterou chceme */
   border-color: var(--primary-weak); 
 }
 
-
-/* Midnight Blue Panel (Obrázkové karty na homepage) */
+/* Tmavé karty (obrázkové) */
 .panel.image {
   background: linear-gradient(145deg, #2B4C7E 0%, #1A365D 100%);
   color: #ffffff;
-  /* Průhledný rámeček (aby karta neposkočila při hoveru) */
   border: 2px solid transparent; 
 }
 .panel.image h2, .panel.image h3, .panel.image p { color: #ffffff; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
 .panel.image .meta { color: rgba(255, 255, 255, 0.7); }
 .panel.image img { margin-top: 1rem; width: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
 
-/* Hover efekt pro tmavé panely */
 .panel.image:hover {
   transform: translateY(-5px);
-  border-color: #ffffff; /* Bílý rámeček */
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35); /* Hluboký stín */
+  border-color: #ffffff;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
 }
 
 .meta { font-size: 0.9rem; color: var(--muted); margin-top: 0.5rem; }
@@ -315,9 +312,7 @@ legend { font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem; color: var(-
 .week-content { display: none; }
 .week-picker:has(#week1:checked) .week1-content { display: block; }
 .week-picker:has(#week2:checked) .week2-content { display: block; }
-.week-picker:has(#week3:checked) .week3-content { display: block; }
-.week-picker:has(#week4:checked) .week4-content { display: block; }
-.week-picker:has(#week5:checked) .week5-content { display: block; }
+/* ... (případné další týdny) ... */
 
 .table-container {
     overflow-x: auto; border: 1px solid var(--border);
@@ -345,201 +340,62 @@ td.free:hover label { background: #D9E4FF; }
 td.occupied { background: #fcfcfc; color: #ccc; font-size: 0.9rem; cursor: not-allowed; }
 
 /* =========================================
-   8. PATIČKA (FINÁLNÍ ÚPRAVA)
+   8. PATIČKA
    ========================================= */
 .site-footer {
   margin-top: 5rem;
-  background: #0B1A33; /* Tmavě modrá */
+  background: #0B1A33;
   color: #fff;
-  padding: 4rem 0 2rem; /* Větší odsazení nahoře */
+  padding: 4rem 0 2rem;
   font-size: 0.95rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Kontejner pro sloupce - Mobile First (sloupce pod sebou) */
 .footer-grid-layout {
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
-  text-align: center; /* Na mobilu centrujeme */
+  text-align: center;
 }
 
-/* Nadpisy v patičce */
-.footer-col h3 {
-  color: #fff;
-  font-size: 1.1rem;
-  margin-top: 0;
-  margin-bottom: 1.2rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  opacity: 0.9;
-}
-
-/* Texty v patičce */
-.footer-col p {
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 0.5rem;
-  line-height: 1.6;
-}
-
-/* Seznamy odkazů (odstranění teček) */
-.footer-col ul {
-  list-style: none; /* Zruší odrážky (tečky) */
-  padding: 0;
-  margin: 0;
-}
-
-.footer-col ul li {
-  margin-bottom: 0.8rem;
-}
-
-/* Odkazy v patičce */
-.footer-col a {
-  color: rgba(255, 255, 255, 0.7);
-  text-decoration: none;
-  transition: all 0.2s;
-}
-
-.footer-col a:hover {
-  color: #fff;
-  text-decoration: underline;
-  padding-left: 5px; /* Efekt posunu při najetí */
-}
-
-/* DESKTOP VERZE (> 900px) */
-@media (min-width: 900px) {
-  .footer-grid-layout {
-    display: grid;
-    /* 3 sloupce: První širší, další dva stejně široké */
-    grid-template-columns: 2fr 1fr 1fr; 
-    gap: 4rem;
-    text-align: left; /* Na PC zarovnáme text doleva */
-    align-items: start; /* Zarovnání nahoru */
-  }
-}
+.footer-col h3 { color: #fff; font-size: 1.1rem; margin-top: 0; margin-bottom: 1.2rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.9; }
+.footer-col p { color: rgba(255, 255, 255, 0.7); margin-bottom: 0.5rem; line-height: 1.6; }
+.footer-col ul { list-style: none; padding: 0; margin: 0; }
+.footer-col ul li { margin-bottom: 0.8rem; }
+.footer-col a { color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: all 0.2s; }
+.footer-col a:hover { color: #fff; text-decoration: underline; padding-left: 5px; }
 
 /* =========================================
-   9. DESKTOP MEDIA QUERIES (> 900px)
+   9. GALERIE (Bento Grid)
    ========================================= */
-@media (min-width: 900px) {
-  
-  /* Layout */
-  .wrapper { max-width: 1100px; margin: 0 auto; }
-  
-  /* HEADER - VŠE V JEDNOM ŘÁDKU */
-  .site-header { padding: 0 2rem; }
-  
-  .site-header .wrapper { 
-    max-width: 1140px; 
-    display: flex; 
-    align-items: center;
-    justify-content: space-between; /* Logo vlevo, menu vpravo */
-    flex-wrap: nowrap; /* Zákaz zalamování */
-    padding: 0;
-  }
-  
-  /* Navigace */
-  .nav-toggle-label, .nav-toggle { display: none; }
-  
-  .nav-list {
-    display: flex !important;
-    flex-direction: row; 
-    gap: 0.5rem; /* Menší mezery, aby se to vešlo */
-    background: transparent; border: none; align-items: center;
-    margin-left: auto; /* Tlačí menu doprava */
-    flex-shrink: 0; /* Menu se nesmí smrsknout */
-  }
-  
-  .nav-list li { border: none; }
-  .nav-list a { padding: 0.5rem 1rem; border-radius: 8px; font-weight: 500; transition: all 0.2s; }
-  .nav-list a:hover { background: var(--surface-2); color: var(--primary); }
-  
-  /* AKTIVNÍ STAV (DESKTOP) - Podtržení nebo zvýraznění */
-  .nav-list a[aria-current="page"] {
-    background: transparent;
-    color: var(--primary);
-    box-shadow: 0 2px 0 0 var(--primary); /* Modré podtržení */
-    border-radius: 0;
-  }
-  
-  /* Search v menu */
-  .nav-search { padding: 0; background: transparent; margin-left: 1rem; }
-  .site-search input { width: 180px; margin: 0; padding: 0.5rem; }
-  .site-search button { margin: 0; padding: 0.5rem 1rem; }
-
-  /* CENTROVÁNÍ HLAVIČKY NA STRÁNCE REZERVACE (a jiných) */
-main {
-  /* Toto řekne obsahu: "Roztáhni se a zaber všechno volné místo" */
-  flex: 1; 
-  width: 100%; /* Pro jistotu */
+.gallery-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr); /* Mobile: 2 sloupce */
 }
-
-  main > header {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 3rem auto;
-  }
-  main > header p {
-    font-size: 1.1rem;
-  }
-
-  /* Grid Layout pro Hero */
-  .hero { gap: 4rem; padding: 3rem 0; }
-  .feature-row {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: stretch;
-  }
-  
-  .cards { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-  .panel.image { justify-content: center; }
-  .panel.image img { align-self: center; margin-top: auto; max-width: 90%; }
-  
-  .detail { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: start; }
-  
-  /* FORMULÁŘ NA PC - CENTROVANÝ */
-  form[aria-labelledby="rezervace-form"] {
-    display: block;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  form fieldset { margin-bottom: 2rem; }
-  .btn-primary, button.primary { width: auto; min-width: 200px; margin-left: auto; margin-right: auto; display: block; }
-  
-  .results-search-form { max-width: 600px; }
-}
+.gallery-grid > div { background-color: var(--surface-2); border-radius: var(--radius); padding: 1rem; display:flex; align-items:center; justify-content:center; font-weight:600; color:var(--primary); }
 
 /* ======================================================================
-   9. DESKTOP MEDIA QUERIES (> 900px)
+   10. DESKTOP MEDIA QUERIES (> 900px)
    ====================================================================== */
 @media (min-width: 900px) {
   
   /* Layout */
   .wrapper { max-width: 1100px; margin: 0 auto; }
   
-  /* --- OPRAVA HLAVIČKY (DVA BLOKY VEDLE SEBE) --- */
+  /* --- HLAVIČKA --- */
   .site-header {
-    /* Toto udělá z hlavičky kontejner, který dá své děti (logo a menu) vedle sebe */
     display: flex;
-    justify-content: flex-start; /* Zarovnání vlevo (logo a hned menu) */
-    align-items: center;         /* Svislé centrování */
-    gap: 3rem;                   /* Mezera mezi logem a menu */
+    justify-content: flex-start;
+    align-items: center;
+    gap: 3rem;
     padding: 0 2rem;
     max-width: 1140px;
     margin: 0 auto;
   }
   
-  /* Resetujeme wrappery uvnitř, aby se chovaly jako běžné prvky */
-  .site-header .wrapper {
-    width: auto;
-    margin: 0;
-    padding: 0;
-    max-width: none;
-  }
-
-  /* Logo vlevo se nebude smrskávat */
-  .site-header .brand {
-    flex-shrink: 0;
-    padding: 1rem 0; /* Menší padding na PC */
-  }
+  .site-header .wrapper { width: auto; margin: 0; padding: 0; max-width: none; }
+  .site-header .brand { flex-shrink: 0; padding: 1rem 0; }
   
   /* Navigace */
   .nav-toggle-label, .nav-toggle { display: none; }
@@ -547,118 +403,59 @@ main {
   .nav-list {
     display: flex !important;
     flex-direction: row; 
-    gap: 1.5rem; /* Rozestupy mezi odkazy */
-    background: transparent; 
-    border: none; 
-    align-items: center;
-    margin: 0;
-    padding: 0;
+    gap: 1.5rem;
+    background: transparent; border: none; align-items: center;
+    margin: 0; padding: 0;
   }
   
   .nav-list li { border: none; }
-  
-  /* Styl odkazů v menu */
-  .nav-list a { 
-    padding: 0.5rem 0; 
-    border-radius: 0; 
-    font-weight: 600; 
-    color: var(--text);
-    position: relative; /* Pro podtržítko */
-  }
-  
-  .nav-list a:hover { 
-    background: transparent; 
-    color: var(--primary); 
-  }
+  .nav-list a { padding: 0.5rem 0; border-radius: 0; font-weight: 600; color: var(--text); position: relative; }
+  .nav-list a:hover { background: transparent; color: var(--primary); }
 
-  /* --- ZVÝRAZNĚNÍ AKTIVNÍ STRÁNKY (HIGHLIGHT) --- */
-  /* V HTML musíš mít u odkazu: aria-current="page" */
-  .nav-list a[aria-current="page"] {
-    color: var(--primary);
-  }
-  
-  /* Efektní podtržítko pro aktivní stránku */
+  /* Podtržení aktivní stránky */
+  .nav-list a[aria-current="page"] { color: var(--primary); }
   .nav-list a[aria-current="page"]::after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 3px;
-    background: var(--primary);
-    position: absolute;
-    bottom: -5px; /* Posunutí pod text */
-    left: 0;
-    border-radius: 2px;
-  }
-
-  /* Search v menu - hned vedle odkazů */
-  .nav-search { 
-    padding: 0; 
-    background: transparent; 
-    margin-left: 2rem; /* Odsazení vyhledávání od menu */
-    border-left: 1px solid #eee; /* Jemná oddělovací čára */
-    padding-left: 2rem;
+    content: ""; display: block; width: 100%; height: 3px; background: var(--primary);
+    position: absolute; bottom: -5px; left: 0; border-radius: 2px;
   }
   
-  .site-search input { 
-    width: 200px; 
-    margin: 0; 
-    padding: 0.6rem 1rem; 
-    font-size: 0.9rem;
-    background: #f8fafc;
-  }
-  
-  .site-search button { 
-    margin: 0; 
-    padding: 0.6rem 1.2rem; 
-  }
+  /* Search v menu */
+  .nav-search { padding: 0; background: transparent; margin-left: 2rem; border-left: 1px solid #eee; padding-left: 2rem; }
+  .site-search input { width: 200px; margin: 0; padding: 0.6rem 1rem; font-size: 0.9rem; background: #f8fafc; }
+  .site-search button { margin: 0; padding: 0.6rem 1.2rem; }
 
-  /* --- OSTATNÍ DESKTOP ÚPRAVY (ZŮSTÁVAJÍ STEJNÉ) --- */
+  /* --- OSTATNÍ DESKTOP --- */
   main > header { text-align: center; max-width: 700px; margin: 0 auto 3rem auto; }
+  
   .hero { gap: 4rem; padding: 3rem 0; }
   .feature-row { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: stretch; }
   .cards { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  
   .panel.image { justify-content: center; }
   .panel.image img { align-self: center; margin-top: auto; max-width: 90%; }
+  
   .detail { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: start; }
   
   form[aria-labelledby="rezervace-form"] { display: block; max-width: 700px; margin: 0 auto; }
+  form fieldset { margin-bottom: 2rem; }
   .btn-primary, button.primary { width: auto; min-width: 200px; margin-left: auto; margin-right: auto; display: block; }
   .results-search-form { max-width: 600px; }
-}
 
-/* Příklad komplexního Gridu pro splnění zadání */
-.gallery-grid {
-  display: grid;
-  gap: 1rem;
-  /* Mobile: 2 sloupce */
-  grid-template-columns: repeat(2, 1fr); 
-  /* Desktop (definováno v media query nebo pomocí auto-fit) */
-}
-
-@media (min-width: 900px) {
-  .gallery-grid {
-    grid-template-columns: repeat(4, 1fr); /* 4 sloupce */
-    grid-template-rows: repeat(3, 200px); /* 3 řádky */
+  /* Patička - 3 sloupce */
+  .footer-grid-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr; 
+    gap: 4rem;
+    text-align: left;
+    align-items: start;
   }
-  
-  /* Prvky přes více buněk */
-  .item-1 { grid-column: span 2; grid-row: span 2; background: #ccc; } /* Velká fotka */
-  .item-2 { grid-column: span 2; background: #ddd; } /* Široká fotka */
-  .item-6 { grid-row: span 2; background: #eee; } /* Vysoká fotka */
-  /* Ostatní items se poskládají automaticky */
-  .gallery-grid > div { background-color: var(--surface-2); border-radius: var(--radius); padding: 1rem; }
-}
 
-.breadcrumbs ol {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 0.5rem;
-  font-size: 0.9rem;
-  color: var(--muted);
-  margin-top: 1rem;
-}
-.breadcrumbs li + li::before {
-  content: "/";
-  margin-right: 0.5rem;
+  /* Galerie - 4 sloupce */
+  .gallery-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 200px);
+  }
+  .item-1 { grid-column: span 2; grid-row: span 2; background: #E0E7FF; }
+  .item-2 { grid-column: span 2; background: #DBEAFE; }
+  .item-6 { grid-row: span 2; background: #EFF6FF; }
 }
